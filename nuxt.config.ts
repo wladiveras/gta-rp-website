@@ -68,11 +68,6 @@ export default defineNuxtConfig({
                     exclude: ['/docs/*', '/blog/*']
                 }
             }
-        },
-
-        prerender: {
-            routes: ['/**'],
-            crawlLinks: true
         }
     },
 
