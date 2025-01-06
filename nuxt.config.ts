@@ -56,7 +56,6 @@ export default defineNuxtConfig({
         experimental: {
             tasks: true
         },
-
         cloudflare: {
             pages: {
                 routes: {

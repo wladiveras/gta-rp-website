@@ -5,9 +5,7 @@
             :items="items"
         >
             <template #content="{ item }">
-                <Placeholder class="aspect-video">
-                    {{ item.title }}
-                </Placeholder>
+                {{ item.title }}
             </template>
         </UStepper>
 
