@@ -1,0 +1,45 @@
+{
+    "files.associations": {
+        "*.css": "tailwindcss"
+    },
+    "editor.quickSuggestions": {
+        "strings": "on"
+    },
+    "prettier.configPath": ".prettierrc",
+    "editor.formatOnPaste": false,
+    "editor.formatOnType": false,
+    "scss.lint.unknownAtRules": "ignore",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "eslint.format.enable": true,
+    "prettier.useEditorConfig": false,
+    "editor.formatOnSave": true,
+    "cSpell.words": [
+        "autoincrement",
+        "cloudflare",
+        "devicon",
+        "figma",
+        "github",
+        "indev",
+        "jspdf",
+        "justdo",
+        "justdocash",
+        "laravel",
+        "linebreak",
+        "linksplit",
+        "Linksplit",
+        "lintfix",
+        "nuxthq",
+        "nuxthub",
+        "nuxtjs",
+        "pinia",
+        "rabbitmq",
+        "slideover",
+        "Slideover",
+        "unhead",
+        "Upstatement",
+        "wordpress",
+        "Workana",
+        "zaptus",
+        "Zaptus"
+    ]
+}
