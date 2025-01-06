@@ -29,6 +29,7 @@ export default defineNuxtConfig({
     colorMode: {
         preference: 'dark'
     },
+
     runtimeConfig: {
         public: {
             NUXT_UI_PRO_LICENSE: process.env.NUXT_UI_PRO_LICENSE || ''
@@ -68,10 +69,9 @@ export default defineNuxtConfig({
                 }
             }
         },
-        preset: 'cloudflare-pages',
 
         prerender: {
-            routes: ['/', '/team'],
+            routes: ['/**'],
             crawlLinks: true
         }
     },
@@ -134,6 +134,7 @@ export default defineNuxtConfig({
             xl: 1280,
             xxl: 1536
         },
+
         presets: {
             avatar: {
                 modifiers: {
@@ -144,6 +145,7 @@ export default defineNuxtConfig({
             }
         }
     },
+
     pwa: {},
 
     uiPro: {
