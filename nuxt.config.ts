@@ -68,9 +68,10 @@ export default defineNuxtConfig({
                 }
             }
         },
+        preset: 'cloudflare',
 
         prerender: {
-            routes: ['/'],
+            routes: ['/', '/team'],
             crawlLinks: true
         }
     },
