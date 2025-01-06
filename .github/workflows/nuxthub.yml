@@ -34,4 +34,4 @@ jobs:
         uses: nuxt-hub/action@v1
         id: deploy
         with:
-          project-key: paris-rp-aydg
+          project-key: paris-rp-j21k
