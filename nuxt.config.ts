@@ -29,6 +29,11 @@ export default defineNuxtConfig({
     colorMode: {
         preference: 'dark'
     },
+    runtimeConfig: {
+        public: {
+            NUXT_UI_PRO_LICENSE: process.env.NUXT_UI_PRO_LICENSE || ''
+        }
+    },
 
     routeRules: {
         '/**': {
