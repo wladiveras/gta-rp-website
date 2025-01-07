@@ -3,6 +3,8 @@
         <LazyDefaultHero />
         <LazyPackage />
         <LazyVip />
+        <LazyTutorial />
+        <LazyContact />
     </section>
 </template>
 

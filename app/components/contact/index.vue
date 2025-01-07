@@ -1,15 +1,11 @@
 <template>
     <section
-        id="vip"
+        id="contact"
         data-aos="zoom-out-up"
         class="md:container md:mx-auto md:mt-0"
     >
-        <section
-            class="flex flex-col gap-4 font-thin justify-center items-center px-5"
-        >
-            <article class="flex flex-col gap-6">
-                <VipItems />
-            </article>
+        <section class="flex flex-col gap-4 font-thin px-5">
+            <ContactForm />
         </section>
     </section>
 </template>

@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto mt-10">
+    <div class="mt-10">
         <h1
             class="text-8xl font-bold text-left mb-2"
             data-aos="fade-right"
@@ -16,6 +16,7 @@
             <div
                 v-for="(plan, index) in plans"
                 :key="plan.name"
+                ref="itemRef"
                 data-aos="fade-up"
                 :data-aos-delay="(index + 1) * 100"
                 class="shadow-md rounded-lg p-4 mb-4 mx-2 w-full sm:w-1/2 md:w-1/3 lg:w-1/4"

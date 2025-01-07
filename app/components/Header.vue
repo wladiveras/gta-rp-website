@@ -8,7 +8,10 @@
             />
         </template>
 
-        <UNavigationMenu :items="items" />
+        <UNavigationMenu
+            :items="items"
+            class="text-3xl"
+        />
 
         <template #right>
             <UTooltip
@@ -29,7 +32,7 @@
             <UNavigationMenu
                 :items="items"
                 orientation="vertical"
-                class="-mx-2.5"
+                class="-mx-2.5 text-3xl"
             />
         </template>
     </UHeader>
@@ -66,7 +69,12 @@
             active: isActive('#vip')
         },
         {
-            label: 'contato',
+            label: 'Como jogar',
+            href: '#tutorial',
+            active: isActive('#tutorial')
+        },
+        {
+            label: 'Contato',
             href: '#contact',
             active: isActive('#contact')
         }

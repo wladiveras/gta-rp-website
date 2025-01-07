@@ -1,6 +1,6 @@
 <template>
     <section
-        id="vip"
+        id="package"
         data-aos="zoom-out-up"
         class="md:container md:mx-auto md:mt-0"
     >
