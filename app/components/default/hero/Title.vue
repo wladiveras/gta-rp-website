@@ -1,8 +1,8 @@
 <template>
     <AnimateElement
-        animation="fadeInTopRight"
-        :duration="1000"
-        :delay="700"
+        animation="fadeIn"
+        :duration="4000"
+        :delay="5500"
         repeat
         mobile-animation="none"
         class="flex gap-10 flex-nowrap mt-[530px]"

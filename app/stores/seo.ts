@@ -1,12 +1,12 @@
 export const useSeoStore = defineStore('seo', {
     state: () => ({
-        title: 'Wladi Veras',
-        titleCallback: 'Wladi Veras • Desenvolvedor Fullstack',
-        website: 'https://wladi.com.br',
+        title: 'Paris RP',
+        titleCallback: 'Paris RP • A melhor cidade do brasil',
+        website: 'https://paris.wladi.com.br',
         keywords:
-            'Laravel, Vue.js, Nuxt.js, PHP, Tailwind CSS, Bootstrap, frameworks, bibliotecas, programador, desenvolvedor, fullstack, backend, frontend, back-end, front-end, ia, inteligencia artificial, responsivo, profissional de TI, profissional',
+            'gta, gta5, fivem, rp, gta rp, roleplay, paulinho loko,paulinho o loko, paulinho, louco, paulinho o louco, paulinho louco, taco, besouro, homem besouro, luketa, luan, professor, halk, paris, paris rp',
         description:
-            'Desenvolvedor Fullstack com 8 anos experiência em Laravel, Vue.js, Nuxt.js, PHP, Tailwind CSS, Bootstrap, e outros frameworks e bibliotecas.',
+            'Viva histórias inesquecíveis na cidade onde a criatividade encontra a realidade. Construa sua jornada, faça amigos e explore uma Paris feita para o seu roleplay!',
         image: '/images/seo.png'
     }),
     getters: {
