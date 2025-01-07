@@ -3,6 +3,7 @@ export const useSeoStore = defineStore('seo', {
         title: 'Paris RP',
         titleCallback: 'Paris RP • A melhor cidade do brasil',
         website: 'https://paris.wladi.com.br',
+        author: 'Wladi Veras',
         keywords:
             'gta, gta5, fivem, rp, gta rp, roleplay, paulinho loko,paulinho o loko, paulinho, louco, paulinho o louco, paulinho louco, taco, besouro, homem besouro, luketa, luan, professor, halk, paris, paris rp',
         description:

@@ -9,6 +9,7 @@
                 ? `${seoStore.title} • ${title}`
                 : seoStore.titleCallback
         },
+        author: seoStore.author,
         contentSecurityPolicy: {},
         keywords: seoStore.keywords,
         description: seoStore.description,

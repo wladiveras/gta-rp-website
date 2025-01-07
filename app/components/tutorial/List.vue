@@ -18,7 +18,14 @@
                 <section class="flex flex-col lg:flex-row gap-8">
                     <section class="flex-1 flex flex-col gap-4">
                         <p class="w-full p-4 border border-primary-500 rounded">
-                            Possuir a Allowlist da cidade de Paris (clique aqui
+                            Possuir a Allowlist da cidade de Paris (
+                            <a
+                                class="text-primary-500"
+                                target="_blank"
+                                href="https://discord.gg/TMYD9xsjBN"
+                            >
+                                clique aqui
+                            </a>
                             para saber como obter a Allowlist).
                         </p>
                         <p class="w-full p-4 border border-primary-500 rounded">
@@ -26,8 +33,15 @@
                             Steam, Epic ou Rockstar Launcher).
                         </p>
                         <p class="w-full p-4 border border-primary-500 rounded">
-                            Ter o FiveM instalado (clique aqui para acessar o
-                            website).
+                            Ter o FiveM instalado (
+                            <a
+                                class="text-primary-500"
+                                target="_blank"
+                                href="https://fivem.net"
+                            >
+                                clique aqui
+                            </a>
+                            para acessar o website).
                         </p>
                     </section>
 
