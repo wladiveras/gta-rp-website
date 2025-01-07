@@ -23,7 +23,7 @@
                     icon="i-simple-icons-discord"
                     color="neutral"
                     variant="ghost"
-                    to="https://chat.nuxt.dev"
+                    to="https://www"
                     target="_blank"
                     aria-label="Discord"
                 />
@@ -31,7 +31,7 @@
                     icon="i-simple-icons-x"
                     color="neutral"
                     variant="ghost"
-                    to="https://x.com/nuxt_js"
+                    to="https://www"
                     target="_blank"
                     aria-label="X"
                 />
@@ -39,7 +39,7 @@
                     icon="i-simple-icons-github"
                     color="neutral"
                     variant="ghost"
-                    to="https://github.com/nuxt/nuxt"
+                    to="https://www"
                     target="_blank"
                     aria-label="GitHub"
                 />
@@ -51,22 +51,20 @@
 <script lang="ts" setup>
     const items = [
         {
-            label: 'Figma Kit',
-            to: 'https://www.figma.com/community/file/1288455405058138934',
-            target: '_blank'
+            label: 'Link 1',
+            to: '#'
         },
         {
-            label: 'Playground',
-            to: 'https://stackblitz.com/edit/nuxt-ui',
-            target: '_blank'
+            label: 'Link 2',
+            to: '#ss'
         },
         {
-            label: 'Roadmap',
-            to: '/roadmap'
+            label: 'Link 3',
+            to: '#'
         },
         {
-            label: 'Releases',
-            to: 'https://github.com/nuxt/ui/releases',
+            label: 'Link 4',
+            to: '#',
             target: '_blank'
         }
     ]

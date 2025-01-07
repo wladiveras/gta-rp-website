@@ -11,6 +11,6 @@
     })
 
     useSeoMeta({
-        title: 'Desenvolvedor Fullstack'
+        title: 'team'
     })
 </script>

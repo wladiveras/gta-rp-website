@@ -1,6 +1,7 @@
 <template>
     <section>
         <LazyDefaultHero />
+        <Divider class="mt-20 md:mt-10" />
         <LazyDefaultAbout />
     </section>
 </template>
@@ -11,6 +12,6 @@
     })
 
     useSeoMeta({
-        title: 'Desenvolvedor Fullstack'
+        title: 'Melhor servidor de rp do brasil'
     })
 </script>

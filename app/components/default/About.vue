@@ -22,32 +22,26 @@
                     <p
                         v-for="(content, index) in about.content"
                         :key="index"
-                        :class="{
-                            'mt-10 mb-10 border-l-4 border-primary-500 pl-4 font-normal':
-                                content.type === 'heading'
-                        }"
+                        class="mt-10 mb-10 border-l-4 border-primary-500 pl-4 font-normal"
                     >
                         {{ content.text }}
                     </p>
                 </article>
-
-                <ul class="technology-ul flex flex-wrap">
-                    <li
-                        v-for="tech in about.technologies"
-                        :key="tech.name"
-                        class="technology-list w-1/2 md:w-1/3 lg:w-1/4 p-2 flex items-center gap-2"
-                    >
-                        <UIcon
-                            :name="tech.icon"
-                            :size="tech.size"
-                        />
-                        <strong class="font-bold">
-                            {{ tech.name }}
-                        </strong>
-                    </li>
-                </ul>
             </section>
         </AnimateElement>
+
+        <Divider class="mt-20 md:mt-20" />
+        xxxx
+
+        <Divider class="mt-20 md:mt-20" />
+
+        xxxx
+
+        <Divider class="mt-20 md:mt-20" />
+
+        xxxx
+        <Divider class="mt-20 md:mt-20" />
+        xxx
     </section>
 </template>
 

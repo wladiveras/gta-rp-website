@@ -1,27 +1,36 @@
 <template>
-    <UHeader>
+    <UHeader class="fixed w-full">
         <template #title>
-            <Logo class="h-6 w-auto" />
+            <NuxtImg
+                src="/images/logo.png"
+                width="40"
+                height="40"
+            />
         </template>
 
         <UNavigationMenu :items="items" />
 
         <template #right>
-            <UColorModeButton />
-
             <UTooltip
-                text="Open on GitHub"
-                :kbds="['meta', 'G']"
+                text="Entrar"
+                :kbds="['meta', 'L']"
             >
                 <UButton
                     color="neutral"
                     variant="ghost"
-                    to="https://github.com/nuxt/ui"
-                    target="_blank"
-                    icon="i-simple-icons-github"
-                    aria-label="GitHub"
+                    label="Entrar"
+                    to="/login"
+                    icon="line-md:discord-twotone"
+                    aria-label="Login"
                 />
             </UTooltip>
+        </template>
+        <template #content>
+            <UNavigationMenu
+                :items="items"
+                orientation="vertical"
+                class="-mx-2.5"
+            />
         </template>
     </UHeader>
 </template>
@@ -47,7 +56,7 @@
             active: isActive('')
         },
         {
-            label: 'Pacote Inicial',
+            label: 'Pacotes',
             href: '#package',
             active: isActive('#package')
         },
@@ -60,16 +69,6 @@
             label: 'contato',
             href: '#contact',
             active: isActive('#contact')
-        },
-        {
-            label: 'Figma',
-            to: 'https://www.figma.com/community/file/1288455405058138934',
-            target: '_blank'
-        },
-        {
-            label: 'Releases',
-            to: 'https://github.com/nuxt/ui/releases',
-            target: '_blank'
         }
     ])
 </script>

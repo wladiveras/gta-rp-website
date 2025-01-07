@@ -39,7 +39,7 @@
                     repeat
                 >
                     <UButton
-                        class="block w-full p-2 text-2xl font-bold text-primary cursor-pointer"
+                        class="block w-full p-2 text-2xl font-bold text-black cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:opacity-100 duration-300"
                     >
                         Jogar agora
                     </UButton>
