@@ -5,12 +5,11 @@ export const useLandingStore = defineStore('landing', {
         hero: [
             {
                 image: '/images/me-ia.png',
-                label: 'Olá, eu me chamo',
-                title: 'Wladi',
-                subtitle: ' Veras',
-                about: 'Crio soluções para a web.',
-                description:
-                    'Com mais de 8 anos de experiência, trabalhei em projetos como o chatbot e o gateway de pagamento, focando sempre na segurança, escalabilidade e na entrega de produtos que atendem às necessidades dos usuários.'
+                label: 'Paris RP',
+                title: 'O MELHOR SERVIDOR DE RP DE',
+                subtitle: 'TODO BRASIL',
+                about: '',
+                description: ''
             }
         ],
         about: {

@@ -1,6 +1,6 @@
 <template>
     <section
-        id="about"
+        id="vip"
         class="md:container md:mx-auto md:mt-0"
     >
         <DefaultTitle

@@ -1,7 +1,8 @@
 <template>
-    <UPage>
-        <DefaultTeam />
-    </UPage>
+    <section>
+        <LazyDefaultHero />
+        <LazyDefaultAbout />
+    </section>
 </template>
 
 <script setup lang="ts">
@@ -10,6 +11,6 @@
     })
 
     useSeoMeta({
-        title: 'Nosso time de desenvolvimento'
+        title: 'Desenvolvedor Fullstack'
     })
 </script>

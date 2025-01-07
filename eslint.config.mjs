@@ -12,6 +12,7 @@ export default withNuxt({
         'stylistic/brace-style': 'off',
         'vue/singleline-html-element-content-newline': 'off',
         'vue/html-self-closing': 'off',
-        '@stylistic/arrow-parens': 'off'
+        '@stylistic/arrow-parens': 'off',
+        'vue/multi-word-component-names': 'off'
     }
 })

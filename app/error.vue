@@ -1,12 +1,10 @@
 <script setup lang="ts">
     import type { NuxtError } from '#app'
 
-    defineProps({
-        error: {
-            type: Object as PropType<NuxtError>,
-            required: true
-        }
-    })
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const props = defineProps<{
+        error: NuxtError
+    }>()
 
     useHead({
         htmlAttrs: {
@@ -17,24 +15,32 @@
     useSeoMeta({
         title: 'Pagina não encontrada.',
         description:
-            'Nos desculpe, a página que você está procurando não foi encontrada.'
+            'A pagina que você está procurando não existe, ou foi movida para outro endereço.'
     })
 </script>
 
 <template>
-    <div>
-        <AppHeader />
+    <UApp>
+        <Header />
 
-        <UMain>
-            <UContainer>
-                <UPage>
-                    <UPageError :error="error" />
-                </UPage>
-            </UContainer>
-        </UMain>
+        <UError
+            redirect="/"
+            :clear="{
+                color: 'primary',
+                size: 'xl',
+                icon: 'i-lucide-arrow-left',
 
-        <AppFooter />
+                label: 'Voltar',
+                variant: 'solid'
+            }"
+            :error="{
+                statusCode: 404,
+                statusMessage: 'Pagina não encontrada.',
+                message:
+                    'A pagina que você está procurando não existe, ou foi movida para outro endereço.'
+            }"
+        />
 
-        <UNotifications />
-    </div>
+        <Footer />
+    </UApp>
 </template>

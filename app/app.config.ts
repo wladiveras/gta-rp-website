@@ -1,7 +1,7 @@
 export default defineAppConfig({
     ui: {
         colors: {
-            primary: 'red',
+            primary: 'cyan',
             neutral: 'slate'
         },
         theme: {
@@ -19,7 +19,6 @@ export default defineAppConfig({
 
         button: {
             slots: {
-                base: ['rounded-full'],
                 label: '',
                 leadingIcon: '',
                 leadingAvatar: '',

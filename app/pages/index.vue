@@ -2,9 +2,6 @@
     <section>
         <LazyDefaultHero />
         <LazyDefaultAbout />
-        <LazyDefaultExperience />
-        <LazyDefaultProject />
-        <LazyDefaultContact />
     </section>
 </template>
 

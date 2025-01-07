@@ -19,6 +19,8 @@
         | 'fadeIn'
         | 'fadeInTopRight'
         | 'fadeInTopLeft'
+        | 'fadeInLeft'
+        | 'heartBeat'
         | 'fadeInUp'
         | 'slideUp'
         | 'slideDown'
@@ -70,10 +72,12 @@
     )
 
     const animationMap = {
+        heartBeat: 'animate__heartBeat',
         fadeIn: 'animate__fadeIn',
         fadeInTopRight: 'animate__fadeInTopRight',
         fadeInTopLeft: 'animate__fadeInTopLeft',
         fadeInUp: 'animate__fadeInUp',
+        fadeInLeft: 'animate__fadeInLeft',
         slideUp: 'animate__slideInUp',
         slideDown: 'animate__slideInDown',
         slideLeft: 'animate__slideInLeft',

@@ -6,7 +6,6 @@ export default defineNuxtConfig({
         '@nuxt/image',
         '@nuxt/eslint',
         '@nuxthub/core',
-        '@nuxtjs/i18n',
         '@vite-pwa/nuxt',
         '@nuxt/test-utils/module'
     ],
@@ -59,9 +58,11 @@ export default defineNuxtConfig({
         compressPublicAssets: true,
         minify: true,
         timing: true,
+
         experimental: {
             tasks: true
         },
+
         cloudflare: {
             pages: {
                 routes: {
@@ -70,7 +71,6 @@ export default defineNuxtConfig({
             }
         }
     },
-
     hub: {
         remote: false,
         ai: false,
@@ -99,23 +99,6 @@ export default defineNuxtConfig({
                 braceStyle: '1tbs'
             }
         }
-    },
-
-    i18n: {
-        locales: [
-            {
-                code: 'pt',
-                name: 'Português'
-            },
-            {
-                code: 'en',
-                name: 'English'
-            },
-            {
-                code: 'es',
-                name: 'Español'
-            }
-        ]
     },
 
     image: {

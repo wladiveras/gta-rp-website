@@ -3,6 +3,8 @@
 @import 'animate.css';
 
 :root {
+    --ui-header-height: calc(var(--spacing) * 16);
+
     --scrollbar-width: calc(100vw - 100%);
 
     font-family: 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
@@ -52,7 +54,7 @@
 
 .dark {
     --ui-primary: var(--ui-color-primary-200);
-    --ui-bg: var(--color-slate-900);
+    --ui-bg: rgb(17, 19, 29);
 
     --ui-primary: var(--ui-color-primary-400);
     --ui-secondary: var(--ui-color-secondary-400);

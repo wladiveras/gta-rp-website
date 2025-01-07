@@ -2,22 +2,21 @@
     <section
         v-for="(item, index) in hero"
         :key="index"
-        class="hero max-w-[62rem] mt-30 md:mt-60 mx-auto w-full px-4 md:px-6"
         aria-labelledby="main-heading"
     >
-        <section
-            class="flex flex-col md:flex-row gap-8 items-center justify-center"
+        <AnimateElement
+            animation="fadeInLeft"
+            :duration="1000"
+            :delay="1000"
+            repeat-once
+            class="flex-col md:flex-row gap-8 items-center justify-center main-hero h-screen flex"
         >
             <section
-                class="w-full md:w-1/1 container px-4 sm:px-6 lg:px-8 m-auto flex justify-center items-center"
+                class="w-full container px-4 sm:px-6 lg:px-8 m-auto flex justify-center items-center"
             >
                 <DefaultHeroTitle :hero="item" />
             </section>
-
-            <section class="w-full md:w-1/2">
-                <DefaultHeroContent :hero="item" />
-            </section>
-        </section>
+        </AnimateElement>
     </section>
 </template>
 
@@ -26,4 +25,17 @@
     const { hero } = storeToRefs(landingStore)
 </script>
 
-<style lang="css" scoped></style>
+<style lang="css" scoped>
+    .main-hero {
+        background-position: 50% center;
+        opacity: 1;
+        width: 100%;
+        height: 1195px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+        background-image: url('/images/hero-bg.png');
+    }
+</style>
