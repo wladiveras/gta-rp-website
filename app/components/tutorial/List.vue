@@ -15,7 +15,7 @@
                 <section class="flex flex-col lg:flex-row gap-8">
                     <!-- Requirements List Section -->
                     <section class="flex-1 flex flex-col gap-4">
-                        <p class="w-full p-4 bg-amber-400 rounded">
+                        <p class="w-full p-4 border rounded">
                             Possuir a Allowlist da cidade de Paris (clique aqui
                             para saber como obter a Allowlist).
                         </p>
