@@ -1,6 +1,5 @@
 <template>
     <div>
-        <!-- Preloader -->
         <div
             v-if="isLoading"
             class="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-50 backdrop-blur-sm"
@@ -15,7 +14,6 @@
             </div>
         </div>
 
-        <!-- Page Content -->
         <div :class="{ 'opacity-0': isLoading }">
             <slot />
         </div>

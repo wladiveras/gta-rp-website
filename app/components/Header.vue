@@ -1,11 +1,14 @@
 <template>
     <UHeader class="fixed w-full">
         <template #title>
-            <NuxtImg
-                src="/images/logo.png"
-                width="auto"
-                height="40"
-            />
+            <div>
+                <NuxtImg
+                    src="/images/logo.png"
+                    width="auto"
+                    height="40"
+                    class="max-h-[40px]"
+                />
+            </div>
         </template>
 
         <section

@@ -62,7 +62,7 @@
 
                     <UButton
                         type="submit"
-                        class="mt-4 text-3xl block"
+                        class="mt-4 text-3xl block text-white"
                     >
                         Enviar
                     </UButton>
