@@ -14,24 +14,24 @@
         </h2>
         <div class="flex flex-wrap justify-center">
             <div
-                v-for="(plano, index) in planos"
-                :key="plano.nome"
+                v-for="(plan, index) in plans"
+                :key="plan.name"
                 data-aos="fade-up"
                 :data-aos-delay="(index + 1) * 100"
                 class="shadow-md rounded-lg p-4 mb-4 mx-2 w-full sm:w-1/2 md:w-1/3 lg:w-1/4"
             >
                 <h2 class="text-xl font-semibold text-gray-800">
-                    {{ plano.nome }}
+                    {{ plan.name }}
                 </h2>
                 <p class="text-gray-600">
-                    Valor: R$ {{ plano.preco }} (30 dias)
+                    Valor: R$ {{ plan.price }} (30 dias)
                 </p>
                 <ul class="list-disc list-inside mt-2">
                     <li
-                        v-for="beneficio in plano.beneficios"
-                        :key="beneficio"
+                        v-for="feature in plan.features"
+                        :key="feature"
                     >
-                        {{ beneficio }}
+                        {{ feature }}
                     </li>
                 </ul>
             </div>
@@ -40,11 +40,11 @@
 </template>
 
 <script lang="ts" setup>
-    const planos = [
+    const plans = [
         {
-            nome: 'VIP Prata',
-            preco: '50.00',
-            beneficios: [
+            name: 'VIP Prata',
+            price: '50.00',
+            features: [
                 'Acesso a tatuagens exclusivas',
                 'Acesso a penteados exclusivos',
                 'Acesso a roupas exclusivas',
@@ -58,9 +58,9 @@
             ]
         },
         {
-            nome: 'VIP Ouro',
-            preco: '75.00',
-            beneficios: [
+            name: 'VIP Ouro',
+            price: '75.00',
+            features: [
                 '2 Slots no guarda-roupa',
                 '25% menos fome e sede',
                 '5% de desconto na concessionária',
@@ -75,9 +75,9 @@
             ]
         },
         {
-            nome: 'VIP Diamante',
-            preco: '120.00',
-            beneficios: [
+            name: 'VIP Diamante',
+            price: '120.00',
+            features: [
                 'Prioridade em ingressos',
                 '3 Slots no guarda-roupa',
                 'Chance aumentada de contratos em Boosting',
