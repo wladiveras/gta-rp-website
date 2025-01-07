@@ -1,8 +1,8 @@
 <template>
     <section>
         <LazyDefaultHero />
-        <Divider class="mt-20 md:mt-10" />
-        <LazyDefaultAbout />
+        <LazyPackage />
+        <LazyVip />
     </section>
 </template>
 

@@ -4,27 +4,28 @@
         :key="index"
         aria-labelledby="main-heading"
     >
-        <AnimateElement
-            animation="fadeInLeft"
-            :duration="1200"
-            :delay="1200"
+        <span
+            data-aos="fade-right"
+            data-aos-delay="300"
+            data-aos-duration="1000"
+            data-aos-easing="ease-in-sine"
             class="char-hero mt-[50px] absolute"
             :class="{ floating: isFloating }"
         />
 
-        <AnimateElement
-            animation="fadeInLeft"
-            :duration="1000"
-            :delay="1000"
-            repeat-once
-            class="flex-col md:flex-row gap-8 items-center justify-center main-hero h-screen flex"
+        <section
+            data-aos="fade-right"
+            data-aos-delay="500"
+            data-aos-duration="1000"
+            data-aos-easing="ease-in-sine"
+            class="flex-col md:flex-row gap-8 items-center justify-center main-hero h-screen flex relative"
         >
             <section
                 class="w-full container px-4 sm:px-6 lg:px-8 m-auto flex justify-center items-center"
             >
                 <DefaultHeroTitle :hero="item" />
             </section>
-        </AnimateElement>
+        </section>
     </section>
 </template>
 

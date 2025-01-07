@@ -32,6 +32,9 @@ importers:
       nuxt:
         specifier: ^3.14.1592
         version: 3.14.1592(@parcel/watcher@2.5.0)(@types/node@22.10.2)(db0@0.2.1(drizzle-orm@0.36.4(@cloudflare/workers-types@4.20241218.0)))(drizzle-orm@0.36.4(@cloudflare/workers-types@4.20241218.0))(eslint@9.15.0(jiti@2.4.2))(ioredis@5.4.2)(lightningcss@1.28.2)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.29.1)(terser@5.37.0)(typescript@5.6.3)(vite@5.4.11(@types/node@22.10.2)(lightningcss@1.28.2)(terser@5.37.0))
+      nuxt-aos:
+        specifier: 1.2.5
+        version: 1.2.5(magicast@0.3.5)(rollup@4.29.1)(vite@5.4.11(@types/node@22.10.2)(lightningcss@1.28.2)(terser@5.37.0))
       tailwindcss:
         specifier: 4.0.0-beta.4
         version: 4.0.0-beta.4
@@ -2660,6 +2663,9 @@ packages:
     resolution: {integrity: sha512-KMReFUr0B4t+D+OBkjR3KYqvocp2XaSzO55UcB6mgQMd3KbcE+mWTyvVV7D/zsdEbNnV6acZUutkiHQXvTr1Rw==}
     engines: {node: '>= 8'}
 
+  aos@2.3.4:
+    resolution: {integrity: sha512-zh/ahtR2yME4I51z8IttIt4lC1Nw0ktsFtmeDzID1m9naJnWXhCoARaCgNOGXb5CLy3zm+wqmRAEgMYB5E2HUw==}
+
   archiver-utils@5.0.2:
     resolution: {integrity: sha512-wuLJMmIBQYCsGZgYLTy5FIB2pF6Lfb6cXMSF8Qywwk3t20zWnAi7zLcQFdKQmIB8wyZpY5ER38x08GbwtR2cLA==}
     engines: {node: '>= 14'}
@@ -2939,6 +2945,9 @@ packages:
 
   citty@0.1.6:
     resolution: {integrity: sha512-tskPPKEs8D2KPafUypv2gxwJP8h/OaJmC82QQGGDQcHvXX43xF2VDACcJVmZ0EuSxkpO9Kc4MlrA3q0+FG58AQ==}
+
+  classlist-polyfill@1.2.0:
+    resolution: {integrity: sha512-GzIjNdcEtH4ieA2S8NmrSxv7DfEV5fmixQeyTmqmRmRJPGpRBaSnA2a0VrCjyT8iW8JjEdMbKzDotAJf+ajgaQ==}
 
   clean-regexp@1.0.0:
     resolution: {integrity: sha512-GfisEZEJvzKrmGWkvfhgzcz/BllN1USeqD2V6tg14OAOgaCD2Z/PUEuxnAZ/nPvmaHRG7a8y77p1T/IRQ4D1Hw==}
@@ -4635,6 +4644,9 @@ packages:
   lodash.sortby@4.7.0:
     resolution: {integrity: sha512-HDWXG8isMntAyRF5vZ7xKuEvOhT4AhlRt/3czTSjvGUxjYCBVRQY48ViDHyfYz9VIoBkW4TMGQNapx+l3RUwdA==}
 
+  lodash.throttle@4.1.1:
+    resolution: {integrity: sha512-wIkUCfVKpVsWo3JSZlc+8MB5it+2AN5W8J7YVMST30UrvcQNZ1Okbj+rbVniijTWE6FGYy4XJq/rHkas8qJMLQ==}
+
   lodash.uniq@4.5.0:
     resolution: {integrity: sha512-xfBaXQd9ryd9dlSDvnvI0lvxfLJlYAZzXomUYzLKtUeOQvOP5piqAWuGtrhWeqaXK9hhoM/iyJc5AV+XfsX3HQ==}
 
@@ -4905,6 +4917,9 @@ packages:
     resolution: {integrity: sha512-JDVtBBwEe9VjVkhxwR/crtGJnyLHzvl2F1pjtglekjTVeiMThfhQHcvsI/u007gBAfPpmaCIdRGnoeTF4VKS8w==}
     engines: {node: ^16.10.0 || >=18.0.0}
     hasBin: true
+
+  nuxt-aos@1.2.5:
+    resolution: {integrity: sha512-tNEXMOKijCg+SygLvjp2VbEy7yQcC6ertzI23bCa6DPlu134bfzSYUGOJRSFSKtYjnrqIW7MzLpqPTfTwd8A3Q==}
 
   nuxt@3.14.1592:
     resolution: {integrity: sha512-roWAQH4Mb6WY72cNos+YVw0DgTCNAhNygiAMCedM7hbX6ESTR2n3VH7tU0yIWDPe/hfFdii4M4wWTTNHOtS44g==}
@@ -9815,6 +9830,12 @@ snapshots:
       normalize-path: 3.0.0
       picomatch: 2.3.1
 
+  aos@2.3.4:
+    dependencies:
+      classlist-polyfill: 1.2.0
+      lodash.debounce: 4.0.8
+      lodash.throttle: 4.1.1
+
   archiver-utils@5.0.2:
     dependencies:
       glob: 10.4.5
@@ -10144,6 +10165,8 @@ snapshots:
   citty@0.1.6:
     dependencies:
       consola: 3.3.1
+
+  classlist-polyfill@1.2.0: {}
 
   clean-regexp@1.0.0:
     dependencies:
@@ -12014,6 +12037,8 @@ snapshots:
 
   lodash.sortby@4.7.0: {}
 
+  lodash.throttle@4.1.1: {}
+
   lodash.uniq@4.5.0: {}
 
   lodash@4.17.21: {}
@@ -12339,6 +12364,17 @@ snapshots:
       boolbase: 1.0.0
 
   nuxi@3.17.2: {}
+
+  nuxt-aos@1.2.5(magicast@0.3.5)(rollup@4.29.1)(vite@5.4.11(@types/node@22.10.2)(lightningcss@1.28.2)(terser@5.37.0)):
+    dependencies:
+      '@nuxt/devtools-kit': 1.6.4(magicast@0.3.5)(rollup@4.29.1)(vite@5.4.11(@types/node@22.10.2)(lightningcss@1.28.2)(terser@5.37.0))
+      '@nuxt/kit': 3.14.1592(magicast@0.3.5)(rollup@4.29.1)
+      aos: 2.3.4
+    transitivePeerDependencies:
+      - magicast
+      - rollup
+      - supports-color
+      - vite
 
   nuxt@3.14.1592(@parcel/watcher@2.5.0)(@types/node@22.10.2)(db0@0.2.1(drizzle-orm@0.36.4(@cloudflare/workers-types@4.20241218.0)))(drizzle-orm@0.36.4(@cloudflare/workers-types@4.20241218.0))(eslint@9.15.0(jiti@2.4.2))(ioredis@5.4.2)(lightningcss@1.28.2)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.29.1)(terser@5.37.0)(typescript@5.6.3)(vite@5.4.11(@types/node@22.10.2)(lightningcss@1.28.2)(terser@5.37.0)):
     dependencies:
