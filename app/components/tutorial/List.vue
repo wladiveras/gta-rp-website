@@ -13,7 +13,6 @@
         <div class="container mx-auto px-4">
             <div class="container mx-auto px-4">
                 <section class="flex flex-col lg:flex-row gap-8">
-                    <!-- Requirements List Section -->
                     <section class="flex-1 flex flex-col gap-4">
                         <p class="w-full p-4 border rounded">
                             Possuir a Allowlist da cidade de Paris (clique aqui
@@ -29,7 +28,6 @@
                         </p>
                     </section>
 
-                    <!-- Video Section -->
                     <section class="flex-1 flex justify-center items-start">
                         <div class="w-full max-w-[560px] aspect-video">
                             <iframe

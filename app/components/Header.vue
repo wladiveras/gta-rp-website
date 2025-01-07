@@ -10,7 +10,8 @@
 
         <UNavigationMenu
             :items="items"
-            class="text-3xl"
+            size="xl"
+            class="mr-2"
         />
 
         <template #right>
@@ -22,6 +23,7 @@
                     color="neutral"
                     variant="ghost"
                     label="Entrar"
+                    size="xl"
                     to="/login"
                     icon="line-md:discord-twotone"
                     aria-label="Login"
@@ -31,8 +33,8 @@
         <template #content>
             <UNavigationMenu
                 :items="items"
+                size="xl"
                 orientation="vertical"
-                class="-mx-2.5 text-3xl"
             />
         </template>
     </UHeader>
