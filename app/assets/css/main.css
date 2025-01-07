@@ -1,16 +1,18 @@
 @import 'tailwindcss';
 @import '@nuxt/ui-pro';
 @import 'animate.css';
+@import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
 
 :root {
     --ui-header-height: calc(var(--spacing) * 16);
 
     --scrollbar-width: calc(100vw - 100%);
 
-    font-family: 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+    font-family: 'Sriracha', 'Roboto Mono', monospace;
 
     --ui-primary: var(--ui-color-primary-700);
     --ui-radius: var(--radius-sm);
+    --ui-button: var(--radius-sm);
 
     --ui-primary: var(--ui-color-primary-500);
     --ui-secondary: var(--ui-color-secondary-500);
@@ -21,7 +23,7 @@
 }
 
 @theme {
-    --font-sans: var(--font-family-primary);
+    --font-sans: 'Sriracha', sans-serif;
     --breakpoint-3xl: 1920px;
 
     --color-primary-50: var(--ui-color-primary-50);
