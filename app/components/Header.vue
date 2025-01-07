@@ -3,7 +3,7 @@
         <template #title>
             <NuxtImg
                 src="/images/logo.png"
-                width="40"
+                width="auto"
                 height="40"
             />
         </template>

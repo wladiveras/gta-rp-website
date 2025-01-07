@@ -6,10 +6,12 @@
             class="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-50 backdrop-blur-sm"
         >
             <div class="text-center">
-                <div
-                    class="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-primary-500 mb-4"
-                ></div>
-                <p class="text-white text-xl">Carregando...</p>
+                <NuxtImg
+                    src="/images/logo.png"
+                    width="auto"
+                    height="100"
+                    class="animate-bounce"
+                />
             </div>
         </div>
 
