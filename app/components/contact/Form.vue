@@ -1,71 +1,73 @@
 <template>
     <section class="mt-10 max-w-[900px] m-auto w-full">
-        <h1
-            class="text-8xl font-bold text-center mb-2"
-            data-aos="fade-right"
-        >
-            Entre em Contato
-        </h1>
-
-        <div class="container mx-auto px-4">
-            <UForm
-                :schema="schema"
-                :state="state"
-                class="space-y-4 flex flex-col"
-                @submit="onSubmit"
+        <div data-aos="zoom-out-up">
+            <h1
+                class="text-8xl font-bold text-center mb-2"
+                data-aos="fade-right"
             >
-                <section class="w-full mb-4">
-                    <UFormField
-                        label="Descrição"
-                        name="description"
-                    >
-                        <UTextarea
-                            v-model="state.description"
-                            icon="mdi:tag-text-outline"
-                            size="xl"
-                            class="w-full"
-                            placeholder="Fale mais sobre o assunto..."
-                        />
-                    </UFormField>
-                </section>
+                Entre em Contato
+            </h1>
 
-                <section class="flex flex-col md:flex-row gap-4">
-                    <UFormField
-                        label="Nome"
-                        name="name"
-                        class="w-full md:w-1/2"
-                    >
-                        <UInput
-                            v-model="state.name"
-                            class="w-full"
-                            icon="iconoir:user-star"
-                            placeholder="Qual seu nome?"
-                            size="md"
-                        />
-                    </UFormField>
-
-                    <UFormField
-                        label="Email"
-                        name="email"
-                        class="w-full md:w-1/2"
-                    >
-                        <UInput
-                            v-model="state.email"
-                            class="w-full"
-                            icon="line-md:email-filled"
-                            placeholder="Qual o seu email?"
-                            size="md"
-                        />
-                    </UFormField>
-                </section>
-
-                <UButton
-                    type="submit"
-                    class="mt-4 text-3xl block"
+            <div class="container mx-auto px-4">
+                <UForm
+                    :schema="schema"
+                    :state="state"
+                    class="space-y-4 flex flex-col"
+                    @submit="onSubmit"
                 >
-                    Enviar
-                </UButton>
-            </UForm>
+                    <section class="w-full mb-4">
+                        <UFormField
+                            label="Descrição"
+                            name="description"
+                        >
+                            <UTextarea
+                                v-model="state.description"
+                                icon="mdi:tag-text-outline"
+                                size="xl"
+                                class="w-full"
+                                placeholder="Fale mais sobre o assunto..."
+                            />
+                        </UFormField>
+                    </section>
+
+                    <section class="flex flex-col md:flex-row gap-4">
+                        <UFormField
+                            label="Nome"
+                            name="name"
+                            class="w-full md:w-1/2"
+                        >
+                            <UInput
+                                v-model="state.name"
+                                class="w-full"
+                                icon="iconoir:user-star"
+                                placeholder="Qual seu nome?"
+                                size="md"
+                            />
+                        </UFormField>
+
+                        <UFormField
+                            label="Email"
+                            name="email"
+                            class="w-full md:w-1/2"
+                        >
+                            <UInput
+                                v-model="state.email"
+                                class="w-full"
+                                icon="line-md:email-filled"
+                                placeholder="Qual o seu email?"
+                                size="md"
+                            />
+                        </UFormField>
+                    </section>
+
+                    <UButton
+                        type="submit"
+                        class="mt-4 text-3xl block"
+                    >
+                        Enviar
+                    </UButton>
+                </UForm>
+            </div>
         </div>
     </section>
 </template>

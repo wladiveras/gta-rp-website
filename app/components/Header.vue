@@ -8,11 +8,28 @@
             />
         </template>
 
-        <UNavigationMenu
-            :items="items"
-            size="xl"
-            class="mr-2"
-        />
+        <section
+            v-for="item in items"
+            :key="item.label"
+            class="inline-block mx-2"
+        >
+            <NuxtLink
+                v-if="item.to"
+                :to="item.to"
+                class="text-xl hover:text-primary-900"
+                :class="{ 'text-primary-500 text-3xl font-bold': item.active }"
+            >
+                {{ item.label }}
+            </NuxtLink>
+            <a
+                v-else
+                :href="item.href"
+                class="text-xl hover:text-primary-900 border-l-2 border-primary-500 pl-4"
+                :class="{ 'text-primary-500  font-bold': item.active }"
+            >
+                {{ item.label }}
+            </a>
+        </section>
 
         <template #right>
             <UTooltip
@@ -27,6 +44,7 @@
                     to="/login"
                     icon="line-md:discord-twotone"
                     aria-label="Login"
+                    class="text-2xl"
                 />
             </UTooltip>
         </template>
@@ -62,22 +80,22 @@
         },
         {
             label: 'Pacotes',
-            href: '#package',
+            href: '/#package',
             active: isActive('#package')
         },
         {
             label: 'VIP',
-            href: '#vip',
+            href: '/#vip',
             active: isActive('#vip')
         },
         {
             label: 'Como jogar',
-            href: '#tutorial',
+            href: '/#tutorial',
             active: isActive('#tutorial')
         },
         {
             label: 'Contato',
-            href: '#contact',
+            href: '/#contact',
             active: isActive('#contact')
         }
     ])

@@ -23,7 +23,7 @@
             <section
                 class="w-full container px-4 sm:px-6 lg:px-8 m-auto flex justify-center items-center"
             >
-                <DefaultHeroTitle :hero="item" />
+                <HeroTitle :hero="item" />
             </section>
         </section>
     </section>

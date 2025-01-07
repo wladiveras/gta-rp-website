@@ -1,6 +1,6 @@
 <template>
     <section>
-        <LazyDefaultHero />
+        <LazyHero />
         <LazyPackage />
         <LazyVip />
         <LazyTutorial />

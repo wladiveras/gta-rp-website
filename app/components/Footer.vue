@@ -20,7 +20,7 @@
 
             <template #right>
                 <UButton
-                    icon="i-simple-icons-discord"
+                    icon="line-md:discord-twotone"
                     color="neutral"
                     variant="ghost"
                     to="https://www"
@@ -28,7 +28,7 @@
                     aria-label="Discord"
                 />
                 <UButton
-                    icon="i-simple-icons-x"
+                    icon="line-md:twitter-filled"
                     color="neutral"
                     variant="ghost"
                     to="https://www"
@@ -36,7 +36,7 @@
                     aria-label="X"
                 />
                 <UButton
-                    icon="i-simple-icons-github"
+                    icon="line-md:instagram"
                     color="neutral"
                     variant="ghost"
                     to="https://www"

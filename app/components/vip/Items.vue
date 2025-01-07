@@ -1,42 +1,59 @@
 <template>
     <div class="mt-10">
         <h1
-            class="text-8xl font-bold text-left mb-2"
+            class="text-8xl font-bold text-left mb-2 ml-5"
             data-aos="fade-right"
         >
             CONHEÇA OS PLANOS
         </h1>
         <h2
-            class="font-extralight font-serif text-left mb-8 ml-2"
+            class="font-extralight font-serif text-left mb-8 ml-6"
             data-aos="fade-right"
         >
             GARANTA ACESSO A BENEFÍCIOS EXCLUSIVOS DENTRO DO SERVIDOR
         </h2>
-        <div class="flex flex-wrap justify-center">
-            <div
-                v-for="(plan, index) in plans"
-                :key="plan.name"
-                ref="itemRef"
-                data-aos="fade-up"
-                :data-aos-delay="(index + 1) * 100"
-                class="shadow-md rounded-lg p-4 mb-4 mx-2 w-full sm:w-1/2 md:w-1/3 lg:w-1/4"
-            >
-                <h2 class="text-xl font-semibold text-gray-800">
-                    {{ plan.name }}
-                </h2>
-                <p class="text-gray-600">
-                    Valor: R$ {{ plan.price }} (30 dias)
-                </p>
-                <ul class="list-disc list-inside mt-2">
-                    <li
-                        v-for="feature in plan.features"
-                        :key="feature"
+        <section>
+            <div class="flex flex-wrap">
+                <div
+                    v-for="(plan, index) in plans"
+                    :key="plan.name"
+                    ref="itemRef"
+                    data-aos="fade-up"
+                    :data-aos-delay="(index + 1) * 100"
+                    class="rounded-lg p-4 mb-4 mx-2 w-full sm:w-1/1 lg:w-1/4 relative z-20 border-2 border-cyan-400 bg-main flex flex-col"
+                >
+                    <div class="flex-grow">
+                        <h2 class="text-2xl font-semibold text-primary-500">
+                            {{ plan.name }}
+                        </h2>
+                        <p class="text-xl">R$ {{ plan.price }}</p>
+                        <h2 class="mt-5 text-primary-500 text-xl">Recursos</h2>
+                        <ul class="mt-2">
+                            <li
+                                v-for="feature in plan.features"
+                                :key="feature"
+                            >
+                                {{ feature }}
+                            </li>
+                        </ul>
+                    </div>
+                    <button
+                        class="w-full bg-primary-500 hover:bg-primary-700 text-white font-bold py-2 px-4 rounded mt-4 block"
                     >
-                        {{ feature }}
-                    </li>
-                </ul>
+                        COMPRAR
+                    </button>
+                </div>
             </div>
-        </div>
+            <div
+                data-aos="fade-left"
+                class="absolute right-[-10px] top-[-4rem] z-10 hidden xl:block"
+            >
+                <NuxtImg
+                    src="/images/hero-vip.png"
+                    width="700px"
+                />
+            </div>
+        </section>
     </div>
 </template>
 
@@ -44,7 +61,7 @@
     const plans = [
         {
             name: 'VIP Prata',
-            price: '50.00',
+            price: '50.00 (30 dias)',
             features: [
                 'Acesso a tatuagens exclusivas',
                 'Acesso a penteados exclusivos',
@@ -60,7 +77,7 @@
         },
         {
             name: 'VIP Ouro',
-            price: '75.00',
+            price: '75.00 (30 dias)',
             features: [
                 '2 Slots no guarda-roupa',
                 '25% menos fome e sede',
@@ -76,7 +93,7 @@
             ]
         },
         {
-            name: 'VIP Diamante',
+            name: 'VIP Diamante (30 dias)',
             price: '120.00',
             features: [
                 'Prioridade em ingressos',

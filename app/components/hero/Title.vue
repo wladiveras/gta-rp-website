@@ -6,12 +6,12 @@
                 data-aos="fade-right"
                 class="text-5xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-7xl flex items-center justify-center flex-wrap"
             >
-                <span class="text-center max-w-[960px]">
+                <span class="text-center max-w-[960px] text-effect-one">
                     {{ hero.title }}
 
                     <span
                         v-if="hero.subtitle"
-                        class="decoration-primary-500"
+                        class="decoration-primary-500 text-effect-one"
                     >
                         {{ hero.subtitle }}
                     </span>
@@ -30,7 +30,7 @@
                 class="max-w-[450px] m-auto mt-10"
             >
                 <UButton
-                    class="block w-full p-2 text-2xl font-bold text-black cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:opacity-100 duration-300"
+                    class="block w-full p-2 text-effect-one text-2xl font-bold text-white cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:opacity-100 duration-300"
                 >
                     Jogar agora
                 </UButton>

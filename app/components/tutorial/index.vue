@@ -1,8 +1,7 @@
 <template>
     <section
         id="tutorial"
-        data-aos="zoom-out-up"
-        class="md:container md:mx-auto md:mt-0"
+        class="md:container md:mx-auto md:mt-0 z-10 relative"
     >
         <section class="flex flex-col gap-4 font-thin px-5">
             <TutorialList />

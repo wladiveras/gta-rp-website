@@ -20,31 +20,36 @@
                 :key="index"
                 data-aos="fade-up"
                 :data-aos-delay="(index + 1) * 100"
-                class="rounded-lg shadow-md p-6 flex flex-col items-center justify-center w-full sm:w-80 md:w-64 max-w-full"
+                class="rounded-lg p-6 flex flex-col w-full sm:w-80 md:w-64 max-w-full border-2 border-cyan-400 bg-main"
             >
-                <h2 class="text-xl font-bold mb-4">{{ plan.name }}</h2>
-                <div class="flex items-center mb-4">
-                    <span class="text-gray-600 text-lg font-bold">
-                        R$ {{ plan.price }}
-                    </span>
-                    <span
-                        v-if="plan.discount"
-                        class="ml-2 text-xs text-gray-400 line-through"
-                    >
-                        R$ {{ plan.discount }}
-                    </span>
-                </div>
-                <div class="pl-6 mb-5">
-                    <ul
-                        v-for="feature in plan.features"
-                        :key="feature"
-                        class="flex relative text-left"
-                    >
-                        <li class="text-left relative w-full">{{ feature }}</li>
-                    </ul>
+                <div class="flex-grow flex flex-col items-center">
+                    <h2 class="text-xl font-bold mb-4">{{ plan.name }}</h2>
+                    <div class="flex items-center mb-4">
+                        <span class="text-gray-600 text-lg font-bold">
+                            R$ {{ plan.price }}
+                        </span>
+                        <span
+                            v-if="plan.discount"
+                            class="ml-2 text-xs text-gray-400 line-through"
+                        >
+                            R$ {{ plan.discount }}
+                        </span>
+                    </div>
+                    <div class="pl-6 mb-5 w-full">
+                        <h2 class="text-primary-500 text-xl">Recursos</h2>
+                        <ul
+                            v-for="feature in plan.features"
+                            :key="feature"
+                            class="flex relative text-left"
+                        >
+                            <li class="text-left relative w-full">
+                                {{ feature }}
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <button
-                    class="bg-primary-500 hover:bg-primary-700 text-white font-bold py-2 px-4 rounded"
+                    class="w-full bg-primary-500 hover:bg-primary-700 text-white font-bold py-2 px-4 rounded mt-auto"
                 >
                     COMPRAR
                 </button>

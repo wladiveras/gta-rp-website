@@ -1,7 +1,10 @@
 <template>
-    <section class="mt-10">
+    <section
+        data-aos="flip-down"
+        class="mt-10"
+    >
         <h1
-            class="text-6xl font-bold text-left mb-2"
+            class="text-6xl font-bold text-left mb-2 mt-10"
             data-aos="fade-right"
         >
             Como jogar
@@ -14,24 +17,24 @@
             <div class="container mx-auto px-4">
                 <section class="flex flex-col lg:flex-row gap-8">
                     <section class="flex-1 flex flex-col gap-4">
-                        <p class="w-full p-4 border rounded">
+                        <p class="w-full p-4 border border-primary-500 rounded">
                             Possuir a Allowlist da cidade de Paris (clique aqui
                             para saber como obter a Allowlist).
                         </p>
-                        <p class="w-full p-4 border rounded">
+                        <p class="w-full p-4 border border-primary-500 rounded">
                             Ter uma cópia digital original do jogo GTA V (pela
                             Steam, Epic ou Rockstar Launcher).
                         </p>
-                        <p class="w-full p-4 border rounded">
+                        <p class="w-full p-4 border border-primary-500 rounded">
                             Ter o FiveM instalado (clique aqui para acessar o
                             website).
                         </p>
                     </section>
 
                     <section class="flex-1 flex justify-center items-start">
-                        <div class="w-full max-w-[560px] aspect-video">
+                        <div class="w-full max-w-[560px] aspect-video mt-1">
                             <iframe
-                                class="w-full h-full"
+                                class="w-full h-full border-primary-500 border-2 rounded"
                                 src="https://www.youtube.com/embed/vrdGIH4nhoI?si=V5r0mll8T3ESb2ce"
                                 title="YouTube video player"
                                 frameborder="0"
