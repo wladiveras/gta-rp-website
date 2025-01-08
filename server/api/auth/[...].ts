@@ -27,8 +27,6 @@ export default NuxtAuthHandler({
     ],
     callbacks: {
         async jwt({ token, account }) {
-            console.log({ token, account })
-
             if (account?.access_token) {
                 token.accessToken = account.access_token
 
