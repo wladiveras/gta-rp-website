@@ -5,39 +5,26 @@
             data-aos-delay="300"
             data-aos-duration="1000"
             data-aos-easing="ease-in-sine"
-            class="mt-[100px] w-full flex flex-row items-center justify-center gap-8"
+            class="mt-[100px] w-full flex flex-row flex-nowrap items-center justify-center gap-8"
         >
-            <div class="flex items-center">
-                <UAvatar size="3xl" />
-            </div>
-            <div class="flex flex-col gap-2">
-                <div class="text-2xl text-primary-500">
-                    <UIcon
-                        name="tdesign:user-marked"
-                        class="top-1 relative"
-                    />
-                    | 32549
-                </div>
+            <div>
                 <div>
-                    <UIcon
-                        name="ic:outline-diamond"
-                        class="top-1 relative"
+                    <UAvatar
+                        :src="avatar"
+                        class="h-[10rem] w-[10rem] m-auto block mb-10"
                     />
-                    Vip Diamante
                 </div>
-                <div>
-                    <UIcon
-                        name="solar:ranking-broken"
-                        class="top-1 relative"
-                    />
-                    Rank: #4
+                <div class="flex-auto w-full">id: {{ id }}</div>
+
+                <div class="flex-auto w-full">nome: {{ name }}</div>
+
+                <div class="flex-auto w-full">email: {{ email }}</div>
+
+                <div class="flex-auto w-full">
+                    Servidor: {{ getCurrentGuild.name }}
                 </div>
-            </div>
-            <div v-if="user">
-                <div class="guilds-list">
-                    <h3>Your Discord Servers</h3>
-                    {{ user }}
-                </div>
+
+                <div class="flex-auto w-full"></div>
             </div>
         </header>
     </section>
@@ -45,6 +32,7 @@
 
 <script setup lang="ts">
     const user = useUserStore()
+    const { id, name, email, avatar, getCurrentGuild } = storeToRefs(user)
 
     definePageMeta({
         layout: 'default',

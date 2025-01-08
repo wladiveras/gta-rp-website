@@ -23,7 +23,11 @@
 <script setup lang="ts">
     const isLoading = ref(true)
 
+    const user = useUserStore()
+
     onMounted(() => {
+        user.setAuth()
+
         setTimeout(() => {
             isLoading.value = false
         }, 1000)

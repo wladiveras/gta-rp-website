@@ -12,7 +12,7 @@
         </template>
 
         <section
-            v-for="item in items"
+            v-for="item in itemsNavigation"
             :key="item.label"
             class="inline-block mx-2"
         >
@@ -40,7 +40,8 @@
                 :kbds="['meta', 'L']"
             >
                 <UButton
-                    v-if="!data"
+                    v-if="!isLoggedIn"
+                    icon="i-lucide-log-in"
                     color="neutral"
                     variant="ghost"
                     label="Entrar"
@@ -48,36 +49,27 @@
                     class="text-2xl"
                     @click="signIn('discord')"
                 />
-                <section v-if="data">
+                <section v-if="isLoggedIn">
                     <UDropdownMenu
                         :items="dropdownItems"
-                        :ui="{ content: 'w-48' }"
+                        :ui="{ content: 'w-48 ' }"
                     >
                         <UChip
                             inset
-                            class="mt-2 border-2 border-primary-500 rounded-full"
+                            class="mt-2 border-2 border-primary-500 rounded-full cursor-pointer"
                         >
                             <UAvatar
-                                :src="data.user?.image"
-                                :alt="data.user?.name"
+                                :src="avatar"
+                                :alt="name"
                             />
                         </UChip>
                     </UDropdownMenu>
-
-                    <!-- <UButton
-                        color="neutral"
-                        variant="ghost"
-                        label="Sair"
-                        size="xl"
-                        class="text-2xl"
-                        @click="signOut({ callbackUrl: '/' })"
-                    /> -->
                 </section>
             </UTooltip>
         </template>
         <template #content>
             <UNavigationMenu
-                :items="items"
+                :items="itemsNavigation"
                 size="xl"
                 orientation="vertical"
             />
@@ -88,14 +80,24 @@
 <script lang="ts" setup>
     const route = useRoute()
     const toast = useToast()
-    const { signIn, signOut, data } = useAuth()
+    const user = useUserStore()
+
+    const { signIn, signOut } = useAuth()
+    const { name, avatar, isLoggedIn } = storeToRefs(user)
+
+    const isActive = (hash: string) => {
+        if (!hash) {
+            return route.path === '/' && !route.hash
+        }
+        return route.hash === hash
+    }
 
     const dropdownItems = ref([
         [
             {
-                label: data?.value?.user?.name,
+                label: name || '',
                 avatar: {
-                    src: data?.value?.user?.image
+                    src: avatar || ''
                 },
                 type: 'label'
             }
@@ -112,8 +114,7 @@
             },
             {
                 label: 'Configurações',
-                icon: 'i-lucide-cog',
-                kbds: [',']
+                icon: 'i-lucide-cog'
             }
         ],
         [
@@ -138,7 +139,6 @@
             {
                 label: 'Sair',
                 icon: 'i-lucide-log-out',
-                kbds: ['shift', 'meta', 'q'],
                 onSelect() {
                     toast.add({
                         title: 'Desconectado',
@@ -152,16 +152,7 @@
         ]
     ])
 
-    onMounted(() => {})
-
-    const isActive = (hash: string) => {
-        if (!hash) {
-            return route.path === '/' && !route.hash
-        }
-        return route.hash === hash
-    }
-
-    const items = computed(() => [
+    const itemsNavigation = computed(() => [
         {
             label: 'Inicio',
             to: '/',

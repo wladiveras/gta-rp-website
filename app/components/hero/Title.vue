@@ -1,5 +1,5 @@
 <template>
-    <section class="flex gap-10 flex-nowrap mt-[530px]">
+    <section class="flex gap-10 flex-nowrap mt-[160px]">
         <section>
             <h1
                 id="main-heading"

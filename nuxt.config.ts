@@ -33,7 +33,6 @@ export default defineNuxtConfig({
 
     runtimeConfig: {
         public: {
-            AUTH_ORIGIN: process.env.NUXT_AUTH_ORIGIN || '',
             NUXT_UI_PRO_LICENSE: process.env.NUXT_UI_PRO_LICENSE || '',
             OAUTH_KEY: process.env.NUXT_OAUTH_KEY || '',
             DISCORD_CLIENT_ID: process.env.NUXT_OAUTH_DISCORD_CLIENT_ID || '',
@@ -121,9 +120,6 @@ export default defineNuxtConfig({
         anchorPlacement: 'top-bottom'
     },
     auth: {
-        baseURL:
-            process.env.NUXT_AUTH_ORIGIN ||
-            `http://localhost:${process.env.PORT || 3000}`,
         provider: {
             type: 'authjs',
             trustHost: false,
