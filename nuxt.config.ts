@@ -120,6 +120,7 @@ export default defineNuxtConfig({
         anchorPlacement: 'top-bottom'
     },
     auth: {
+        baseURL: process.env.NUXT_AUTH_ORIGIN,
         provider: {
             type: 'authjs',
             trustHost: false,
