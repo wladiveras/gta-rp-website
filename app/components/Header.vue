@@ -40,15 +40,39 @@
                 :kbds="['meta', 'L']"
             >
                 <UButton
+                    v-if="!data"
                     color="neutral"
                     variant="ghost"
                     label="Entrar"
                     size="xl"
-                    to="/login"
-                    icon="line-md:discord-twotone"
-                    aria-label="Login"
                     class="text-2xl"
+                    @click="signIn('discord')"
                 />
+                <section v-if="data">
+                    <UDropdownMenu
+                        :items="dropdownItems"
+                        :ui="{ content: 'w-48' }"
+                    >
+                        <UChip
+                            inset
+                            class="mt-2 border-2 border-primary-500 rounded-full"
+                        >
+                            <UAvatar
+                                :src="data.user?.image"
+                                :alt="data.user?.name"
+                            />
+                        </UChip>
+                    </UDropdownMenu>
+
+                    <!-- <UButton
+                        color="neutral"
+                        variant="ghost"
+                        label="Sair"
+                        size="xl"
+                        class="text-2xl"
+                        @click="signOut({ callbackUrl: '/' })"
+                    /> -->
+                </section>
             </UTooltip>
         </template>
         <template #content>
@@ -63,10 +87,72 @@
 
 <script lang="ts" setup>
     const route = useRoute()
+    const toast = useToast()
+    const { signIn, signOut, data } = useAuth()
 
-    onMounted(() => {
-        console.log(route.path)
-    })
+    const dropdownItems = ref([
+        [
+            {
+                label: data?.value?.user?.name,
+                avatar: {
+                    src: data?.value?.user?.image
+                },
+                type: 'label'
+            }
+        ],
+        [
+            {
+                label: 'Perfil',
+                icon: 'i-lucide-user',
+                to: '/profile'
+            },
+            {
+                label: 'Fatura',
+                icon: 'i-lucide-credit-card'
+            },
+            {
+                label: 'Configurações',
+                icon: 'i-lucide-cog',
+                kbds: [',']
+            }
+        ],
+        [
+            {
+                label: 'Loja',
+                icon: 'i-lucide-users'
+            }
+        ],
+        [
+            {
+                label: 'Suporte',
+                icon: 'i-lucide-life-buoy',
+                to: '#'
+            },
+            {
+                label: 'API',
+                icon: 'i-lucide-cloud',
+                disabled: true
+            }
+        ],
+        [
+            {
+                label: 'Sair',
+                icon: 'i-lucide-log-out',
+                kbds: ['shift', 'meta', 'q'],
+                onSelect() {
+                    toast.add({
+                        title: 'Desconectado',
+                        description: 'Você foi desconectado com sucesso!',
+                        color: 'success'
+                    })
+
+                    signOut({ callbackUrl: '/' })
+                }
+            }
+        ]
+    ])
+
+    onMounted(() => {})
 
     const isActive = (hash: string) => {
         if (!hash) {
