@@ -1,5 +1,5 @@
 <template>
-    <section>
+    <section v-if="isLoggedIn">
         <header
             data-aos="fade-right"
             data-aos-delay="300"
@@ -32,7 +32,8 @@
 
 <script setup lang="ts">
     const user = useUserStore()
-    const { id, name, email, avatar, getCurrentGuild } = storeToRefs(user)
+    const { id, name, email, avatar, getCurrentGuild, isLoggedIn } =
+        storeToRefs(user)
 
     definePageMeta({
         layout: 'default',
