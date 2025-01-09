@@ -5,8 +5,7 @@ export const useUserStore = defineStore('user', {
         discord: '',
         email: '',
         avatar: '',
-        guilds: [],
-        currentGuild: []
+        guilds: []
     }),
     getters: {
         isLoggedIn: (state) => {
@@ -18,19 +17,7 @@ export const useUserStore = defineStore('user', {
                     (guild) =>
                         guild.id === useRuntimeConfig().public.DISCORD_SERVER_ID
                 )
-                .pop(),
-        getGuildIcon: (state) => {
-            if (!state.currentGuild[0]?.icon) return ''
-            const iconHash = state.currentGuild[0].icon
-            const iconFormat = iconHash.startsWith('a_') ? 'gif' : 'png'
-            return `https://cdn.discordapp.com/icons/${state.currentGuild[0].id}/${iconHash}.${iconFormat}`
-        },
-        getGuildBanner: (state) => {
-            if (!state.currentGuild[0]?.banner) return ''
-
-            const bannerHash = state.currentGuild[0].banner
-            return `https://cdn.discordapp.com/banners/${state.currentGuild[0].id}/${bannerHash}.png`
-        }
+                .pop()
     },
     actions: {
         extractUserIdFromImageUrl(imageUrl: string): string {
@@ -39,33 +26,66 @@ export const useUserStore = defineStore('user', {
             if (parts.length < 5) return ''
             return parts[4]
         },
-        setAuth() {
-            const { data: session, signOut, status } = useAuth()
-            const toast = useToast()
+        async loginWithDiscord() {
+            const supabase = useSupabaseClient()
 
-            if (!(status.value === 'authenticated')) return ''
-
-            this.id =
-                this.extractUserIdFromImageUrl(session?.value.user?.image) || ''
-            this.discord = session?.value.user?.name || ''
-            this.name = session?.value.user?.name || ''
-            this.email = session?.value.user?.email || ''
-            this.avatar = session?.value.user?.image || ''
-            // @ts-expect-error Use .default here for it to work during SSR.
-            this.guilds = session?.value.user?.guilds || []
-            this.currentGuild = this.getCurrentGuild || []
-
-            if (this.currentGuild.length === 0) {
-                toast.add({
-                    title: 'Não foi possivel se conectar.',
-                    description: 'Seu perfil não está vinculado a o servidor.',
-                    color: 'error'
-                })
-                signOut({ callbackUrl: '/' })
-            }
+            const { error } = await supabase.auth.signInWithOAuth({
+                provider: 'discord',
+                options: {
+                    scopes: 'identify email guilds',
+                    redirectTo: '/callback'
+                }
+            })
+            if (error) console.log(error)
         },
-        setName(name: string) {
-            this.name = name
+
+        async fetchUser() {
+            const user = useSupabaseUser()
+
+            if (!user.value) {
+                console.log('User not found')
+                return
+            }
+
+            this.id = user.value.user_metadata.provider_id
+            this.name = user.value.user_metadata.custom_claims.global_name
+            this.discord = user.value.user_metadata.full_name
+            this.email = user.value.user_metadata.email
+            this.avatar = user.value.user_metadata.avatar_url
+        },
+
+        async fetchUserGuilds() {
+            const supabase = useSupabaseClient()
+
+            const { data, error } = await supabase.auth.getSession()
+
+            if (error || !data) {
+                console.log('Error fetching session or session not found')
+                return
+            }
+
+            const accessToken = data.session.provider_token
+
+            const response = await fetch(
+                'https://discord.com/api/v10/users/@me/guilds',
+                {
+                    headers: {
+                        Authorization: `Bearer ${accessToken}`
+                    }
+                }
+            )
+
+            if (!response.ok) {
+                console.error(
+                    'Failed to fetch Discord guilds:',
+                    response.statusText
+                )
+                return
+            }
+
+            const guilds = await response.json()
+
+            this.guilds = guilds
         }
     }
 })

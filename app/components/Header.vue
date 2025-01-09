@@ -47,7 +47,7 @@
                     label="Entrar"
                     size="xl"
                     class="text-2xl"
-                    @click="signIn('discord')"
+                    @click="userStore.loginWithDiscord()"
                 />
                 <section v-if="isLoggedIn">
                     <UDropdownMenu
@@ -80,10 +80,8 @@
 <script lang="ts" setup>
     const route = useRoute()
     const toast = useToast()
-    const user = useUserStore()
-
-    const { signIn, signOut } = useAuth()
-    const { name, avatar, isLoggedIn } = storeToRefs(user)
+    const userStore = useUserStore()
+    const { isLoggedIn, name, avatar } = storeToRefs(userStore)
 
     const isActive = (hash: string) => {
         if (!hash) {
@@ -95,7 +93,7 @@
     const dropdownItems = ref([
         [
             {
-                label: name || '',
+                label: name,
                 avatar: {
                     src: avatar || ''
                 },
@@ -145,8 +143,6 @@
                         description: 'Você foi desconectado com sucesso!',
                         color: 'success'
                     })
-
-                    signOut({ callbackUrl: '/' })
                 }
             }
         ]

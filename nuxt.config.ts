@@ -8,7 +8,7 @@ export default defineNuxtConfig({
         '@nuxthub/core',
         '@vite-pwa/nuxt',
         '@nuxt/test-utils/module',
-        '@sidebase/nuxt-auth',
+        '@nuxtjs/supabase',
         'nuxt-aos'
     ],
 
@@ -32,16 +32,12 @@ export default defineNuxtConfig({
     },
 
     runtimeConfig: {
-        authSecret: process.env.NUXT_AUTH_SECRET,
         public: {
-            BASE_URL: process.env.NUXT_PUBLIC_BASE_URL || '',
             NUXT_UI_PRO_LICENSE: process.env.NUXT_UI_PRO_LICENSE || '',
-            DISCORD_CLIENT_ID: process.env.NUXT_OAUTH_DISCORD_CLIENT_ID || '',
-            OAUTH_KEY: process.env.NUXT_OAUTH_KEY || '',
             DISCORD_SERVER_ID: process.env.DISCORD_SERVER_ID || '',
+            DISCORD_CLIENT_ID: process.env.NUXT_OAUTH_DISCORD_CLIENT_ID || '',
             DISCORD_CLIENT_SECRET:
-                process.env.NUXT_OAUTH_DISCORD_CLIENT_SECRET || '',
-            AUTH_ORIGIN: process.env.NUXT_AUTH_ORIGIN || 'http://localhost:3000'
+                process.env.NUXT_OAUTH_DISCORD_CLIENT_SECRET || ''
         },
 
         publicRoutes: ['/', '/login', '/auth/**']
@@ -52,7 +48,6 @@ export default defineNuxtConfig({
             prerender: true
         }
     },
-
     future: {
         compatibilityVersion: 4
     },
@@ -121,22 +116,6 @@ export default defineNuxtConfig({
         mirror: false,
         anchorPlacement: 'top-bottom'
     },
-    auth: {
-        isEnabled: true,
-        disableServerSideAuth: false,
-        originEnvKey: 'AUTH_ORIGIN',
-        baseURL: `${process.env.NUXT_AUTH_ORIGIN}`,
-        provider: {
-            type: 'authjs',
-            trustHost: true,
-            defaultProvider: 'discord',
-            addDefaultCallbackUrl: true
-        },
-        sessionRefresh: {
-            enablePeriodically: true,
-            enableOnWindowFocus: true
-        }
-    },
 
     eslint: {
         config: {
@@ -171,6 +150,19 @@ export default defineNuxtConfig({
     },
 
     pwa: {},
+    supabase: {
+        redirectOptions: {
+            login: '/',
+            callback: '/callback',
+            include: ['/profile'],
+            exclude: ['/', '/callback']
+        },
+        cookieOptions: {
+            maxAge: 60 * 60 * 8,
+            sameSite: 'lax',
+            secure: true
+        }
+    },
 
     uiPro: {
         license: process.env.NUXT_UI_PRO_LICENSE

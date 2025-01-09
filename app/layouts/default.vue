@@ -23,10 +23,10 @@
 <script setup lang="ts">
     const isLoading = ref(true)
 
-    const user = useUserStore()
-
-    onMounted(() => {
-        user.setAuth()
+    onMounted(async () => {
+        const userStore = useUserStore()
+        await userStore.fetchUser()
+        await userStore.fetchUserGuilds()
 
         setTimeout(() => {
             isLoading.value = false
