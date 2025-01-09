@@ -47,7 +47,7 @@
                     label="Entrar"
                     size="xl"
                     class="text-2xl"
-                    @click="userStore.loginWithDiscord()"
+                    @click="userStore.authenticateWithDiscord()"
                 />
                 <section v-if="isLoggedIn">
                     <UDropdownMenu
@@ -143,6 +143,9 @@
                         description: 'Você foi desconectado com sucesso!',
                         color: 'success'
                     })
+                    setTimeout(() => {
+                        userStore.signOut()
+                    }, 3000)
                 }
             }
         ]

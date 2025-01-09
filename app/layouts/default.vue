@@ -25,8 +25,8 @@
 
     onMounted(async () => {
         const userStore = useUserStore()
-        await userStore.fetchUser()
-        await userStore.fetchUserGuilds()
+        await userStore.fetchUserProfile()
+        await userStore.fetchDiscordGuilds()
 
         setTimeout(() => {
             isLoading.value = false

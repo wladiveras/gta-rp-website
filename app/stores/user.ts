@@ -5,87 +5,97 @@ export const useUserStore = defineStore('user', {
         discord: '',
         email: '',
         avatar: '',
-        guilds: []
+        guilds: [] as string[]
     }),
-    getters: {
-        isLoggedIn: (state) => {
-            return Boolean(state.id) && state.id !== ''
-        },
-        getCurrentGuild: (state) =>
-            state.guilds
-                .filter(
-                    (guild) =>
-                        guild.id === useRuntimeConfig().public.DISCORD_SERVER_ID
-                )
-                .pop()
-    },
-    actions: {
-        extractUserIdFromImageUrl(imageUrl: string): string {
-            if (!imageUrl) return ''
-            const parts = imageUrl.split('/')
-            if (parts.length < 5) return ''
-            return parts[4]
-        },
-        async loginWithDiscord() {
-            const supabase = useSupabaseClient()
 
-            const { error } = await supabase.auth.signInWithOAuth({
+    getters: {
+        isLoggedIn(): boolean {
+            return Boolean(this.id)
+        },
+
+        getCurrentGuild() {
+            const discordServerId = useRuntimeConfig().public.DISCORD_SERVER_ID
+            return this.guilds.find((guild) => guild.id === discordServerId)
+        }
+    },
+
+    actions: {
+        parseDiscordUserId(imageUrl: string): string {
+            if (!imageUrl || imageUrl.split('/').length < 5) return ''
+            return imageUrl.split('/')[4]
+        },
+
+        async authenticateWithDiscord() {
+            const { error } = await useSupabaseClient().auth.signInWithOAuth({
                 provider: 'discord',
                 options: {
                     scopes: 'identify email guilds',
                     redirectTo: `${useRuntimeConfig().public.PROJECT_URL}/callback`
                 }
             })
-            if (error) console.log(error)
+
+            if (error)
+                throw createError({
+                    statusCode: 401,
+                    message: 'Discord authentication failed'
+                })
         },
 
-        async fetchUser() {
+        async fetchUserProfile() {
             const user = useSupabaseUser()
 
             if (!user.value) {
-                console.log('User not found')
-                return
+                throw createError({
+                    statusCode: 404,
+                    message: 'User not found'
+                })
             }
 
-            this.id = user.value.user_metadata.provider_id
-            this.name = user.value.user_metadata.custom_claims.global_name
-            this.discord = user.value.user_metadata.full_name
-            this.email = user.value.user_metadata.email
-            this.avatar = user.value.user_metadata.avatar_url
+            const { user_metadata } = user.value
+
+            this.id = user_metadata.provider_id
+            this.name = user_metadata.custom_claims.global_name
+            this.discord = user_metadata.full_name
+            this.email = user_metadata.email
+            this.avatar = user_metadata.avatar_url
         },
 
-        async fetchUserGuilds() {
-            const supabase = useSupabaseClient()
+        async fetchDiscordGuilds() {
+            const { data, error } = await useSupabaseClient().auth.getSession()
 
-            const { data, error } = await supabase.auth.getSession()
-
-            if (error || !data) {
-                console.log('Error fetching session or session not found')
-                return
+            if (error || !data?.session?.provider_token) {
+                throw createError({
+                    statusCode: 401,
+                    message: 'Invalid session'
+                })
             }
-
-            const accessToken = data.session.provider_token
 
             const response = await fetch(
                 'https://discord.com/api/v10/users/@me/guilds',
                 {
                     headers: {
-                        Authorization: `Bearer ${accessToken}`
+                        Authorization: `Bearer ${data.session.provider_token}`
                     }
                 }
             )
 
             if (!response.ok) {
-                console.error(
-                    'Failed to fetch Discord guilds:',
-                    response.statusText
-                )
-                return
+                throw createError({
+                    statusCode: response.status,
+                    message: 'Failed to fetch Discord guilds'
+                })
             }
 
-            const guilds = await response.json()
+            this.guilds = await response.json()
+        },
 
-            this.guilds = guilds
+        async signOut() {
+            const { error } = await useSupabaseClient().auth.signOut()
+
+            if (error) throw error
+
+            this.$reset()
+            await navigateTo('/')
         }
     }
 })
