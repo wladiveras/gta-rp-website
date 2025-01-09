@@ -5,24 +5,25 @@ export const useUserStore = defineStore('user', {
         discord: '',
         email: '',
         avatar: '',
-        guilds: []
+        guilds: [],
+        currentGuild: {}
     }),
 
     getters: {
         isLoggedIn(): boolean {
             return Boolean(this.id)
-        },
+        }
+    },
 
-        getCurrentGuild: (state) =>
-            state.guilds
+    actions: {
+        setCurrentGuild() {
+            this.currentGuild = this.guilds
                 .filter(
                     (guild) =>
                         guild.id === useRuntimeConfig().public.DISCORD_SERVER_ID
                 )
                 .pop()
-    },
-
-    actions: {
+        },
         async authenticateWithDiscord() {
             const { error } = await useSupabaseClient().auth.signInWithOAuth({
                 provider: 'discord',
@@ -85,6 +86,7 @@ export const useUserStore = defineStore('user', {
             }
 
             this.guilds = await response.json()
+            this.setCurrentGuild()
         },
 
         async signOut() {
