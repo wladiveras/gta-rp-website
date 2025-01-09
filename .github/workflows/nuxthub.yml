@@ -30,7 +30,7 @@ jobs:
             - name: Build application
               run: pnpm build
               env:
-                  NUXT_AUTH_ORIGIN: https://paris.wladi.com.br
+                  NUXT_AUTH_ORIGIN: https://paris.wladi.com.br/api/auth
                   NUXT_UI_PRO_LICENSE: ${{ secrets.NUXT_UI_PRO_LICENSE }}
 
             - name: Deploy to NuxtHub
