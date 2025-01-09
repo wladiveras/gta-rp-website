@@ -24,9 +24,13 @@
     const isLoading = ref(true)
 
     onMounted(async () => {
+        const user = useSupabaseUser()
         const userStore = useUserStore()
-        await userStore.fetchUserProfile()
-        await userStore.fetchDiscordGuilds()
+
+        if (user.value) {
+            await userStore.fetchUserProfile()
+            await userStore.fetchDiscordGuilds()
+        }
 
         setTimeout(() => {
             isLoading.value = false
