@@ -127,7 +127,7 @@ export default defineNuxtConfig({
         baseURL: `${process.env.NUXT_AUTH_ORIGIN}`,
         provider: {
             type: 'authjs',
-            trustHost: false,
+            trustHost: true,
             defaultProvider: 'discord',
             addDefaultCallbackUrl: true
         },
