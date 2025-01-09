@@ -8,6 +8,20 @@
       "when": 1732327440017,
       "tag": "0000_material_skin",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1736406311227,
+      "tag": "0001_faithful_adam_warlock",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1736406992328,
+      "tag": "0002_hot_shockwave",
+      "breakpoints": true
     }
   ]
 }
