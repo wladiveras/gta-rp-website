@@ -20,13 +20,13 @@ export const useUserStore = defineStore('user', {
                 )
                 .pop(),
         getGuildIcon: (state) => {
-            if (!state.currentGuild[0]?.icon) return null
+            if (!state.currentGuild[0]?.icon) return ''
             const iconHash = state.currentGuild[0].icon
             const iconFormat = iconHash.startsWith('a_') ? 'gif' : 'png'
             return `https://cdn.discordapp.com/icons/${state.currentGuild[0].id}/${iconHash}.${iconFormat}`
         },
         getGuildBanner: (state) => {
-            if (!state.currentGuild[0]?.banner) return null
+            if (!state.currentGuild[0]?.banner) return ''
 
             const bannerHash = state.currentGuild[0].banner
             return `https://cdn.discordapp.com/banners/${state.currentGuild[0].id}/${bannerHash}.png`
@@ -40,10 +40,10 @@ export const useUserStore = defineStore('user', {
             return parts[4]
         },
         setAuth() {
-            const { data: session, signOut } = useAuth()
+            const { data: session, signOut, status } = useAuth()
             const toast = useToast()
 
-            if (!session.value) return
+            if (!(status.value === 'authenticated')) return ''
 
             this.id =
                 this.extractUserIdFromImageUrl(session?.value.user?.image) || ''

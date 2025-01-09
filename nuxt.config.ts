@@ -8,8 +8,8 @@ export default defineNuxtConfig({
         '@nuxthub/core',
         '@vite-pwa/nuxt',
         '@nuxt/test-utils/module',
-        'nuxt-aos',
-        '@sidebase/nuxt-auth'
+        '@sidebase/nuxt-auth',
+        'nuxt-aos'
     ],
 
     ssr: true,
@@ -120,7 +120,7 @@ export default defineNuxtConfig({
         anchorPlacement: 'top-bottom'
     },
     auth: {
-        baseURL: process.env.NUXT_AUTH_ORIGIN,
+        baseURL: `${process.env.NUXT_AUTH_ORIGIN}/api/auth`,
         provider: {
             type: 'authjs',
             trustHost: false,
