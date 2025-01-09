@@ -23,11 +23,6 @@ export const useUserStore = defineStore('user', {
     },
 
     actions: {
-        parseDiscordUserId(imageUrl: string): string {
-            if (!imageUrl || imageUrl.split('/').length < 5) return ''
-            return imageUrl.split('/')[4]
-        },
-
         async authenticateWithDiscord() {
             const { error } = await useSupabaseClient().auth.signInWithOAuth({
                 provider: 'discord',
