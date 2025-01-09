@@ -50,6 +50,7 @@ export default defineNuxtConfig({
         },
         '/profile': { prerender: false }
     },
+
     future: {
         compatibilityVersion: 4
     },
