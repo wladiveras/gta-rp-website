@@ -15,6 +15,7 @@ async function getDiscordGuilds(accessToken: string) {
 }
 
 export default NuxtAuthHandler({
+    secret: useRuntimeConfig().authSecret,
     providers: [
         // @ts-expect-error Use .default here for it to work during SSR.
         DiscordProvider.default({

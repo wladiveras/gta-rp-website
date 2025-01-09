@@ -32,6 +32,7 @@ export default defineNuxtConfig({
     },
 
     runtimeConfig: {
+        authSecret: process.env.NUXT_AUTH_SECRET,
         public: {
             BASE_URL: process.env.NUXT_PUBLIC_BASE_URL || '',
             NUXT_UI_PRO_LICENSE: process.env.NUXT_UI_PRO_LICENSE || '',
