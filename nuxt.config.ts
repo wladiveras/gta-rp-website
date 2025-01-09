@@ -34,11 +34,13 @@ export default defineNuxtConfig({
     runtimeConfig: {
         public: {
             NUXT_UI_PRO_LICENSE: process.env.NUXT_UI_PRO_LICENSE || '',
-            OAUTH_KEY: process.env.NUXT_OAUTH_KEY || '',
             DISCORD_CLIENT_ID: process.env.NUXT_OAUTH_DISCORD_CLIENT_ID || '',
+            OAUTH_KEY: process.env.NUXT_OAUTH_KEY || '',
+            DISCORD_SERVER_ID: process.env.DISCORD_SERVER_ID || '',
             DISCORD_CLIENT_SECRET:
                 process.env.NUXT_OAUTH_DISCORD_CLIENT_SECRET || '',
-            DISCORD_SERVER_ID: process.env.DISCORD_SERVER_ID || ''
+            NUXT_ORIGIN:
+                process.env.NUXT_PUBLIC_ORIGIN || 'http://localhost:3000'
         },
 
         publicRoutes: ['/', '/login', '/auth/**']
@@ -110,7 +112,6 @@ export default defineNuxtConfig({
         disableMutationObserver: false,
         debounceDelay: 50,
         throttleDelay: 99,
-
         offset: 120,
         delay: 0,
         duration: 400,
@@ -120,12 +121,19 @@ export default defineNuxtConfig({
         anchorPlacement: 'top-bottom'
     },
     auth: {
-        baseURL: `${process.env.NUXT_AUTH_ORIGIN}/api/auth`,
+        isEnabled: true,
+        disableServerSideAuth: false,
+        originEnvKey: 'NUXT_PUBLIC_ORIGIN',
+        baseURL: `${process.env.NUXT_PUBLIC_ORIGIN}/api/auth`,
         provider: {
             type: 'authjs',
             trustHost: false,
             defaultProvider: 'discord',
             addDefaultCallbackUrl: true
+        },
+        sessionRefresh: {
+            enablePeriodically: true,
+            enableOnWindowFocus: true
         }
     },
 
