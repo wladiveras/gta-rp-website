@@ -47,7 +47,8 @@ export default defineNuxtConfig({
     routeRules: {
         '/**': {
             prerender: true
-        }
+        },
+        '/profile': { prerender: false }
     },
     future: {
         compatibilityVersion: 4
@@ -92,7 +93,7 @@ export default defineNuxtConfig({
         },
         optimizeDeps: {
             include: ['vue', 'vue-router', '@vueuse/core'],
-            exclude: ['nuxt/app']
+            exclude: ['nuxt/app', 'punycode']
         }
     },
 
