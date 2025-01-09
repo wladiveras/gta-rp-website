@@ -33,7 +33,7 @@ export const useUserStore = defineStore('user', {
                 provider: 'discord',
                 options: {
                     scopes: 'identify email guilds',
-                    redirectTo: '/callback'
+                    redirectTo: `${useRuntimeConfig().public.PROJECT_URL}/callback`
                 }
             })
             if (error) console.log(error)

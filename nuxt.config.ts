@@ -33,6 +33,7 @@ export default defineNuxtConfig({
 
     runtimeConfig: {
         public: {
+            PROJECT_URL: process.env.NUXT_HUB_PROJECT_URL || '',
             NUXT_UI_PRO_LICENSE: process.env.NUXT_UI_PRO_LICENSE || '',
             DISCORD_SERVER_ID: process.env.DISCORD_SERVER_ID || '',
             DISCORD_CLIENT_ID: process.env.NUXT_OAUTH_DISCORD_CLIENT_ID || '',
