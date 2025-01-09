@@ -33,14 +33,19 @@ export default defineNuxtConfig({
 
     runtimeConfig: {
         public: {
+            authJs: {
+                baseUrl:
+                    process.env.NUXT_PUBLIC_AUTH_ORIGIN ||
+                    'http://localhost:3000'
+            },
             NUXT_UI_PRO_LICENSE: process.env.NUXT_UI_PRO_LICENSE || '',
             DISCORD_CLIENT_ID: process.env.NUXT_OAUTH_DISCORD_CLIENT_ID || '',
             OAUTH_KEY: process.env.NUXT_OAUTH_KEY || '',
             DISCORD_SERVER_ID: process.env.DISCORD_SERVER_ID || '',
             DISCORD_CLIENT_SECRET:
                 process.env.NUXT_OAUTH_DISCORD_CLIENT_SECRET || '',
-            NUXT_ORIGIN:
-                process.env.NUXT_PUBLIC_ORIGIN || 'http://localhost:3000'
+            AUTH_ORIGIN:
+                process.env.NUXT_PUBLIC_AUTH_ORIGIN || 'http://localhost:3000'
         },
 
         publicRoutes: ['/', '/login', '/auth/**']
@@ -123,8 +128,8 @@ export default defineNuxtConfig({
     auth: {
         isEnabled: true,
         disableServerSideAuth: false,
-        originEnvKey: 'NUXT_PUBLIC_ORIGIN',
-        baseURL: `${process.env.NUXT_PUBLIC_ORIGIN}/api/auth`,
+        originEnvKey: 'NUXT_PUBLIC_AUTH_ORIGIN',
+        baseURL: `${process.env.NUXT_PUBLIC_AUTH_ORIGIN}/api/auth`,
         provider: {
             type: 'authjs',
             trustHost: false,
