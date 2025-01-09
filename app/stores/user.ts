@@ -5,7 +5,7 @@ export const useUserStore = defineStore('user', {
         discord: '',
         email: '',
         avatar: '',
-        guilds: [] as string[]
+        guilds: []
     }),
 
     getters: {
@@ -13,10 +13,13 @@ export const useUserStore = defineStore('user', {
             return Boolean(this.id)
         },
 
-        getCurrentGuild() {
-            const discordServerId = useRuntimeConfig().public.DISCORD_SERVER_ID
-            return this.guilds.find((guild) => guild.id === discordServerId)
-        }
+        getCurrentGuild: (state) =>
+            state.guilds
+                .filter(
+                    (guild) =>
+                        guild.id === useRuntimeConfig().public.DISCORD_SERVER_ID
+                )
+                .pop()
     },
 
     actions: {
