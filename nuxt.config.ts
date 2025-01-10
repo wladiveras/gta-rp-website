@@ -38,7 +38,7 @@ export default defineNuxtConfig({
     runtimeConfig: {
         public: {
             PROJECT_URL: process.env.NUXT_PUBLIC_PROJECT_URL,
-            NUXT_UI_PRO_LICENSE: process.env.NUXT_PUBLIC_UI_PRO_LICENSE,
+            NUXT_UI_PRO_LICENSE: process.env.NUXT_UI_PRO_LICENSE,
             DISCORD_SERVER_ID: process.env.NUXT_PUBLIC_DISCORD_SERVER_ID
         },
         publicRoutes: ['/', '/login', '/auth/**']

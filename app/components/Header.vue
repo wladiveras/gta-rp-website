@@ -79,7 +79,6 @@
 
 <script lang="ts" setup>
     const route = useRoute()
-    const toast = useToast()
 
     const userStore = useUserStore()
 
@@ -171,6 +170,11 @@
             label: 'Contato',
             href: '/#contact',
             active: isActive('#contact')
+        },
+        {
+            label: 'Regras',
+            href: '/rules',
+            active: isActive('/rules')
         }
     ])
 </script>
