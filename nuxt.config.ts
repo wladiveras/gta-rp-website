@@ -66,10 +66,6 @@ export default defineNuxtConfig({
             tasks: true
         },
 
-        prerender: {
-            crawlLinks: true
-        },
-
         cloudflare: {
             pages: {
                 routes: {
@@ -173,8 +169,11 @@ export default defineNuxtConfig({
             globPatterns: ['**/*.{js,css,html,png,ico}'],
             runtimeCaching: [
                 {
-                    urlPattern: '/',
-                    handler: 'NetworkFirst'
+                    urlPattern: '/*',
+                    handler: 'NetworkFirst',
+                    options: {
+                        cacheName: 'api-cache'
+                    }
                 }
             ]
         }
