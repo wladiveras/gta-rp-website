@@ -139,15 +139,8 @@
             {
                 label: 'Sair',
                 icon: 'i-lucide-log-out',
-                onSelect() {
-                    toast.add({
-                        title: 'Desconectado',
-                        description: 'Você foi desconectado com sucesso!',
-                        color: 'success'
-                    })
-                    setTimeout(() => {
-                        userStore.signOut()
-                    }, 3000)
+                async onSelect() {
+                    await userStore.signOut()
                 }
             }
         ]

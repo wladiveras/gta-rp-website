@@ -28,21 +28,12 @@ export const useUserStore = defineStore('user', {
                 this.currentGuild = guild
             }
 
-            this.checkIfUserIsInServer()
+            await this.checkIfUserIsInServer()
         },
-        checkIfUserIsInServer() {
+        async checkIfUserIsInServer() {
             // @ts-expect-error - Check if user is in server
             if (!this.currentGuild?.name) {
-                const toast = useToast()
-
-                toast.add({
-                    title: 'Entre no Servidor',
-                    description: 'Você não está mais no servidor.',
-                    color: 'error'
-                })
-                setTimeout(() => {
-                    this.signOut()
-                }, 5000)
+                await this.signOut()
             }
         },
         async authenticateWithDiscord() {
@@ -114,17 +105,27 @@ export const useUserStore = defineStore('user', {
             if (this.guilds) {
                 setTimeout(async () => {
                     await this.setCurrentGuild()
-                }, 2000)
+                }, 1000)
             }
         },
 
         async signOut() {
+            const toast = useToast()
             const { error } = await useSupabaseClient().auth.signOut()
 
             if (error) throw error
 
-            this.$reset()
-            await navigateTo('/')
+            toast.add({
+                title: 'Desconectado !',
+                icon: 'i-heroicons-x-mark-20-solid',
+                description: 'Sua conta foi desconectada do sistema.',
+                color: 'success'
+            })
+
+            setTimeout(async () => {
+                this.$reset()
+                await navigateTo('/')
+            }, 5000)
         }
     }
 })
