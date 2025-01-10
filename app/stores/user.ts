@@ -17,21 +17,20 @@ export const useUserStore = defineStore('user', {
 
     actions: {
         setCurrentGuild() {
-            console.log('Server ID:', process.env.NUXT_PUBLIC_DISCORD_SERVER_ID)
+            const config = useRuntimeConfig()
+
+            console.log('Server ID:', config.public.DISCORD_SERVER_ID)
             console.log('Available guilds:', this.guilds)
 
             const guild = this.guilds
-                .filter(
-                    (guild) =>
-                        guild.id === process.env.NUXT_PUBLIC_DISCORD_SERVER_ID
-                )
+                .filter((guild) => guild.id === config.public.DISCORD_SERVER_ID)
                 .pop()
 
             if (guild && guild !== this.currentGuild) {
                 this.currentGuild = guild
-
-                this.checkIfUserIsInServer()
             }
+
+            this.checkIfUserIsInServer()
 
             console.log('Current Guild:', this.currentGuild)
         },
@@ -51,11 +50,13 @@ export const useUserStore = defineStore('user', {
             }
         },
         async authenticateWithDiscord() {
+            const config = useRuntimeConfig()
+
             const { error } = await useSupabaseClient().auth.signInWithOAuth({
                 provider: 'discord',
                 options: {
                     scopes: 'identify email guilds',
-                    redirectTo: `${process.env.NUXT_HUB_PROJECT_URL}/callback`
+                    redirectTo: `${config.public.PROJECT_URL}/callback`
                 }
             })
 
