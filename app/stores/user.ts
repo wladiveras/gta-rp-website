@@ -18,6 +18,7 @@ export const useUserStore = defineStore('user', {
     actions: {
         async setCurrentGuild() {
             const config = useRuntimeConfig()
+
             console.log('Server ID:', config.public.DISCORD_SERVER_ID)
             console.log('Available guilds:', this.guilds)
 
@@ -30,6 +31,7 @@ export const useUserStore = defineStore('user', {
 
                 await this.checkIfUserIsInServer()
             }
+
             console.log('Current Guild:', this.currentGuild)
         },
         async checkIfUserIsInServer() {
