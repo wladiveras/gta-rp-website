@@ -51,6 +51,7 @@ export const useUserStore = defineStore('user', {
             }
         },
         async authenticateWithDiscord() {
+            await nextTick()
             const config = useRuntimeConfig()
 
             const { error } = await useSupabaseClient().auth.signInWithOAuth({
