@@ -148,7 +148,30 @@ export default defineNuxtConfig({
         }
     },
 
-    pwa: {},
+    pwa: {
+        manifest: {
+            name: 'Paris RP',
+            short_name: 'Paris RP',
+            description: 'Paris RP - A melhor cidade do brasil',
+            theme_color: '#ffffff',
+            icons: [
+                {
+                    src: '/public/images/paris-rp.png',
+                    sizes: '64x64',
+                    type: 'image/png'
+                },
+                {
+                    src: '/public/images/paris-rp.png',
+                    sizes: '512x512',
+                    type: 'image/png'
+                }
+            ]
+        },
+        workbox: {
+            navigateFallback: '/',
+            globPatterns: ['**/*.{js,css,html,png,svg,ico}']
+        }
+    },
     supabase: {
         redirectOptions: {
             login: '/',
