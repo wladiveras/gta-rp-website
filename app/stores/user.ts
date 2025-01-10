@@ -122,8 +122,9 @@ export const useUserStore = defineStore('user', {
                 color: 'success'
             })
 
+            this.$reset()
+
             setTimeout(async () => {
-                this.$reset()
                 await navigateTo('/')
             }, 5000)
         }
