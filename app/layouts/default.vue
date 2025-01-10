@@ -28,8 +28,10 @@
         const userStore = useUserStore()
 
         if (user.value) {
-            await userStore.fetchUserProfile()
-            await userStore.fetchDiscordGuilds()
+            if (import.meta.client) {
+                await userStore.fetchUserProfile()
+                await userStore.fetchDiscordGuilds()
+            }
         }
 
         setTimeout(() => {
