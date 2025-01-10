@@ -20,9 +20,6 @@ export const useUserStore = defineStore('user', {
             await nextTick()
             const config = useRuntimeConfig()
 
-            console.log('Server ID:', config.public.DISCORD_SERVER_ID)
-            console.log('Available guilds:', this.guilds)
-
             const guild = this.guilds
                 .filter((guild) => guild.id === config.public.DISCORD_SERVER_ID)
                 .pop()
@@ -32,8 +29,6 @@ export const useUserStore = defineStore('user', {
             }
 
             this.checkIfUserIsInServer()
-
-            console.log('Current Guild:', this.currentGuild)
         },
         checkIfUserIsInServer() {
             // @ts-expect-error - Check if user is in server

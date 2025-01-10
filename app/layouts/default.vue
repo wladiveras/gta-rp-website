@@ -22,13 +22,8 @@
 
 <script setup lang="ts">
     const isLoading = ref(true)
-    const config = useRuntimeConfig()
 
     onMounted(async () => {
-        await nextTick()
-        console.log('Server URL:', config.public.PROJECT_URL)
-        console.log('Server ID:', config.public.DISCORD_SERVER_ID)
-
         const user = useSupabaseUser()
         const userStore = useUserStore()
 
