@@ -1,5 +1,5 @@
 <script setup lang="ts">
-    import favicon from '~/assets/images/favicon.svg'
+    import favicon from '~/assets/images/favicon.png'
 
     const seoStore = useSeoStore()
 
@@ -34,7 +34,7 @@
         link: [
             {
                 rel: 'icon',
-                type: 'image/svg+xml',
+                type: 'image/png',
                 href: favicon,
                 crossorigin: 'anonymous'
             },
