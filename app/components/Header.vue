@@ -80,7 +80,9 @@
 <script lang="ts" setup>
     const route = useRoute()
     const toast = useToast()
+
     const userStore = useUserStore()
+
     const { isLoggedIn, name, avatar } = storeToRefs(userStore)
 
     const isActive = (hash: string) => {
