@@ -66,6 +66,11 @@ export default defineNuxtConfig({
             tasks: true
         },
 
+        prerender: {
+            crawlLinks: true,
+            routes: ['/']
+        },
+
         cloudflare: {
             pages: {
                 routes: {
@@ -166,7 +171,13 @@ export default defineNuxtConfig({
         },
         workbox: {
             navigateFallback: '/',
-            globPatterns: ['**/*.{js,css,html,png,svg,ico}']
+            globPatterns: ['**/*.{js,css,html,png,ico}'],
+            runtimeCaching: [
+                {
+                    urlPattern: '/',
+                    handler: 'NetworkFirst'
+                }
+            ]
         }
     },
     supabase: {
