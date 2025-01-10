@@ -12,7 +12,11 @@ export default defineNuxtConfig({
         'nuxt-aos'
     ],
 
-    ssr: true,
+    $production: {
+        routeRules: {
+            '/**': { isr: true }
+        }
+    },
 
     devtools: {
         enabled: true,
@@ -38,13 +42,6 @@ export default defineNuxtConfig({
             DISCORD_SERVER_ID: process.env.NUXT_PUBLIC_DISCORD_SERVER_ID
         },
         publicRoutes: ['/', '/login', '/auth/**']
-    },
-
-    routeRules: {
-        '/**': {
-            prerender: true
-        },
-        '/profile': { prerender: false }
     },
 
     future: {
@@ -156,12 +153,12 @@ export default defineNuxtConfig({
             theme_color: '#ffffff',
             icons: [
                 {
-                    src: '/public/images/paris-rp.png',
+                    src: '/images/paris-rp.png',
                     sizes: '64x64',
                     type: 'image/png'
                 },
                 {
-                    src: '/public/images/paris-rp.png',
+                    src: '/images/paris-rp.png',
                     sizes: '512x512',
                     type: 'image/png'
                 }
