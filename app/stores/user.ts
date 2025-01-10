@@ -17,16 +17,18 @@ export const useUserStore = defineStore('user', {
 
     actions: {
         async setCurrentGuild() {
-            this.currentGuild = this.guilds
-                .filter(
-                    (guild) =>
-                        guild.id === useRuntimeConfig().public.DISCORD_SERVER_ID
-                )
+            const config = useRuntimeConfig()
+            console.log('Server ID:', config.public.DISCORD_SERVER_ID)
+            console.log('Available guilds:', this.guilds)
+
+            const guild = this.guilds
+                .filter((guild) => guild.id === config.public.DISCORD_SERVER_ID)
                 .pop()
 
-            console.log(useRuntimeConfig().public.DISCORD_SERVER_ID)
-
-            await this.checkIfUserIsInServer()
+            if (guild && guild !== this.currentGuild) {
+                this.currentGuild = guild
+                await this.checkIfUserIsInServer()
+            }
         },
         async checkIfUserIsInServer() {
             if (!this.currentGuild) {
@@ -105,9 +107,11 @@ export const useUserStore = defineStore('user', {
 
             this.guilds = await response.json()
 
-            setTimeout(() => {
-                this.setCurrentGuild()
-            }, 2000)
+            if (this.guilds) {
+                setTimeout(() => {
+                    this.setCurrentGuild()
+                }, 2000)
+            }
         },
 
         async signOut() {
