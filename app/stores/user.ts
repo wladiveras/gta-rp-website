@@ -27,9 +27,10 @@ export const useUserStore = defineStore('user', {
 
             if (guild && guild !== this.currentGuild) {
                 this.currentGuild = guild
-                console.log('Current Guild:', this.currentGuild)
+
                 await this.checkIfUserIsInServer()
             }
+            console.log('Current Guild:', this.currentGuild)
         },
         async checkIfUserIsInServer() {
             if (!this.currentGuild) {
