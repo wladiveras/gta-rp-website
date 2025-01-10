@@ -16,7 +16,8 @@ export const useUserStore = defineStore('user', {
     },
 
     actions: {
-        setCurrentGuild() {
+        async setCurrentGuild() {
+            await nextTick()
             const config = useRuntimeConfig()
 
             console.log('Server ID:', config.public.DISCORD_SERVER_ID)
@@ -115,8 +116,8 @@ export const useUserStore = defineStore('user', {
             this.guilds = await response.json()
 
             if (this.guilds) {
-                setTimeout(() => {
-                    this.setCurrentGuild()
+                setTimeout(async () => {
+                    await this.setCurrentGuild()
                 }, 2000)
             }
         },
