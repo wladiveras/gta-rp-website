@@ -16,13 +16,20 @@ export const useUserStore = defineStore('user', {
     },
 
     actions: {
-        setCurrentGuild() {
+        async setCurrentGuild() {
             this.currentGuild = this.guilds
                 .filter(
                     (guild) =>
                         guild.id === useRuntimeConfig().public.DISCORD_SERVER_ID
                 )
                 .pop()
+
+            await this.checkIfUserIsInServer()
+        },
+        async checkIfUserIsInServer() {
+            if (!this.currentGuild) {
+                this.signOut()
+            }
         },
         async authenticateWithDiscord() {
             const { error } = await useSupabaseClient().auth.signInWithOAuth({
@@ -36,7 +43,7 @@ export const useUserStore = defineStore('user', {
             if (error)
                 throw createError({
                     statusCode: 401,
-                    message: 'Discord authentication failed'
+                    message: 'Discord falhou na conexão.'
                 })
         },
 
@@ -86,7 +93,7 @@ export const useUserStore = defineStore('user', {
             }
 
             this.guilds = await response.json()
-            this.setCurrentGuild()
+            await this.setCurrentGuild()
         },
 
         async signOut() {
