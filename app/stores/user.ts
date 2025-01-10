@@ -46,7 +46,7 @@ export const useUserStore = defineStore('user', {
                 })
                 setTimeout(() => {
                     this.signOut()
-                }, 3000)
+                }, 5000)
             }
         },
         async authenticateWithDiscord() {
