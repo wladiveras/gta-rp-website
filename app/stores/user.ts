@@ -24,11 +24,22 @@ export const useUserStore = defineStore('user', {
                 )
                 .pop()
 
+            console.log(useRuntimeConfig().public.DISCORD_SERVER_ID)
+
             await this.checkIfUserIsInServer()
         },
         async checkIfUserIsInServer() {
             if (!this.currentGuild) {
-                this.signOut()
+                const toast = useToast()
+
+                toast.add({
+                    title: 'Entre no Servidor',
+                    description: 'Você não está mais no servidor.',
+                    color: 'error'
+                })
+                setTimeout(() => {
+                    this.signOut()
+                }, 3000)
             }
         },
         async authenticateWithDiscord() {
@@ -93,7 +104,10 @@ export const useUserStore = defineStore('user', {
             }
 
             this.guilds = await response.json()
-            await this.setCurrentGuild()
+
+            setTimeout(() => {
+                this.setCurrentGuild()
+            }, 2000)
         },
 
         async signOut() {
