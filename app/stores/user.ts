@@ -36,7 +36,8 @@ export const useUserStore = defineStore('user', {
             console.log('Current Guild:', this.currentGuild)
         },
         checkIfUserIsInServer() {
-            if (!this.currentGuild) {
+            // @ts-expect-error - Check if user is in server
+            if (!this.currentGuild?.name) {
                 const toast = useToast()
 
                 toast.add({
