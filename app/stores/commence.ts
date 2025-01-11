@@ -1,4 +1,5 @@
 import { useUserStore } from './user'
+import { defineStore } from 'pinia'
 import { LazyModalDiscord } from '#components'
 
 export const useCommenceStore = defineStore('commence', {
@@ -9,12 +10,12 @@ export const useCommenceStore = defineStore('commence', {
     getters: {},
 
     actions: {
-        async buyItem() {
+        buyItem() {
             const userStore = useUserStore()
             const toast = useToast()
             const modal = useModal()
 
-            const { isLoggedIn } = storeToRefs(userStore)
+            const isLoggedIn = computed(() => userStore.isLoggedIn)
 
             if (!isLoggedIn) {
                 modal.open(LazyModalDiscord, {

@@ -3,14 +3,7 @@
 </script>
 
 <template>
-    <UModal
-        title="Entre no nosso Discord."
-        :close="{
-            color: 'primary',
-            variant: 'outline',
-            class: 'rounded-full cursor-pointer'
-        }"
-    >
+    <UModal title="Entre no nosso Discord.">
         <template #body>
             <a
                 href="https://discord.gg/TMYD9xsjBN"
