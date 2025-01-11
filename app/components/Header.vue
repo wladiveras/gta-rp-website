@@ -36,10 +36,19 @@
 
         <template #right>
             <UButton
-                v-if="!isLoggedIn"
-                icon="i-lucide-log-in"
+                icon="material-symbols:shopping-cart-checkout"
                 color="neutral"
                 variant="ghost"
+                label="Loja"
+                size="xl"
+                class="text-2xl text-primary-500"
+                to="/store"
+            />
+            <UButton
+                v-if="!isLoggedIn"
+                icon="line-md:discord"
+                variant="soft"
+                color="primary"
                 label="Entrar"
                 size="xl"
                 class="text-2xl"

@@ -7,13 +7,13 @@
     })
 
     useSeoMeta({
-        title: 'Perfil'
+        title: `${userData?.name.value} - Perfil`
     })
 </script>
 
 <template>
     <section v-if="userData.isLoggedIn">
-        <header
+        <section
             data-aos="fade-right"
             data-aos-delay="300"
             data-aos-duration="1000"
@@ -22,21 +22,21 @@
         >
             <div>
                 <UAvatar
-                    :src="userData.avatar"
+                    :src="userData?.avatar"
                     class="h-[10rem] w-[10rem] m-auto block mb-10"
                 />
 
                 <div class="user-info-grid">
-                    <div>ID: {{ userData.id }}</div>
-                    <div>Nome: {{ userData.name }}</div>
-                    <div>Discord: {{ userData.discord }}</div>
-                    <div>Email: {{ userData.email }}</div>
-                    <div>Cidade: {{ userData.currentGuild.value?.name }}</div>
+                    <div>ID: {{ userData?.id }}</div>
+                    <div>Nome: {{ userData?.name }}</div>
+                    <div>Discord: {{ userData?.discord }}</div>
+                    <div>Email: {{ userData?.email }}</div>
+                    <div>Cidade: {{ userData.currentGuild?.value?.name }}</div>
                     <div>
-                        Id da Cidade: {{ userData.currentGuild.value?.id }}
+                        Id da Cidade: {{ userData.currentGuild?.value?.id }}
                     </div>
                 </div>
             </div>
-        </header>
+        </section>
     </section>
 </template>

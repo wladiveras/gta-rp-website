@@ -52,7 +52,6 @@
 
 <template>
     <UApp>
-        <Header />
         <ClientOnly>
             <CheckPwa />
         </ClientOnly>
@@ -66,7 +65,7 @@
                 <NuxtPage />
             </NuxtLayout>
         </UMain>
-        <Footer />
+
         <!-- <UNotifications /> -->
     </UApp>
 </template>

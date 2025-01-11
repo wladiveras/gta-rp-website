@@ -1,9 +1,7 @@
 <script setup lang="ts">
-    const userStore = useUserStore()
-    const userData = storeToRefs(userStore)
     definePageMeta({
         layout: 'default',
-        auth: true
+        auth: false
     })
 
     useSeoMeta({
@@ -12,7 +10,7 @@
 </script>
 
 <template>
-    <section v-if="userData.isLoggedIn">
+    <section>
         <header
             data-aos="fade-right"
             data-aos-delay="300"

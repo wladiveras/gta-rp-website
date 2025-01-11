@@ -13,11 +13,11 @@
                 />
             </div>
         </div>
-        <Header />
+        <LazyStoreHeader />
         <div :class="{ 'opacity-0': isLoading }">
             <slot />
         </div>
-        <Footer />
+        <LazyFooter />
     </div>
 </template>
 
