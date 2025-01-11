@@ -19,8 +19,6 @@ export const useUserStore = defineStore('user', {
         async setCurrentGuild() {
             await nextTick()
             const config = useRuntimeConfig()
-            console.log({ test: 'x' })
-            console.log({ discord: config.public.DISCORD_SERVER_ID })
 
             const guild = this.guilds
                 .filter((guild) => guild.id === config.public.DISCORD_SERVER_ID)
@@ -33,11 +31,10 @@ export const useUserStore = defineStore('user', {
             await this.checkIfUserIsInServer()
         },
         async checkIfUserIsInServer() {
-            // if (!this.currentGuild?.name) {
-            //     await this.signOut()
-            // }
-
-            console.log(this.currentGuild)
+            // @ts-expect-error - this.currentGuild is not defined
+            if (!this.currentGuild?.name) {
+                await this.signOut()
+            }
         },
         async authenticateWithDiscord() {
             await nextTick()
