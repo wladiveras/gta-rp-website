@@ -38,7 +38,7 @@
                         </ul>
                     </div>
                     <button
-                        class="w-full bg-primary-500 hover:bg-primary-700 text-white font-bold py-2 px-4 rounded mt-4 block"
+                        class="w-full bg-primary-500 hover:bg-primary-700 text-white font-bold py-2 px-4 rounded mt-4 block cursor-pointer"
                         @click="commenceStore.buyItem()"
                     >
                         COMPRAR
