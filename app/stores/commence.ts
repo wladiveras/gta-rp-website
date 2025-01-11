@@ -11,7 +11,7 @@ export const useCommenceStore = defineStore('commence', {
     actions: {
         async buyItem() {
             const userStore = useUserStore()
-
+            const toast = useToast()
             const { isLoggedIn } = storeToRefs(userStore)
 
             if (!isLoggedIn.value) {
@@ -30,7 +30,6 @@ export const useCommenceStore = defineStore('commence', {
                 icon: 'map:convenience-store',
                 color: 'success'
             })
-        }
         }
     }
 })
