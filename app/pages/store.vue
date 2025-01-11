@@ -28,7 +28,9 @@
             />
         </section>
 
-        <LazyStoreCategory class="flex flex-col w-full relative top-[-60px]" />
+        <LazyStoreCategories
+            class="flex flex-col w-full relative top-[-60px]"
+        />
     </section>
 </template>
 

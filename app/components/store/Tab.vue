@@ -1,71 +1,81 @@
 <template>
-    <UTabs
-        v-model="category"
-        :items="categories"
-        variant="link"
-        class="gap-4 w-full"
-        :orientation="horizontal ? 'horizontal' : 'vertical'"
-        :ui="{
-            trigger: 'flex-1 font-5xl'
-        }"
-    />
+    <section>
+        <UTabs
+            :items="categories"
+            variant="link"
+            class="gap-4 w-full"
+            :orientation="horizontal ? 'horizontal' : 'vertical'"
+            :ui="{
+                trigger: 'flex-1 font-5xl'
+            }"
+        >
+            <template #content="{ item }">
+                <component :is="item.component" />
+            </template>
+        </UTabs>
+    </section>
 </template>
 
 <script lang="ts" setup>
-    const category = ref('')
-    const horizontal = ref(true)
+    import {
+        StoreCategoryHome,
+        StoreCategoryCatalog,
+        StoreCategoryCars,
+        StoreCategoryExclusiveCars,
+        StoreCategoryArmored,
+        StoreCategoryMotorcycles,
+        StoreCategoryFactions,
+        StoreCategoryItems,
+        StoreCategoryBans
+    } from '#components'
 
-    watch(
-        () => category.value,
-        () => {
-            console.log(category.value)
-        }
-    )
+    const horizontal = ref(true)
 
     const categories = [
         {
             label: 'inicio',
-            icon: 'line-md:home'
+            icon: 'line-md:home',
+            component: StoreCategoryHome
         },
         {
             label: 'Catálogo',
             icon: 'line-md:clipboard-arrow',
-            slot: 'category'
+            component: StoreCategoryCatalog
         },
         {
             label: 'Carros',
             icon: 'mdi:car-lifted-pickup',
-            slot: 'cars'
+            component: StoreCategoryCars
         },
         {
             label: 'Carros Exclusivos',
             icon: 'arcticons:pixel-car-racer',
-            slot: 'exclusive'
+            component: StoreCategoryExclusiveCars
         },
         {
             label: 'Blindados',
             icon: 'lets-icons:star-duotone',
-            slot: 'armored'
+            component: StoreCategoryArmored
         },
         {
             label: 'Motos',
             icon: 'material-symbols:motorcycle-sharp',
-            slot: 'motorcycles'
+            component: StoreCategoryMotorcycles
         },
         {
             label: 'Facções/Organizações',
             icon: 'fluent-emoji-high-contrast:skull',
-            slot: 'factions'
+            component: StoreCategoryFactions
         },
         {
             label: 'Dinheiro/Armas',
             icon: 'ph:money-wavy',
-            slot: 'items'
+            component: StoreCategoryItems
         },
         {
             label: 'Remover Punições',
             icon: 'lucide:shield-ban',
-            slot: 'bans'
+            component: StoreCategoryBans
         }
     ]
 </script>
