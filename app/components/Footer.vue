@@ -16,6 +16,7 @@
             <UNavigationMenu
                 :items="items"
                 variant="link"
+                class="flex justify-center"
             />
 
             <template #right>
@@ -63,8 +64,8 @@
             to: '#'
         },
         {
-            label: 'Link 4',
-            to: '#',
+            label: 'Discord',
+            to: 'https://discord.gg/TMYD9xsjBN',
             target: '_blank'
         }
     ]
