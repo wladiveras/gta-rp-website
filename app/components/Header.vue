@@ -35,37 +35,32 @@
         </section>
 
         <template #right>
-            <UTooltip
-                text="Entrar"
-                :kbds="['meta', 'L']"
-            >
-                <UButton
-                    v-if="!isLoggedIn"
-                    icon="i-lucide-log-in"
-                    color="neutral"
-                    variant="ghost"
-                    label="Entrar"
-                    size="xl"
-                    class="text-2xl"
-                    @click="userStore.authenticateWithDiscord()"
-                />
-                <section v-if="isLoggedIn">
-                    <UDropdownMenu
-                        :items="dropdownItems"
-                        :ui="{ content: 'w-48 ' }"
+            <UButton
+                v-if="!isLoggedIn"
+                icon="i-lucide-log-in"
+                color="neutral"
+                variant="ghost"
+                label="Entrar"
+                size="xl"
+                class="text-2xl"
+                @click="userStore.authenticateWithDiscord()"
+            />
+            <section v-if="isLoggedIn">
+                <UDropdownMenu
+                    :items="dropdownItems"
+                    :ui="{ content: 'w-48 ' }"
+                >
+                    <UChip
+                        inset
+                        class="mt-2 border-2 border-primary-500 rounded-full cursor-pointer"
                     >
-                        <UChip
-                            inset
-                            class="mt-2 border-2 border-primary-500 rounded-full cursor-pointer"
-                        >
-                            <UAvatar
-                                :src="avatar"
-                                :alt="name"
-                            />
-                        </UChip>
-                    </UDropdownMenu>
-                </section>
-            </UTooltip>
+                        <UAvatar
+                            :src="avatar"
+                            :alt="name"
+                        />
+                    </UChip>
+                </UDropdownMenu>
+            </section>
         </template>
         <template #content>
             <UNavigationMenu
