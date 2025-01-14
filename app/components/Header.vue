@@ -36,10 +36,10 @@
 
         <template #right>
             <UButton
-                icon="material-symbols:shopping-cart-checkout"
+                icon="carbon:ibm-knowledge-catalog-premium"
                 color="neutral"
                 variant="ghost"
-                label="Loja"
+                label="Catalogo"
                 size="xl"
                 class="text-2xl text-primary-500"
                 to="/store"
@@ -122,8 +122,9 @@
         ],
         [
             {
-                label: 'Loja',
-                icon: 'i-lucide-users'
+                label: 'Catalogo',
+                icon: 'carbon:ibm-knowledge-catalog-premium',
+                to: '/store'
             }
         ],
         [
@@ -161,7 +162,7 @@
             active: isActive('#package')
         },
         {
-            label: 'VIP',
+            label: 'Doadores',
             href: '/#vip',
             active: isActive('#vip')
         },
@@ -174,11 +175,11 @@
             label: 'Contato',
             href: '/#contact',
             active: isActive('#contact')
-        },
-        {
-            label: 'Regras',
-            href: '/rules',
-            active: isActive('/rules')
         }
+        // {
+        //     label: 'Regras',
+        //     href: '/rules',
+        //     active: isActive('/rules')
+        // }
     ])
 </script>

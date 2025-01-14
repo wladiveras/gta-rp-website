@@ -52,7 +52,7 @@
                     class="w-full bg-primary-500 hover:bg-primary-700 text-white font-bold py-2 px-4 rounded mt-auto cursor-pointer"
                     @click="commenceStore.buyItem()"
                 >
-                    COMPRAR
+                    ADQUIRIR
                 </button>
             </div>
         </div>
@@ -64,33 +64,33 @@
 
     const plans = [
         {
-            name: 'Starter',
+            name: 'Ouro',
             price: 'R$ 135.00',
             discount: 'R$ 150.00',
             features: [
-                'VIP Ouro (30 Dias)',
+                'Doador Ouro (30 Dias)',
                 '6.000 Diamantes',
                 '5 Caixas CDA',
                 'Bolso Pequeno para guardar seus itens (3kg / 3 slots)'
             ]
         },
         {
-            name: 'Diamond',
+            name: 'Diamante',
             price: 'R$ 200.00',
             discount: 'R$ 250.00',
             features: [
-                'VIP Diamante (30 Dias)',
+                'Doador Diamante (30 Dias)',
                 '12.000 Diamantes',
                 '10 Caixas CDA',
                 'Bolso Médio para guardar seus itens (5kg / 5 slots)'
             ]
         },
         {
-            name: 'Platinum',
+            name: 'Platina',
             price: 'R$ 300.00',
             discount: 'R$ 350.00',
             features: [
-                'VIP Platina (30 Dias)',
+                'Doador Platina (30 Dias)',
                 '20.000 Diamantes',
                 '15 Caixas CDA',
                 'Bolso Grande para guardar seus itens (10kg / 10 slots)'

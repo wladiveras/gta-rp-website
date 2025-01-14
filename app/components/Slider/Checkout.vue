@@ -7,102 +7,6 @@
             price: 10000,
             quantity: 1,
             image: 'https://storage.hydrus.gg/production/packages/XovB0aeNFMzYBAdXUHUn6RSm7DMaaCRV7kSph9nN3XuauZF6y9BDz07IarAyHyoI.png'
-        },
-        {
-            name: 'Blindado (BLINDADO - 200KG)',
-            price: 10000,
-            quantity: 1,
-            image: 'https://storage.hydrus.gg/production/packages/XovB0aeNFMzYBAdXUHUn6RSm7DMaaCRV7kSph9nN3XuauZF6y9BDz07IarAyHyoI.png'
-        },
-        {
-            name: 'Blindado (BLINDADO - 200KG)',
-            price: 10000,
-            quantity: 1,
-            image: 'https://storage.hydrus.gg/production/packages/XovB0aeNFMzYBAdXUHUn6RSm7DMaaCRV7kS'
-        },
-        {
-            name: 'Blindado (BLINDADO - 200KG)',
-            price: 10000,
-            quantity: 1,
-            image: 'https://storage.hydrus.gg/production/packages/XovB0aeNFMzYBAdXUHUn6RSm7DMaaCRV7kS'
-        },
-        {
-            name: 'Blindado (BLINDADO - 200KG)',
-            price: 10000,
-            quantity: 1,
-            image: 'https://storage.hydrus.gg/production/packages/XovB0aeNFMzYBAdXUHUn6RSm7DMaaCRV7kS'
-        },
-        {
-            name: 'Blindado (BLINDADO - 200KG)',
-            price: 10000,
-            quantity: 1,
-            image: 'https://storage.hydrus.gg/production/packages/XovB0aeNFMzYBAdXUHUn6RSm7DMaaCRV7kS'
-        },
-        {
-            name: 'Blindado (BLINDADO - 200KG)',
-            price: 10000,
-            quantity: 1,
-            image: 'https://storage.hydrus.gg/production/packages/XovB0aeNFMzYBAdXUHUn6RSm7DMaaCRV7kS'
-        },
-        {
-            name: 'Blindado (BLINDADO - 200KG)',
-            price: 10000,
-            quantity: 1,
-            image: 'https://storage.hydrus.gg/production/packages/XovB0aeNFMzYBAdXUHUn6RSm7DMaaCRV7kS'
-        },
-        {
-            name: 'Blindado (BLINDADO - 200KG)',
-            price: 10000,
-            quantity: 1,
-            image: 'https://storage.hydrus.gg/production/packages/XovB0aeNFMzYBAdXUHUn6RSm7DMaaCRV7kS'
-        },
-        {
-            name: 'Blindado (BLINDADO - 200KG)',
-            price: 10000,
-            quantity: 1,
-            image: 'https://storage.hydrus.gg/production/packages/XovB0aeNFMzYBAdXUHUn6RSm7DMaaCRV7kS'
-        },
-        {
-            name: 'Blindado (BLINDADO - 200KG)',
-            price: 10000,
-            quantity: 1,
-            image: 'https://storage.hydrus.gg/production/packages/XovB0aeNFMzYBAdXUHUn6RSm7DMaaCRV7kS'
-        },
-        {
-            name: 'Blindado (BLINDADO - 200KG)',
-            price: 10000,
-            quantity: 1,
-            image: 'https://storage.hydrus.gg/production/packages/XovB0aeNFMzYBAdXUHUn6RSm7DMaaCRV7kS'
-        },
-        {
-            name: 'Blindado (BLINDADO - 200KG)',
-            price: 10000,
-            quantity: 1,
-            image: 'https://storage.hydrus.gg/production/packages/XovB0aeNFMzYBAdXUHUn6RSm7DMaaCRV7kS'
-        },
-        {
-            name: 'Blindado (BLINDADO - 200KG)',
-            price: 10000,
-            quantity: 1,
-            image: 'https://storage.hydrus.gg/production/packages/XovB0aeNFMzYBAdXUHUn6RSm7DMaaCRV7kS'
-        },
-        {
-            name: 'Blindado (BLINDADO - 200KG)',
-            price: 10000,
-            quantity: 1,
-            image: 'https://storage.hydrus.gg/production/packages/XovB0aeNFMzYBAdXUHUn6RSm7DMaaCRV7kS'
-        },
-        {
-            name: 'Blindado (BLINDADO - 200KG)',
-            price: 10000,
-            quantity: 1,
-            image: 'https://storage.hydrus.gg/production/packages/XovB0aeNFMzYBAdXUHUn6RSm7DMaaCRV7kS'
-        },
-        {
-            name: 'Blindado (BLINDADO - 200KG)',
-            price: 50050,
-            quantity: 1,
-            image: 'https://storage.hydrus.gg/production/packages/XovB0aeNFMzYBAdXUHUn6RSm7DMaaCRV7kS'
         }
     ])
 
@@ -120,7 +24,7 @@
 
 <template>
     <USlideover
-        title="Carrinho de Compras"
+        title="Carrinho de Items"
         description="Veja o sumario dos seus produtos selecionados."
     >
         <template #body>
@@ -175,7 +79,7 @@
             <UButton
                 class="w-full block text-white"
                 color="primary"
-                label="Finalizar Carrinho"
+                label="Ir ao Checkout"
                 @click="slideover.close()"
             />
         </template>

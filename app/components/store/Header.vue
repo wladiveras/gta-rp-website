@@ -11,26 +11,28 @@
             </div>
         </template>
 
-        <section class="w-full block">
-            <UInput
-                icon="i-lucide-search"
-                size="md"
-                variant="outline"
-                placeholder="Pesquisar produto por nome..."
-                class="w-full block"
-            />
+        <section
+            class="max-w-full gap-4 text-2xl flex items-center space-x-6 cursor-pointer"
+        >
+            <span class="hover:text-primary-500">Doadores</span>
+            <UDropdownMenu
+                :items="cars"
+                :ui="{
+                    content:
+                        'w-48 bg-[var(--ui-bg)]/75 backdrop-blur top-3 relative',
+                    item: 'text-xl'
+                }"
+            >
+                <span class="hover:text-primary-500">Carros</span>
+            </UDropdownMenu>
+            <span class="hover:text-primary-500">aviões</span>
+            <span class="hover:text-primary-500">helicópteros</span>
+            <span class="hover:text-primary-500">mansões</span>
+            <span class="hover:text-primary-500">facções</span>
+            <span class="hover:text-primary-500">extras</span>
         </section>
 
         <template #right>
-            <UButton
-                icon=""
-                color="neutral"
-                variant="ghost"
-                label=""
-                size="xl"
-                to="/checkout"
-            />
-
             <span
                 class="text-2xl text-primary-500 cursor-pointer"
                 @click="openCheckout"
@@ -57,7 +59,6 @@
                 @click="userStore.authenticateWithDiscord()"
             />
         </template>
-        <template #content>xxx </template>
     </UHeader>
 </template>
 
@@ -68,7 +69,36 @@
     const slideover = useSlideover()
     const { isLoggedIn, name, avatar } = storeToRefs(userStore)
 
-    function openCheckout() {
+    const cars = [
+        [
+            {
+                label: 'Carros simples',
+                icon: 'i-lucide-eye'
+            },
+            {
+                label: 'Carros luxo',
+                icon: 'i-lucide-copy'
+            },
+            {
+                label: 'Carros hyper',
+                icon: 'i-lucide-pencil'
+            },
+            {
+                label: 'Carros exclusivos',
+                icon: 'i-lucide-pencil'
+            },
+            {
+                label: 'Carros blindados',
+                icon: 'i-lucide-pencil'
+            },
+            {
+                label: 'Carros de carga',
+                icon: 'i-lucide-pencil'
+            }
+        ]
+    ]
+
+    const openCheckout = () => {
         slideover.open(LazySliderCheckout)
     }
 </script>

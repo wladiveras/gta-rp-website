@@ -41,7 +41,7 @@
                         class="w-full bg-primary-500 hover:bg-primary-700 text-white font-bold py-2 px-4 rounded mt-4 block cursor-pointer"
                         @click="commenceStore.buyItem()"
                     >
-                        COMPRAR
+                        ADQUIRIR
                     </button>
                 </div>
             </div>
@@ -63,7 +63,7 @@
 
     const plans = [
         {
-            name: 'VIP Prata',
+            name: 'Doador Prata',
             price: '50.00 (30 dias)',
             features: [
                 'Acesso a tatuagens exclusivas',
@@ -79,7 +79,7 @@
             ]
         },
         {
-            name: 'VIP Ouro',
+            name: 'Doador Ouro',
             price: '75.00 (30 dias)',
             features: [
                 '2 Slots no guarda-roupa',
@@ -96,7 +96,7 @@
             ]
         },
         {
-            name: 'VIP Diamante (30 dias)',
+            name: 'Doador Diamante (30 dias)',
             price: '120.00',
             features: [
                 'Prioridade em ingressos',

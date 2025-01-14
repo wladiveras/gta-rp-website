@@ -38,7 +38,6 @@
         }, 1000)
     })
 
-    // Global navigation hook for Nuxt
     const nuxtApp = useNuxtApp()
 
     nuxtApp.hook('page:start', () => {

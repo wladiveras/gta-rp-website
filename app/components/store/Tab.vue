@@ -19,7 +19,6 @@
 <script lang="ts" setup>
     import {
         StoreCategoryHome,
-        StoreCategoryCatalog,
         StoreCategoryCars,
         StoreCategoryExclusiveCars,
         StoreCategoryArmored,
@@ -29,18 +28,13 @@
         StoreCategoryBans
     } from '#components'
 
-    const horizontal = ref(true)
+    const horizontal = ref(false)
 
     const categories = [
         {
             label: 'inicio',
             icon: 'line-md:home',
             component: StoreCategoryHome
-        },
-        {
-            label: 'Catálogo',
-            icon: 'line-md:clipboard-arrow',
-            component: StoreCategoryCatalog
         },
         {
             label: 'Carros',

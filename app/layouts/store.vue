@@ -17,7 +17,6 @@
         <div :class="{ 'opacity-0': isLoading }">
             <slot />
         </div>
-        <LazyFooter />
     </div>
 </template>
 

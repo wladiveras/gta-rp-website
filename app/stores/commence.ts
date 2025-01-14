@@ -18,7 +18,7 @@ export const useCommenceStore = defineStore('commence', {
                 const modal = useModal()
                 modal.open(LazyModalDiscord, {
                     description:
-                        'Você está prestes a comprar um Starter Pack, antes entre no nosso discord!'
+                        'Você está prestes a Obter um Starter Pack, antes entre no nosso discord!'
                 })
 
                 return
