@@ -22,7 +22,7 @@
                             <a
                                 class="text-primary-500"
                                 target="_blank"
-                                href="https://discord.gg/TMYD9xsjBN"
+                                :href="config.public.media.discord"
                             >
                                 clique aqui
                             </a>
@@ -51,7 +51,7 @@
                         >
                             <iframe
                                 class="w-full border-primary-500 border-2 rounded h-full"
-                                src="https://www.youtube.com/embed/vrdGIH4nhoI?si=V5r0mll8T3ESb2ce"
+                                :src="config.public.media.video"
                                 title="YouTube video player"
                                 frameborder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -66,6 +66,8 @@
     </section>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+    const config = useRuntimeConfig()
+</script>
 
 <style></style>

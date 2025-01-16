@@ -1,33 +1,36 @@
 <script setup lang="ts">
-    const modal = useModal()
+    const config = useRuntimeConfig()
+    const userStore = useUserStore()
 </script>
 
 <template>
-    <UModal title="Entre no nosso Discord.">
+    <UModal title="Entrar no Discord">
         <template #body>
-            <a
-                href="https://discord.gg/TMYD9xsjBN"
-                target="_blank"
-                class="border-primary-500 mt-10 cursor-pointer"
-            >
-                <UIcon
-                    name="line-md:discord"
-                    class="animate-bounce text-4xl m-auto block text-primary-500 hover:text-primary-700"
-                />
-                <UButton
-                    label="Entrar no Discord"
-                    variant="link"
-                    class="text-2xl m-auto block transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
-                />
-            </a>
+            <UIcon
+                name="line-md:discord"
+                class="animate-bounce text-4xl m-auto block text-primary-500 hover:text-primary-700"
+            />
+            <p class="text-center text-white text-xl">
+                Olá tudo bem? Antes de tudo, primeiro, entre no nosso Discord
+                clicando no botão abaixo, caso você já esteja no Discord, faça
+                login no seu perfil clicando em logar.
+            </p>
         </template>
 
         <template #footer>
             <UButton
                 color="primary"
-                label="Fechar"
-                class="block w-full text-xl text-white"
-                @click="modal.close()"
+                label="Entrar no Discord"
+                class="block w-full text-xl text-white text-center"
+                :to="config.public.media.discord"
+            />
+            <UButton
+                variant="soft"
+                color="primary"
+                label="Logar"
+                size="xl"
+                class="text-2xl block w-full"
+                @click="userStore.authenticateWithDiscord()"
             />
         </template>
     </UModal>

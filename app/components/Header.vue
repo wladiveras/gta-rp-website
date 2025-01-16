@@ -49,7 +49,7 @@
                 icon="line-md:discord"
                 variant="soft"
                 color="primary"
-                label="Entrar"
+                label="Logar"
                 size="xl"
                 class="text-2xl"
                 @click="userStore.authenticateWithDiscord()"
@@ -127,18 +127,7 @@
                 to: '/store'
             }
         ],
-        [
-            {
-                label: 'Suporte',
-                icon: 'i-lucide-life-buoy',
-                to: '#'
-            },
-            {
-                label: 'API',
-                icon: 'i-lucide-cloud',
-                disabled: true
-            }
-        ],
+
         [
             {
                 label: 'Sair',

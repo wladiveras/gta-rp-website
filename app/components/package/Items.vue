@@ -50,7 +50,7 @@
                 </div>
                 <button
                     class="w-full bg-primary-500 hover:bg-primary-700 text-white font-bold py-2 px-4 rounded mt-auto cursor-pointer"
-                    @click="commenceStore.buyItem()"
+                    @click="userStore.isConnected('store')"
                 >
                     ADQUIRIR
                 </button>
@@ -60,7 +60,7 @@
 </template>
 
 <script lang="ts" setup>
-    const commenceStore = useCommenceStore()
+    const userStore = useUserStore()
 
     const plans = [
         {

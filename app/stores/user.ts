@@ -1,3 +1,5 @@
+import { LazyModalDiscord } from '#components'
+
 export const useUserStore = defineStore('user', {
     state: () => ({
         id: '',
@@ -16,6 +18,27 @@ export const useUserStore = defineStore('user', {
     },
 
     actions: {
+        async isConnected(type: string) {
+            if (!this.isLoggedIn) {
+                const modal = useModal()
+
+                modal.open(LazyModalDiscord, {
+                    description:
+                        'Oops, antes entre no nosso discord para prosseguir!'
+                })
+                return
+            }
+
+            const config = useRuntimeConfig()
+
+            if (type === 'store') {
+                return navigateTo('/store')
+            }
+
+            if (type === 'connect') {
+                return navigateTo(config.public.connect, { external: true })
+            }
+        },
         async setCurrentGuild() {
             await nextTick()
             const config = useRuntimeConfig()

@@ -39,7 +39,18 @@ export default defineNuxtConfig({
         public: {
             PROJECT_URL: process.env.NUXT_PUBLIC_PROJECT_URL,
             NUXT_UI_PRO_LICENSE: process.env.NUXT_UI_PRO_LICENSE,
-            DISCORD_SERVER_ID: process.env.NUXT_PUBLIC_DISCORD_SERVER_ID
+            DISCORD_SERVER_ID: process.env.NUXT_PUBLIC_DISCORD_SERVER_ID,
+
+            // Medias and Connect
+            connect: process.env.NUXT_PUBLIC_CONNECT,
+            media: {
+                discord: process.env.NUXT_PUBLIC_MEDIA_DISCORD,
+                facebook: process.env.NUXT_PUBLIC_MEDIA_FACEBOOK,
+                youtube: process.env.NUXT_PUBLIC_MEDIA_YOUTUBE,
+                instagram: process.env.NUXT_PUBLIC_MEDIA_INSTAGRAM,
+                twitter: process.env.NUXT_PUBLIC_MEDIA_TWITTER,
+                video: process.env.NUXT_PUBLIC_MEDIA_VIDEO
+            }
         },
         publicRoutes: ['/', '/login', '/auth/**']
     },

@@ -1,7 +1,7 @@
 <template>
     <section>
         <USeparator
-            icon="i-simple-icons-nuxtdotjs"
+            icon="line-md:speedometer-loop"
             type="dashed"
             class="h-px mt-[10rem]"
         />
@@ -21,28 +21,31 @@
 
             <template #right>
                 <UButton
+                    v-if="config.public.media.discord"
+                    :to="config.public.media.discord"
                     icon="line-md:discord-twotone"
                     color="neutral"
                     variant="ghost"
-                    to="https://www"
                     target="_blank"
                     aria-label="Discord"
                 />
                 <UButton
+                    v-if="config.public.media.twitter"
+                    :to="config.public.media.twitter"
                     icon="line-md:twitter-filled"
                     color="neutral"
                     variant="ghost"
-                    to="https://www"
                     target="_blank"
-                    aria-label="X"
+                    aria-label="Twitter"
                 />
                 <UButton
+                    v-if="config.public.media.instagram"
+                    :to="config.public.media.instagram"
                     icon="line-md:instagram"
                     color="neutral"
                     variant="ghost"
-                    to="https://www"
                     target="_blank"
-                    aria-label="GitHub"
+                    aria-label="instagram"
                 />
             </template>
         </UFooter>
@@ -50,22 +53,27 @@
 </template>
 
 <script lang="ts" setup>
+    const config = useRuntimeConfig()
+
     const items = [
         {
             label: 'Link 1',
-            to: '#'
+            to: '#',
+            target: '_blank'
         },
         {
             label: 'Link 2',
-            to: '#ss'
+            to: '#ss',
+            target: '_blank'
         },
         {
             label: 'Link 3',
-            to: '#'
+            to: '#',
+            target: '_blank'
         },
         {
             label: 'Discord',
-            to: 'https://discord.gg/TMYD9xsjBN',
+            to: config.public.media.discord,
             target: '_blank'
         }
     ]
