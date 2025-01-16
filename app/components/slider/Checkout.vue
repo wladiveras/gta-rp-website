@@ -13,7 +13,7 @@
 <template>
     <USlideover
         :title="`Carrinho de Items (${totalItems})`"
-        description="Veja o sumario dos seus produtos selecionados."
+        description="Veja o sumario dos seus items selecionados."
     >
         <template #body>
             <section
