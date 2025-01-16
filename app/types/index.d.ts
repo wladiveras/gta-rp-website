@@ -96,3 +96,43 @@ export interface Range {
     start: Date
     end: Date
 }
+
+// Checkout types
+interface IOrderState {
+    isLoading: boolean
+    steps: IStep
+    items: IItems[]
+    customer: ICustomer
+    payment: IPayment
+    token: string | ''
+}
+interface IStep {
+    step: number
+    max: number
+    trigger: boolean
+    rollback: boolean
+}
+
+interface IItems {
+    id: number
+    name: string
+    price: number
+    quantity: number
+    image: string
+}
+
+interface IPayment {
+    id: number
+    name: string
+    price: number
+    method: string
+    card: {
+        holderName: string
+        number: string
+        expireMonth: string
+        expireYear: string
+        cvv: string
+        brand: string
+        installments: number
+    }
+}

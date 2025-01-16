@@ -46,9 +46,11 @@
                     </section>
 
                     <section class="flex-1 flex justify-center items-start">
-                        <div class="w-full max-w-[560px] aspect-video mt-1">
+                        <div
+                            class="w-full max-w-[560px] aspect-video mt-1 h-full"
+                        >
                             <iframe
-                                class="w-full h-full border-primary-500 border-2 rounded"
+                                class="w-full border-primary-500 border-2 rounded h-full"
                                 src="https://www.youtube.com/embed/vrdGIH4nhoI?si=V5r0mll8T3ESb2ce"
                                 title="YouTube video player"
                                 frameborder="0"

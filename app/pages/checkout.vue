@@ -1,11 +1,11 @@
 <script lang="ts" setup>
     definePageMeta({
-        layout: 'store',
+        layout: 'checkout',
         auth: false
     })
 
     useSeoMeta({
-        title: 'Saia na frente com nossos itens especiais!'
+        title: 'Carrinho de Doação'
     })
 </script>
 
@@ -15,9 +15,9 @@
         data-aos-delay="300"
         data-aos-duration="1000"
         data-aos-easing="ease-in-sine"
-        class="w-full flex flex-col flex-nowrap items-center justify-center"
+        class="mt-[100px] w-full flex flex-row flex-nowrap items-center justify-center gap-8"
     >
-        <LazyStore />
+        <Checkout />
     </section>
 </template>
 
