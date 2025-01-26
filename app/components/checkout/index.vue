@@ -107,7 +107,7 @@
                             </section>
                             <section class="flex">
                                 <UInput
-                                    v-model="state.userId"
+                                    v-model="state.coupon"
                                     placeholder="Digite o código do cupom."
                                     type="text"
                                     size="xl"
@@ -120,6 +120,7 @@
                                     color="primary"
                                     class="text-white"
                                     variant="solid"
+                                    @click="onCoupon"
                                 >
                                     Aplicar
                                 </UButton>
@@ -152,7 +153,7 @@
                     <h1 class="font-bold text-3xl mb-5">Detalhes da Doação</h1>
                 </div>
                 <UForm
-                    :schema="v.safeParser(LoginSchema)"
+                    :schema="v.safeParser(detailSchema)"
                     :state="state"
                     class="space-y-4"
                     size="xl"
@@ -188,7 +189,7 @@
                     <div class="flex flex-col md:flex-row gap-4">
                         <UFormField
                             label="CPF/CNPJ"
-                            name="email"
+                            name="document"
                             class="w-full"
                             size="xl"
                         >
@@ -202,25 +203,25 @@
                     <div class="flex flex-col md:flex-row gap-4">
                         <UFormField
                             label="ID na Cidade"
-                            name="Telefone"
+                            name="userId"
                             class="w-full md:w-1/2"
                             size="xl"
                         >
                             <UInput
                                 v-model="state.userId"
-                                type="Telefone"
+                                type="text"
                                 class="w-full"
                             />
                         </UFormField>
                         <UFormField
                             label="Telefone"
-                            name="Telefone"
+                            name="cellphone"
                             class="w-full md:w-1/2"
                             size="xl"
                         >
                             <UInput
                                 v-model="state.cellphone"
-                                type="Telefone"
+                                type="text"
                                 class="w-full"
                             />
                         </UFormField>
@@ -242,46 +243,53 @@
     import * as v from 'valibot'
     import type { FormSubmitEvent } from '#ui/types'
 
+    const toast = useToast()
     const orderStore = useOrderStore()
     const { items, totalPrice } = storeToRefs(orderStore)
-    const toast = useToast()
 
-    const LoginSchema = v.object({
+    const detailSchema = v.object({
         name: v.pipe(
-            v.string('Your email must be a string.'),
-            v.nonEmpty('Please enter your email.'),
-            v.email('The email address is badly formatted.')
+            v.string('Por favor, informe um nome válido.'),
+            v.nonEmpty('Por favor, informe seu nome.')
         ),
         email: v.pipe(
-            v.string('Your email must be a string.'),
-            v.nonEmpty('Please enter your email.'),
-            v.email('The email address is badly formatted.')
+            v.string('Por favor, informe um email válido.'),
+            v.nonEmpty('Por favor, informe um email.'),
+            v.email('Informe um email válido, algo está errado.')
         ),
         document: v.pipe(
-            v.string('Your email must be a string.'),
-            v.nonEmpty('Please enter your email.'),
-            v.email('The email address is badly formatted.')
+            v.string('Inform seu CPF.'),
+            v.nonEmpty('Por favor, informe seu CPF.'),
+            v.minLength(11, 'Informe um CPF válido.')
         ),
         cellphone: v.pipe(
-            v.string('Your password must be a string.'),
-            v.nonEmpty('Informe um telefone.'),
-            v.minLength(8, 'Your password must have 8 characters or more.')
+            v.string('Informe um celular válido.'),
+            v.nonEmpty('Por favor, informe seu celular.'),
+            v.minLength(9, 'Informe um celular válido.')
         ),
         userId: v.pipe(
-            v.string('Your password must be a string.'),
-            v.nonEmpty('Informe um telefone.'),
-            v.minLength(8, 'Your password must have 8 characters or more.')
+            v.string('Informe um ID.'),
+            v.nonEmpty('Informe um ID.'),
+            v.minLength(1, 'Informe um ID.')
         )
     })
 
-    type Schema = v.InferOutput<typeof LoginSchema>
+    const couponSchema = v.object({
+        coupon: v.pipe(
+            v.string('Informe um cupom válido.'),
+            v.minLength(3, 'Informe um cupom válido.')
+        )
+    })
+
+    type detailSchema = v.InferOutput<typeof detailSchema>
 
     const state = reactive({
         name: '',
         email: '',
         document: '',
         cellphone: '',
-        userId: ''
+        userId: '',
+        coupon: ''
     })
 
     const methods = ref([
@@ -303,7 +311,28 @@
     ])
     const value = ref('pix')
 
-    async function onSubmit(event: FormSubmitEvent<Schema>) {
+    const onCoupon = async () => {
+        const result = await v.safeParseAsync(couponSchema, {
+            coupon: state.coupon
+        })
+        console.log(result)
+
+        if (result.success) {
+            toast.add({
+                title: 'Cupom',
+                description: 'Cupom válido',
+                color: 'success'
+            })
+        } else {
+            toast.add({
+                title: 'Erro',
+                description: 'Cupom inválido',
+                color: 'error'
+            })
+        }
+    }
+
+    async function onSubmit(event: FormSubmitEvent<detailSchema>) {
         toast.add({
             title: 'Success',
             description: 'The form has been submitted.',

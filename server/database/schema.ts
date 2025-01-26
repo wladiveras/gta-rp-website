@@ -35,7 +35,6 @@ export const coupons = sqliteTable('coupons', {
     code: text('code').notNull().unique(),
     name: text('name').notNull(),
     isActive: integer('is_active').notNull().default(1),
-    usedById: integer('used_by_id').references(() => users.id),
     createdById: integer('created_by_id')
         .notNull()
         .references(() => users.id),
@@ -68,7 +67,7 @@ export const orderItems = sqliteTable('order_items', {
         .notNull()
         .references(() => items.id),
     quantity: integer('quantity').notNull(),
-    totalPrice: integer('price').notNull(),
+    price: integer('price').notNull(),
     createdAt: integer('created_at', { mode: 'timestamp' })
         .notNull()
         .default(new Date())
@@ -86,10 +85,6 @@ export const orderItemsRelations = relations(orderItems, ({ one }) => ({
 }))
 
 export const couponsRelations = relations(coupons, ({ one }) => ({
-    usedBy: one(users, {
-        fields: [coupons.usedById],
-        references: [users.id]
-    }),
     createdBy: one(users, {
         fields: [coupons.createdById],
         references: [users.id]
