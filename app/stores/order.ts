@@ -32,7 +32,8 @@ export const useOrderStore = defineStore('order', {
                 name: '',
                 email: '',
                 phone: '',
-                document: ''
+                document: '',
+                userid: ''
             },
             payment: {
                 id: 0,

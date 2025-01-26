@@ -1,15 +1,15 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     modules: [
+        'nuxt-aos',
         '@pinia/nuxt',
         '@nuxt/ui-pro',
         '@nuxt/image',
         '@nuxt/eslint',
         '@nuxthub/core',
         '@vite-pwa/nuxt',
-        '@nuxt/test-utils/module',
         '@nuxtjs/supabase',
-        'nuxt-aos'
+        '@nuxt/test-utils/module'
     ],
 
     $production: {

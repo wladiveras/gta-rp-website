@@ -16,6 +16,68 @@ export default defineAppConfig({
                 'error'
             ]
         },
+        formField: {
+            slots: {
+                root: '',
+                wrapper: '',
+                labelWrapper:
+                    'flex content-center items-center justify-between',
+                label: 'block font-medium text-[var(--ui-text)]',
+                container: 'mt-1 relative',
+                description: 'text-[var(--ui-text-muted)]',
+                error: 'mt-2 text-[var(--ui-error)]',
+                hint: 'text-[var(--ui-text-muted)]',
+                help: 'mt-2 text-[var(--ui-text-muted)]'
+            },
+            variants: {
+                size: {
+                    xs: {
+                        root: 'text-xs'
+                    },
+                    sm: {
+                        root: 'text-xs'
+                    },
+                    md: {
+                        root: 'text-sm'
+                    },
+                    lg: {
+                        root: 'text-sm'
+                    },
+                    xl: {
+                        root: 'text-base'
+                    }
+                }
+            },
+            defaultVariants: {
+                size: 'md'
+            }
+        },
+        header: {
+            slots: {
+                root: 'bg-[var(--ui-bg)]/75 backdrop-blur border-b border-[var(--ui-border)] sticky top-0 z-50',
+                container:
+                    'flex items-center justify-between gap-3 h-[var(--ui-header-height)]',
+                left: 'lg:flex-1 flex items-center gap-1.5',
+                center: 'hidden lg:flex',
+                right: 'flex items-center justify-end lg:flex-1 gap-1.5',
+                title: 'shrink-0 font-bold text-xl text-[var(--ui-text-highlighted)] flex items-end gap-1.5',
+                toggle: 'lg:hidden',
+                content: 'lg:hidden',
+                overlay: 'lg:hidden',
+                header: '',
+                body: 'p-4 sm:p-6 overflow-y-auto'
+            },
+            variants: {
+                toggleSide: {
+                    left: {
+                        toggle: '-ms-1.5'
+                    },
+                    right: {
+                        toggle: '-me-1.5'
+                    }
+                }
+            }
+        },
         carousel: {
             slots: {
                 root: 'relative focus:outline-none',
@@ -59,31 +121,31 @@ export default defineAppConfig({
                 leadingAvatarSize: '',
                 trailingIcon: ''
             }
-        }
-    },
-    input: {
-        default: {
-            size: 'md'
-        }
-    },
-    card: {
-        rounded: 'rounded-xl'
-    },
-    footer: {
-        top: {
-            wrapper: 'border-t border-gray-200 dark:border-gray-800',
-            container: 'py-8 lg:py-16'
         },
-        bottom: {
-            wrapper: 'border-t border-gray-200 dark:border-gray-800'
+        input: {
+            default: {
+                size: 'md'
+            }
+        },
+        card: {
+            rounded: 'rounded-xl'
+        },
+        footer: {
+            top: {
+                wrapper: 'border-t border-gray-200 dark:border-gray-800',
+                container: 'py-8 lg:py-16'
+            },
+            bottom: {
+                wrapper: 'border-t border-gray-200 dark:border-gray-800'
+            }
+        },
+        page: {
+            hero: {
+                wrapper: 'lg:py-24'
+            }
+        },
+        container: {
+            base: 'max-w-full mx-auto px-2 py-0'
         }
-    },
-    page: {
-        hero: {
-            wrapper: 'lg:py-24'
-        }
-    },
-    container: {
-        base: 'max-w-full mx-auto px-0 py-0 lg:px-9 sm:px-0 ps-0 lg:px-0'
     }
 })
