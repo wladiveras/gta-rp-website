@@ -1,24 +1,32 @@
 <template>
-    <UCarousel
-        v-slot="{ item }"
-        loop
-        autoplay
-        arrows
-        dots
-        :align="'center'"
-        auto-height
-        class-names
-        :items="items"
-        :ui="{
-            container: 'h-screen',
-            item: 'basis-1/1 gap-0 ps-0'
-        }"
+    <section
+        data-aos="fade-right"
+        data-aos-delay="300"
+        data-aos-duration="1000"
+        data-aos-easing="ease-in-sine"
+        class="w-full"
     >
-        <img
-            :src="item"
-            class="w-full bg-cover ps-0 relative h-screen object-cover"
-        />
-    </UCarousel>
+        <UCarousel
+            v-slot="{ item }"
+            loop
+            autoplay
+            arrows
+            dots
+            :align="'center'"
+            auto-height
+            class-names
+            :items="items"
+            :ui="{
+                container: 'h-screen',
+                item: 'basis-1/1 gap-0 ps-0'
+            }"
+        >
+            <img
+                :src="item"
+                class="w-full bg-cover ps-0 relative h-screen object-cover"
+            />
+        </UCarousel>
+    </section>
 </template>
 
 <script lang="ts" setup>

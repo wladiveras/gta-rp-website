@@ -2,67 +2,117 @@
     <section
         class="max-w-full gap-4 text-xl flex items-center space-x-6 cursor-pointer"
     >
-        <span class="hover:text-primary-500">Doadores</span>
-
-        <UDropdownMenu
-            :items="cars"
-            :ui="{
-                content:
-                    'w-48 bg-[var(--ui-bg)]/75 backdrop-blur top-3 relative',
-                item: 'text-xl'
-            }"
+        <template
+            v-for="menu in menuItems"
+            :key="menu.label"
         >
-            <span class="hover:text-primary-500">Carros</span>
-        </UDropdownMenu>
-        <span class="hover:text-primary-500">Motos</span>
-        <span class="hover:text-primary-500">Aviões</span>
-        <span class="hover:text-primary-500">Helicópteros</span>
-        <span class="hover:text-primary-500">Mansões</span>
-        <span class="hover:text-primary-500">Facções</span>
-        <span class="hover:text-primary-500">Extras</span>
+            <UDropdownMenu
+                v-if="menu.items"
+                :items="menu.items"
+                :ui="{
+                    content:
+                        'w-48 bg-[var(--ui-bg)]/75 backdrop-blur top-4 relative',
+                    item: 'text-xl'
+                }"
+            >
+                <span class="hover:text-primary-500">{{ menu.label }}</span>
+            </UDropdownMenu>
+
+            <span
+                v-else
+                class="hover:text-primary-500"
+                @click="changeCategory(menu.category)"
+            >
+                {{ menu.label }}
+            </span>
+        </template>
     </section>
 </template>
 
 <script lang="ts" setup>
-    import {
-        StoreCategoryHome,
-        StoreCategoryCars,
-        StoreCategoryExclusiveCars,
-        StoreCategoryArmored,
-        StoreCategoryMotorcycles,
-        StoreCategoryFactions,
-        StoreCategoryItems,
-        StoreCategoryBans
-    } from '#components'
+    const { changeCategory } = useStoreCategory()
 
-    const cars = [
-        [
-            {
-                label: 'Carros simples',
-                icon: 'i-lucide-eye'
-            },
-            {
-                label: 'Carros luxo',
-                icon: 'i-lucide-copy'
-            },
-            {
-                label: 'Carros hyper',
-                icon: 'i-lucide-pencil'
-            },
-            {
-                label: 'Carros exclusivos',
-                icon: 'i-lucide-pencil'
-            },
-            {
-                label: 'Carros blindados',
-                icon: 'i-lucide-pencil'
-            },
-            {
-                label: 'Carros de carga',
-                icon: 'i-lucide-pencil'
-            }
-        ]
+    const menuItems = [
+        {
+            label: 'Inicio',
+            category: 'home'
+        },
+        {
+            label: 'Doadores',
+            category: 'vip'
+        },
+        {
+            label: 'Carros',
+            items: [
+                [
+                    {
+                        label: 'Carros simples',
+                        icon: 'tabler:car',
+                        category: 'car',
+                        onSelect: () => {
+                            changeCategory('car')
+                        }
+                    },
+                    {
+                        label: 'Carros luxo',
+                        icon: 'game-icons:race-car',
+                        category: 'carLuxury',
+                        onSelect: () => {
+                            changeCategory('carLuxury')
+                        }
+                    },
+                    {
+                        label: 'Carros hyper',
+                        icon: 'game-icons:f1-car',
+                        category: 'carHyper',
+                        onSelect: () => {
+                            changeCategory('carHyper')
+                        }
+                    },
+                    {
+                        label: 'Carros exclusivos',
+                        icon: 'arcticons:racing-car',
+                        category: 'carExclusive',
+                        onSelect: () => {
+                            changeCategory('carExclusive')
+                        }
+                    },
+                    {
+                        label: 'Carros blindados',
+                        icon: 'mdi:car-sports',
+                        category: 'carTank',
+                        onSelect: () => {
+                            changeCategory('carTank')
+                        }
+                    },
+                    {
+                        label: 'Carros de carga',
+                        icon: 'mdi:car-lifted-pickup',
+                        category: 'carCargo',
+                        onSelect: () => {
+                            changeCategory('carCargo')
+                        }
+                    }
+                ]
+            ]
+        },
+        {
+            label: 'Motos',
+            category: 'motorcycles'
+        },
+        {
+            label: 'Aviões',
+            category: 'planes'
+        },
+        {
+            label: 'Helicópteros',
+            category: 'helicopters'
+        },
+        {
+            label: 'Mansões',
+            category: 'mansions'
+        }
     ]
 </script>
 
-<style></style>
+<style scoped></style>

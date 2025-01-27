@@ -24,7 +24,7 @@
                 <section class="flex flex-nowrap items-center">
                     <NuxtImg
                         class="h-15 w-15 rounded-md"
-                        src="https://storage.hydrus.gg/production/packages/XovB0aeNFMzYBAdXUHUn6RSm7DMaaCRV7kSph9nN3XuauZF6y9BDz07IarAyHyoI.png"
+                        :src="item.image"
                     />
                     <span class="flex flex-col gap ml-5 text-sm">
                         {{ item.name }}

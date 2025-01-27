@@ -11,22 +11,7 @@ export const useOrderStore = defineStore('order', {
                 trigger: false,
                 rollback: false
             },
-            items: [
-                {
-                    id: 1,
-                    name: 'Blindado (BLINDADO - 200KG)',
-                    price: 10000,
-                    quantity: 1,
-                    image: 'https://storage.hydrus.gg/production/packages/XovB0aeNFMzYBAdXUHUn6RSm7DMaaCRV7kSph9nN3XuauZF6y9BDz07IarAyHyoI.png'
-                },
-                {
-                    id: 2,
-                    name: 'Blindado (BLINDADO - 30KG)',
-                    price: 10000,
-                    quantity: 1,
-                    image: 'https://storage.hydrus.gg/production/packages/XovB0aeNFMzYBAdXUHUn6RSm7DMaaCRV7kSph9nN3XuauZF6y9BDz07IarAyHyoI.png'
-                }
-            ],
+            items: [],
             customer: {
                 id: 0,
                 name: '',
@@ -63,6 +48,40 @@ export const useOrderStore = defineStore('order', {
             )
     },
     actions: {
+        addToCart(item) {
+            const toast = useToast()
+
+            const existingItemIndex = this.items.findIndex(
+                (cartItem) => cartItem.id === item.id
+            )
+
+            toast.add({
+                title: 'Adicionado ao carrinho !',
+                description: `${item.name} Adicionado ao carrinho com sucesso !`,
+                icon: 'i-heroicons-check-circle',
+                color: 'success',
+                close: {
+                    color: 'primary',
+                    variant: 'outline',
+                    class: 'rounded-full text-2xl'
+                }
+            })
+
+            if (existingItemIndex >= 0) {
+                this.items[existingItemIndex].quantity += 1
+                return
+            }
+
+            const newCartItem = {
+                id: item.id,
+                name: item.name,
+                price: item.price,
+                quantity: item.quantity,
+                image: item.image
+            }
+
+            this.items.push(newCartItem)
+        },
         removeFromCart(index: number) {
             this.items.splice(index, 1)
         },

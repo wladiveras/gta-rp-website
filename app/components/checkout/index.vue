@@ -135,16 +135,53 @@
                                     Formas de Pagamento
                                 </h1>
                             </div>
-                            <div>
-                                <URadioGroup
-                                    v-model="value"
-                                    value-key="id"
-                                    :items="methods"
-                                    size="xl"
-                                />
-                            </div>
+                            <section class="flex gap-5 justify-between">
+                                <div class="flex items-center cursor-pointer">
+                                    <UIcon
+                                        name="ri:pix-fill"
+                                        size="3rem"
+                                        class="mr-3"
+                                    />
+                                    <div>
+                                        <h2 class="text-xl">PIX</h2>
+                                        <p class="text-[var(--ui-text-muted)]">
+                                            Utilize o PIX para realizar o
+                                            pagamento de forma rápida e segura.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center cursor-pointer">
+                                    <UIcon
+                                        name="emojione:credit-card"
+                                        size="3rem"
+                                        class="mr-3"
+                                    />
+                                    <div>
+                                        <h2 class="text-xl">
+                                            Cartão de Crédito ou Débito
+                                        </h2>
+                                        <p class="text-[var(--ui-text-muted)]">
+                                            Utilize seu cartão de crédito ou
+                                            débito para realizar o pagamento.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center cursor-pointer">
+                                    <UIcon
+                                        name="logos:paypal"
+                                        size="3rem"
+                                        class="mr-3"
+                                    />
+                                    <div>
+                                        <h2 class="text-xl">Paypal</h2>
+                                        <p class="text-[var(--ui-text-muted)]">
+                                            Utilize a sua conta Paypal para
+                                            realizar o pagamento.
+                                        </p>
+                                    </div>
+                                </div>
+                            </section>
                         </section>
-                        <section class="flex justify-end">xx</section>
                     </div>
                 </section>
             </section>
@@ -304,7 +341,7 @@
             id: 'pix'
         },
         {
-            label: 'paypal',
+            label: 'Paypal',
             description: 'Pague através do Paypal',
             id: 'paypal'
         }
