@@ -11,10 +11,10 @@
 
 <template>
     <section>
-        <LazyHero />
-        <LazyPackage />
-        <LazyVip />
-        <LazyTutorial />
-        <LazyContact />
+        <LazyHomeHero />
+        <LazyHomePackage />
+        <LazyHomeVip />
+        <LazyHomeTutorial />
+        <LazyHomeContact />
     </section>
 </template>

@@ -12,7 +12,7 @@
                     </div>
 
                     <div class="flex flex-col">
-                        <div class="flex mb-6">
+                        <div class="hidden md:flex mb-6">
                             <h2
                                 class="text-center text-xl font-semibold w-[60%]"
                             >
@@ -40,9 +40,9 @@
                             :key="index"
                             class="mb-2"
                         >
-                            <div class="flex">
+                            <div class="flex md:flex-row flex-col">
                                 <div
-                                    class="products p-4 w-[60%] text-xl bg-gray-900 rounded-2xl"
+                                    class="products p-4 w-full md:w-[60%] text-xl bg-gray-900 rounded-2xl"
                                 >
                                     <UIcon
                                         name="material-symbols-light:brightness-7-outline"
@@ -51,43 +51,48 @@
                                     />
                                     {{ item.name }}
                                 </div>
-                                <div
-                                    class="products p-4 text-primary-500 w-[15%] text-center text-xl"
-                                >
-                                    R$
-                                    {{
-                                        formatPrice(
-                                            item.price * item.quantity,
-                                            true
-                                        )
-                                    }}
-                                </div>
-                                <div
-                                    class="products p-4 w-[15%] text-center justify-center items-center"
-                                >
-                                    <UInputNumber
-                                        v-model="item.quantity"
-                                        increment-icon="i-lucide-arrow-right"
-                                        decrement-icon="i-lucide-arrow-left"
-                                        :min="1"
-                                        class="m-auto max-w-25 block"
-                                    />
-                                </div>
-                                <div
-                                    class="products p-4 w-[10%] text-center justify-center items-center"
-                                >
-                                    <span
-                                        class="flex items-center cursor-pointer text-red-500"
-                                        @click="
-                                            orderStore.removeFromCart(index)
-                                        "
+
+                                <div class="flex w-full md:w-[40%]">
+                                    <div
+                                        class="products p-4 text-primary-500 w-[40%] text-center text-xl"
                                     >
-                                        <UIcon
-                                            name="tabler:trash"
-                                            class="mr-2 zoom"
-                                            size="1.5rem"
+                                        R$
+                                        {{
+                                            formatPrice(
+                                                item.price * item.quantity,
+                                                true
+                                            )
+                                        }}
+                                    </div>
+
+                                    <div
+                                        class="products p-4 w-[40%] text-center justify-center items-center"
+                                    >
+                                        <UInputNumber
+                                            v-model="item.quantity"
+                                            increment-icon="i-lucide-arrow-right"
+                                            decrement-icon="i-lucide-arrow-left"
+                                            :min="1"
+                                            class="m-auto max-w-25 block mb-4 md:mb-0"
                                         />
-                                    </span>
+                                    </div>
+
+                                    <div
+                                        class="products p-4 w-[20%] text-center justify-center items-center"
+                                    >
+                                        <span
+                                            class="flex items-center cursor-pointer text-red-500"
+                                            @click="
+                                                orderStore.removeFromCart(index)
+                                            "
+                                        >
+                                            <UIcon
+                                                name="tabler:trash"
+                                                class="mr-2 zoom"
+                                                size="1.5rem"
+                                            />
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </section>
@@ -135,8 +140,19 @@
                                     Formas de Pagamento
                                 </h1>
                             </div>
-                            <section class="flex gap-5 justify-between">
-                                <div class="flex items-center cursor-pointer">
+                            <section
+                                class="flex flex-wrap md:flex-nowrap gap-5 justify-between"
+                            >
+                                <section
+                                    class="mt-5 flex items-center cursor-pointer w-full md:w-auto p-5 rounded-lg"
+                                    :class="{
+                                        'border text-primary-500':
+                                            payment.method === 'pix'
+                                    }"
+                                    @click="
+                                        orderStore.changePaymentMethod('pix')
+                                    "
+                                >
                                     <UIcon
                                         name="ri:pix-fill"
                                         size="3rem"
@@ -149,8 +165,18 @@
                                             pagamento de forma rápida e segura.
                                         </p>
                                     </div>
-                                </div>
-                                <div class="flex items-center cursor-pointer">
+                                </section>
+
+                                <section
+                                    class="mt-5 flex items-center cursor-pointer w-full md:w-auto p-5 rounded-lg"
+                                    :class="{
+                                        'border text-primary-500':
+                                            payment.method === 'card'
+                                    }"
+                                    @click="
+                                        orderStore.changePaymentMethod('card')
+                                    "
+                                >
                                     <UIcon
                                         name="emojione:credit-card"
                                         size="3rem"
@@ -165,8 +191,18 @@
                                             débito para realizar o pagamento.
                                         </p>
                                     </div>
-                                </div>
-                                <div class="flex items-center cursor-pointer">
+                                </section>
+
+                                <section
+                                    class="mt-5 flex items-center cursor-pointer w-full md:w-auto p-5 rounded-lg"
+                                    :class="{
+                                        'border text-primary-500':
+                                            payment.method === 'paypal'
+                                    }"
+                                    @click="
+                                        orderStore.changePaymentMethod('paypal')
+                                    "
+                                >
                                     <UIcon
                                         name="logos:paypal"
                                         size="3rem"
@@ -179,7 +215,7 @@
                                             realizar o pagamento.
                                         </p>
                                     </div>
-                                </div>
+                                </section>
                             </section>
                         </section>
                     </div>
@@ -282,7 +318,7 @@
 
     const toast = useToast()
     const orderStore = useOrderStore()
-    const { items, totalPrice } = storeToRefs(orderStore)
+    const { items, payment, totalPrice } = storeToRefs(orderStore)
 
     const detailSchema = v.object({
         name: v.pipe(
@@ -328,25 +364,6 @@
         userId: '',
         coupon: ''
     })
-
-    const methods = ref([
-        {
-            label: 'Cartão de Credito/Debito',
-            description: 'Pague utilizando seu cartão de crédito ou débito.',
-            id: 'card'
-        },
-        {
-            label: 'Pix',
-            description: 'Pague diretamente o PIX.',
-            id: 'pix'
-        },
-        {
-            label: 'Paypal',
-            description: 'Pague através do Paypal',
-            id: 'paypal'
-        }
-    ])
-    const value = ref('pix')
 
     const onCoupon = async () => {
         const result = await v.safeParseAsync(couponSchema, {

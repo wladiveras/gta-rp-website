@@ -24,7 +24,7 @@ export const useOrderStore = defineStore('order', {
                 id: 0,
                 name: '',
                 price: 0,
-                method: 'credit_card',
+                method: 'pix',
                 card: {
                     holderName: '',
                     number: '',
@@ -48,6 +48,9 @@ export const useOrderStore = defineStore('order', {
             )
     },
     actions: {
+        changePaymentMethod(method: string) {
+            this.payment.method = method
+        },
         addToCart(item) {
             const toast = useToast()
 

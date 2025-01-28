@@ -1,17 +1,12 @@
 <template>
     <section
-        id="package"
-        data-aos="zoom-out-up"
-        class="md:container md:mx-auto md:mt-0"
+        id="tutorial"
+        class="md:container md:mx-auto md:mt-0 z-10 relative"
     >
-        <Divider class="mt-20 md:mt-10" />
+        <Divider class="mt-20 md:mt-20" />
 
-        <section
-            class="flex flex-col gap-4 font-thin justify-center items-center px-5"
-        >
-            <article class="flex flex-col gap-6">
-                <PackageItems />
-            </article>
+        <section class="flex flex-col gap-4 font-thin px-5">
+            <HomeTutorialList />
         </section>
 
         <Divider class="mt-20 md:mt-20" />

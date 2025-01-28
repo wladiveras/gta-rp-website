@@ -1,11 +1,13 @@
 <template>
     <section
-        id="contact"
+        id="vip"
         data-aos="zoom-out-up"
         class="md:container md:mx-auto md:mt-0"
     >
         <section class="flex flex-col gap-4 font-thin px-5">
-            <ContactForm />
+            <article class="flex flex-col gap-6">
+                <HomeVipItems />
+            </article>
         </section>
     </section>
 </template>

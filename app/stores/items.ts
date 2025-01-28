@@ -9,7 +9,8 @@ export const useItemsStore = defineStore('items', {
                 code: 'kuruma_a',
                 category: 'cars',
                 image: 'https://cdn.centralcart.com.br/stores/6558/packages/6f49ba11-b657-4712-a685-b6d9314c3622.png',
-                description: 'Kuruma Blindado - Proteção Máxima'
+                description:
+                    'Veículo permanente (até wipe) modelo Corolla|Depósito único in game no valor de R$ 200.000,00|||OBS: Caso não receba automaticamente os benefícios in game, abra um ticket em nosso discord.'
             },
             {
                 id: 122,
@@ -19,7 +20,8 @@ export const useItemsStore = defineStore('items', {
                 code: 'insurgent_c',
                 category: 'cars',
                 image: 'https://cdn.centralcart.com.br/stores/6558/packages/6f49ba11-b657-4712-a685-b6d9314c3622.png',
-                description: 'Insurgent Custom - Força Bruta'
+                description:
+                    'Veículo permanente (até wipe) modelo Corolla|Depósito único in game no valor de R$ 200.000,00|||OBS: Caso não receba automaticamente os benefícios in game, abra um ticket em nosso discord.'
             },
             {
                 id: 123,

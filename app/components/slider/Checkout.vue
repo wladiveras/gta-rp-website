@@ -30,7 +30,7 @@
                         {{ item.name }}
                     </span>
                 </section>
-                <section>
+                <section class="flex flex-nowrap items-center">
                     <UInputNumber
                         v-model="item.quantity"
                         increment-icon="i-lucide-arrow-right"

@@ -58,7 +58,7 @@ export const orders = sqliteTable('orders', {
         .default(new Date())
 })
 
-export const orderItems = sqliteTable('order_items', {
+export const orderItems = sqliteTable('orders_items', {
     id: integer('id').primaryKey({ autoIncrement: true }),
     orderId: integer('order_id')
         .notNull()
