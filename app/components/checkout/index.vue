@@ -2,313 +2,269 @@
     <section
         id="checkout"
         data-aos="zoom-out-up"
-        class="h-screen w-full"
+        class="min-h-screen w-full py-8"
     >
-        <section class="flex flex-col md:flex-row w-full p-8">
-            <section class="flex w-full md:w-2/3 m-5">
-                <section class="flex flex-col w-full">
-                    <div class="w-full mb-8">
-                        <h1 class="font-bold text-3xl">Seus items</h1>
-                    </div>
+        <UContainer class="flex flex-col md:flex-row max-w-[1300px]">
+            <!-- Left Side - Form Section -->
+            <div class="w-full px-6">
+                <section
+                    v-if="steps.step === 1"
+                    data-aos="fade-right"
+                >
+                    <Divider class="mb-8" />
 
-                    <div class="flex flex-col">
-                        <div class="hidden md:flex mb-6">
-                            <h2
-                                class="text-center text-xl font-semibold w-[60%]"
+                    <div class="flex flex-col md:flex-row gap-8 w-full">
+                        <!-- Form Section -->
+                        <UForm
+                            :schema="v.safeParser(detailSchema)"
+                            :state="state"
+                            class="space-y-6 w-full md:w-1/2"
+                            size="xl"
+                            @submit="onSubmit"
+                        >
+                            <UFormField
+                                name="name"
+                                label="Nome"
+                                class="text-xl"
+                                size="xl"
                             >
-                                Produtos
-                            </h2>
-                            <h2
-                                class="text-xl font-semibold w-[15%] text-center"
+                                <UInput
+                                    v-model="state.name"
+                                    class="w-full"
+                                />
+                            </UFormField>
+
+                            <UFormField
+                                name="email"
+                                label="Email"
+                                class="text-xl"
+                                size="xl"
                             >
-                                Valor
-                            </h2>
-                            <h2
-                                class="text-xl font-semibold w-[15%] text-center"
+                                <UInput
+                                    v-model="state.email"
+                                    class="w-full"
+                                />
+                            </UFormField>
+
+                            <UFormField
+                                name="document"
+                                label="CPF/CNPJ"
+                                class="text-xl"
+                                size="xl"
                             >
-                                Quantidade
-                            </h2>
-                            <h2
-                                class="text-xl font-semibold w-[10%] text-center"
-                            ></h2>
+                                <UInput
+                                    v-model="state.document"
+                                    class="w-full"
+                                />
+                            </UFormField>
+
+                            <div class="grid grid-cols-2 gap-4">
+                                <UFormField
+                                    name="userId"
+                                    label="ID na Cidade"
+                                    class="text-xl"
+                                    size="xl"
+                                >
+                                    <UInput
+                                        v-model="state.userId"
+                                        class="w-full"
+                                    />
+                                </UFormField>
+
+                                <UFormField
+                                    name="cellphone"
+                                    label="Telefone"
+                                    class="text-xl"
+                                    size="xl"
+                                >
+                                    <UInput
+                                        v-model="state.cellphone"
+                                        class="w-full"
+                                    />
+                                </UFormField>
+                            </div>
+                        </UForm>
+
+                        <!-- Image Section -->
+                        <div
+                            class="hidden md:flex w-1/2 items-center justify-center"
+                        >
+                            <NuxtImg
+                                src="/images/hero-vip.png"
+                                class="w-full h-auto object-contain"
+                            />
+                        </div>
+                    </div>
+                    <Divider class="mb-8" />
+                </section>
+
+                <!-- Payment Section -->
+                <section
+                    v-if="steps.step === 2"
+                    data-aos="fade-right"
+                    class="space-y-8"
+                >
+                    <!-- Products List -->
+                    <div class="space-y-4">
+                        <!-- Product Headers -->
+                        <div
+                            class="hidden md:grid grid-cols-4 font-semibold text-xl"
+                        >
+                            <h2 class="col-span-2">Produtos</h2>
+                            <h2 class="text-center">Valor</h2>
+                            <h2 class="text-center">Quantidade</h2>
                         </div>
 
-                        <Divider class="mb-5" />
+                        <Divider />
 
-                        <section
+                        <!-- Product Items -->
+                        <div
                             v-for="(item, index) in items"
                             :key="index"
-                            class="mb-2"
+                            class="grid md:grid-cols-4 gap-4 bg-gray-900/50 rounded-xl p-4"
                         >
-                            <div class="flex md:flex-row flex-col">
-                                <div
-                                    class="products p-4 w-full md:w-[60%] text-xl bg-gray-900 rounded-2xl"
-                                >
-                                    <UIcon
-                                        name="material-symbols-light:brightness-7-outline"
-                                        size="xl"
-                                        class="text-primary-500 relative top-[0.16rem] zoom"
-                                    />
-                                    {{ item.name }}
-                                </div>
+                            <div class="col-span-2 flex items-center gap-2">
+                                <UIcon
+                                    name="material-symbols-light:brightness-7-outline"
+                                    class="text-primary-500"
+                                />
+                                <span>{{ item.name }}</span>
+                            </div>
 
-                                <div class="flex w-full md:w-[40%]">
-                                    <div
-                                        class="products p-4 text-primary-500 w-[40%] text-center text-xl"
-                                    >
-                                        R$
-                                        {{
-                                            formatPrice(
-                                                item.price * item.quantity,
-                                                true
-                                            )
-                                        }}
-                                    </div>
+                            <div class="text-center text-primary-500">
+                                R$
+                                {{
+                                    formatPrice(
+                                        item.price * item.quantity,
+                                        true
+                                    )
+                                }}
+                            </div>
 
-                                    <div
-                                        class="products p-4 w-[40%] text-center justify-center items-center"
-                                    >
-                                        <UInputNumber
-                                            v-model="item.quantity"
-                                            increment-icon="i-lucide-arrow-right"
-                                            decrement-icon="i-lucide-arrow-left"
-                                            :min="1"
-                                            class="m-auto max-w-25 block mb-4 md:mb-0"
-                                        />
-                                    </div>
+                            <div class="flex justify-between items-center">
+                                <UInputNumber
+                                    v-model="item.quantity"
+                                    :min="1"
+                                    class="w-24"
+                                />
+                                <UButton
+                                    icon="tabler:trash"
+                                    variant="ghost"
+                                    @click="orderStore.removeFromCart(index)"
+                                />
+                            </div>
+                        </div>
+                    </div>
 
-                                    <div
-                                        class="products p-4 w-[20%] text-center justify-center items-center"
-                                    >
-                                        <span
-                                            class="flex items-center cursor-pointer text-red-500"
-                                            @click="
-                                                orderStore.removeFromCart(index)
-                                            "
-                                        >
-                                            <UIcon
-                                                name="tabler:trash"
-                                                class="mr-2 zoom"
-                                                size="1.5rem"
-                                            />
-                                        </span>
-                                    </div>
-                                </div>
+                    <Divider class="mt-5" />
+
+                    <section class="flex justify-between items-center md:mt-5">
+                        <section class="flex">
+                            <span class="text-2xl">
+                                Total:
+                                <b class="text-primary-500">
+                                    R$ {{ formatPrice(totalPrice, true) }}
+                                </b>
+                            </span>
+                        </section>
+                        <section class="flex">
+                            <UInput
+                                v-model="state.coupon"
+                                placeholder="Digite o código do cupom."
+                                type="text"
+                                size="xl"
+                                class="w-full mr-3 md:min-w-[300px] text-white"
+                            />
+
+                            <UButton
+                                icon="fluent-mdl2:coupon"
+                                size="xl"
+                                color="primary"
+                                class="text-base"
+                                variant="solid"
+                                @click="onCoupon"
+                            >
+                                Aplicar
+                            </UButton>
+                        </section>
+                    </section>
+
+                    <!-- Payment Methods -->
+                    <div class="space-y-6">
+                        <h1 class="text-3xl font-bold">Formas de Pagamento</h1>
+                        <section
+                            class="mt-5 flex items-center cursor-pointer w-full md:w-auto p-5 rounded-lg"
+                            :class="{
+                                'border text-primary-500':
+                                    payment.method === 'pix'
+                            }"
+                            @click="orderStore.changePaymentMethod('pix')"
+                        >
+                            <UIcon
+                                name="ri:pix-fill"
+                                size="3rem"
+                                class="mr-3"
+                            />
+                            <div>
+                                <h2 class="text-xl">PIX</h2>
+                                <p class="text-[var(--ui-text-muted)]">
+                                    Utilize o PIX para realizar o pagamento de
+                                    forma rápida e segura.
+                                </p>
                             </div>
                         </section>
-
-                        <Divider class="mt-5" />
 
                         <section
-                            class="flex justify-between items-center md:mt-5"
+                            class="mt-5 flex items-center cursor-pointer w-full md:w-auto p-5 rounded-lg"
+                            :class="{
+                                'border text-primary-500':
+                                    payment.method === 'card'
+                            }"
+                            @click="orderStore.changePaymentMethod('card')"
                         >
-                            <section class="flex">
-                                <span class="text-3xl">
-                                    Total:
-                                    <b class="text-primary-500">
-                                        R$ {{ formatPrice(totalPrice, true) }}
-                                    </b>
-                                </span>
-                            </section>
-                            <section class="flex">
-                                <UInput
-                                    v-model="state.coupon"
-                                    placeholder="Digite o código do cupom."
-                                    type="text"
-                                    size="xl"
-                                    class="w-full mr-3 md:min-w-[300px] text-white"
-                                />
-
-                                <UButton
-                                    icon="fluent-mdl2:coupon"
-                                    size="xl"
-                                    color="primary"
-                                    class="text-white"
-                                    variant="solid"
-                                    @click="onCoupon"
-                                >
-                                    Aplicar
-                                </UButton>
-                            </section>
+                            <UIcon
+                                name="emojione:credit-card"
+                                size="3rem"
+                                class="mr-3"
+                            />
+                            <div>
+                                <h2 class="text-xl">
+                                    Cartão de Crédito ou Débito
+                                </h2>
+                                <p class="text-[var(--ui-text-muted)]">
+                                    Utilize seu cartão de crédito ou débito para
+                                    realizar o pagamento.
+                                </p>
+                            </div>
                         </section>
 
-                        <Divider class="mt-5" />
-
-                        <section class="mt-5">
+                        <section
+                            class="mt-5 flex items-center cursor-pointer w-full md:w-auto p-5 rounded-lg"
+                            :class="{
+                                'border text-primary-500':
+                                    payment.method === 'paypal'
+                            }"
+                            @click="orderStore.changePaymentMethod('paypal')"
+                        >
+                            <UIcon
+                                name="logos:paypal"
+                                size="3rem"
+                                class="mr-3"
+                            />
                             <div>
-                                <h1 class="font-bold text-3xl mb-5">
-                                    Formas de Pagamento
-                                </h1>
+                                <h2 class="text-xl">Paypal</h2>
+                                <p class="text-[var(--ui-text-muted)]">
+                                    Utilize a sua conta Paypal para realizar o
+                                    pagamento.
+                                </p>
                             </div>
-                            <section
-                                class="flex flex-wrap md:flex-nowrap gap-5 justify-between"
-                            >
-                                <section
-                                    class="mt-5 flex items-center cursor-pointer w-full md:w-auto p-5 rounded-lg"
-                                    :class="{
-                                        'border text-primary-500':
-                                            payment.method === 'pix'
-                                    }"
-                                    @click="
-                                        orderStore.changePaymentMethod('pix')
-                                    "
-                                >
-                                    <UIcon
-                                        name="ri:pix-fill"
-                                        size="3rem"
-                                        class="mr-3"
-                                    />
-                                    <div>
-                                        <h2 class="text-xl">PIX</h2>
-                                        <p class="text-[var(--ui-text-muted)]">
-                                            Utilize o PIX para realizar o
-                                            pagamento de forma rápida e segura.
-                                        </p>
-                                    </div>
-                                </section>
-
-                                <section
-                                    class="mt-5 flex items-center cursor-pointer w-full md:w-auto p-5 rounded-lg"
-                                    :class="{
-                                        'border text-primary-500':
-                                            payment.method === 'card'
-                                    }"
-                                    @click="
-                                        orderStore.changePaymentMethod('card')
-                                    "
-                                >
-                                    <UIcon
-                                        name="emojione:credit-card"
-                                        size="3rem"
-                                        class="mr-3"
-                                    />
-                                    <div>
-                                        <h2 class="text-xl">
-                                            Cartão de Crédito ou Débito
-                                        </h2>
-                                        <p class="text-[var(--ui-text-muted)]">
-                                            Utilize seu cartão de crédito ou
-                                            débito para realizar o pagamento.
-                                        </p>
-                                    </div>
-                                </section>
-
-                                <section
-                                    class="mt-5 flex items-center cursor-pointer w-full md:w-auto p-5 rounded-lg"
-                                    :class="{
-                                        'border text-primary-500':
-                                            payment.method === 'paypal'
-                                    }"
-                                    @click="
-                                        orderStore.changePaymentMethod('paypal')
-                                    "
-                                >
-                                    <UIcon
-                                        name="logos:paypal"
-                                        size="3rem"
-                                        class="mr-3"
-                                    />
-                                    <div>
-                                        <h2 class="text-xl">Paypal</h2>
-                                        <p class="text-[var(--ui-text-muted)]">
-                                            Utilize a sua conta Paypal para
-                                            realizar o pagamento.
-                                        </p>
-                                    </div>
-                                </section>
-                            </section>
                         </section>
                     </div>
                 </section>
-            </section>
-            <section class="w-full md:w-1/3 block m-5">
-                <div>
-                    <h1 class="font-bold text-3xl mb-5">Detalhes da Doação</h1>
-                </div>
-                <UForm
-                    :schema="v.safeParser(detailSchema)"
-                    :state="state"
-                    class="space-y-4"
-                    size="xl"
-                    @submit="onSubmit"
-                >
-                    <div class="flex flex-col md:flex-row gap-4">
-                        <UFormField
-                            name="name"
-                            label="Nome"
-                            class="w-full"
-                            size="xl"
-                        >
-                            <UInput
-                                v-model="state.name"
-                                class="w-full"
-                            />
-                        </UFormField>
-                    </div>
-                    <div class="flex flex-col md:flex-row gap-4">
-                        <UFormField
-                            label="Email"
-                            name="email"
-                            class="w-full"
-                            size="xl"
-                        >
-                            <UInput
-                                v-model="state.email"
-                                class="w-full"
-                            >
-                            </UInput>
-                        </UFormField>
-                    </div>
-                    <div class="flex flex-col md:flex-row gap-4">
-                        <UFormField
-                            label="CPF/CNPJ"
-                            name="document"
-                            class="w-full"
-                            size="xl"
-                        >
-                            <UInput
-                                v-model="state.document"
-                                class="w-full"
-                            />
-                        </UFormField>
-                    </div>
+            </div>
 
-                    <div class="flex flex-col md:flex-row gap-4">
-                        <UFormField
-                            label="ID na Cidade"
-                            name="userId"
-                            class="w-full md:w-1/2"
-                            size="xl"
-                        >
-                            <UInput
-                                v-model="state.userId"
-                                type="text"
-                                class="w-full"
-                            />
-                        </UFormField>
-                        <UFormField
-                            label="Telefone"
-                            name="cellphone"
-                            class="w-full md:w-1/2"
-                            size="xl"
-                        >
-                            <UInput
-                                v-model="state.cellphone"
-                                type="text"
-                                class="w-full"
-                            />
-                        </UFormField>
-                    </div>
-
-                    <UButton
-                        type="submit"
-                        class="w-full text-2xl text-white block"
-                    >
-                        Continuar
-                    </UButton>
-                </UForm>
-            </section>
-        </section>
+            <CheckoutStep />
+        </UContainer>
     </section>
 </template>
 
@@ -318,7 +274,7 @@
 
     const toast = useToast()
     const orderStore = useOrderStore()
-    const { items, payment, totalPrice } = storeToRefs(orderStore)
+    const { items, steps, payment, totalPrice } = storeToRefs(orderStore)
 
     const detailSchema = v.object({
         name: v.pipe(

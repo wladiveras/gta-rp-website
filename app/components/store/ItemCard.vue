@@ -53,7 +53,7 @@
 
                             <div class="absolute bottom-0 w-full">
                                 <button
-                                    class="bg-primary-500 text-white rounded-md py-2 w-full"
+                                    class="bg-primary-500 rounded-md py-2 w-full text-primary-950"
                                     @click="addToCart(item)"
                                 >
                                     Levar ao carrinho
@@ -78,7 +78,7 @@
 
         <section class="m-2">
             <button
-                class="bg-primary-500 text-white rounded-md py-2 w-full"
+                class="bg-primary-500 rounded-md py-2 w-full text-primary-950 text-xl"
                 @click="addToCart(item)"
             >
                 Levar ao carrinho

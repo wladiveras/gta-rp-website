@@ -1,7 +1,6 @@
 <script setup lang="ts">
     const orderStore = useOrderStore()
     const slideover = useSlideover()
-
     const { items, totalPrice, totalItems } = storeToRefs(orderStore)
 
     const goToCheckout = () => {
@@ -16,58 +15,79 @@
         description="Veja o sumario dos seus items selecionados."
     >
         <template #body>
-            <section
-                v-for="(item, index) in items"
-                :key="index"
-                class="flex justify-between border-b-1 border-b-gray-700 py-2 items-center"
-            >
-                <section class="flex flex-nowrap items-center">
-                    <NuxtImg
-                        class="h-15 w-15 rounded-md"
-                        :src="item.image"
-                    />
-                    <span class="flex flex-col gap ml-5 text-sm">
-                        {{ item.name }}
-                    </span>
-                </section>
-                <section class="flex flex-nowrap items-center">
-                    <UInputNumber
-                        v-model="item.quantity"
-                        increment-icon="i-lucide-arrow-right"
-                        decrement-icon="i-lucide-arrow-left"
-                        :min="1"
-                    />
-                </section>
-
-                <section>
-                    <span class="flex flex-col gap ml-5">
-                        R$
-                        {{ formatPrice(item.price * item.quantity, true) }}
-                    </span>
-                    <span
-                        class="flex items-center ml-4 cursor-pointer text-red-500"
-                        @click="orderStore.removeFromCart(index)"
-                    >
-                        <UIcon
-                            name="i-lucide-trash"
-                            class="mr-2"
+            <div class="flex flex-col gap-4">
+                <div
+                    v-for="(item, index) in items"
+                    :key="index"
+                    class="flex items-center justify-between border-b border-gray-700 py-4"
+                >
+                    <!-- Product Info -->
+                    <div class="flex items-center gap-4">
+                        <NuxtImg
+                            :src="item.image"
+                            class="h-16 w-16 rounded-lg object-cover"
                         />
-                        remover
-                    </span>
-                </section>
-            </section>
+                        <span class="text-sm font-medium">{{ item.name }}</span>
+                    </div>
+
+                    <div class="flex items-center gap-6">
+                        <div class="flex items-center justify-center w-24">
+                            <UInputNumber
+                                v-model="item.quantity"
+                                class="flex"
+                                increment-icon="i-lucide-arrow-right"
+                                decrement-icon="i-lucide-arrow-left"
+                                :min="1"
+                                :input-classes="{
+                                    input: 'text-center',
+                                    wrapper: 'flex justify-center'
+                                }"
+                            />
+                        </div>
+                        <div class="flex flex-col items-end gap-1 min-w-[85px]">
+                            <span class="text-primary-500 font-medium">
+                                R$
+                                {{
+                                    formatPrice(
+                                        item.price * item.quantity,
+                                        true
+                                    )
+                                }}
+                            </span>
+                            <button
+                                class="text-red-500 text-sm flex items-center gap-1 hover:text-red-400"
+                                @click="orderStore.removeFromCart(index)"
+                            >
+                                <UIcon
+                                    name="i-lucide-trash"
+                                    size="sm"
+                                />
+                                remover
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </template>
 
         <template #footer>
-            <span class="block w-full">
-                Subtotal: R$ {{ formatPrice(totalPrice, true) }}
-            </span>
-            <UButton
-                class="w-full block text-white cursor-pointer text-xl"
-                color="primary"
-                label="Ir ao Carrinho"
-                @click="goToCheckout"
-            />
+            <div class="flex justify-between items-center w-full">
+                <div>
+                    <span class="text-lg font-medium">Subtotal:</span>
+                    <span class="text-primary-500 text-xl font-bold">
+                        R$ {{ formatPrice(totalPrice, true) }}
+                    </span>
+                </div>
+
+                <UButton
+                    class="text-xl"
+                    color="primary"
+                    size="lg"
+                    @click="goToCheckout"
+                >
+                    Ir ao Carrinho
+                </UButton>
+            </div>
         </template>
     </USlideover>
 </template>

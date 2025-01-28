@@ -17,7 +17,7 @@
         data-aos-easing="ease-in-sine"
         class="mt-[100px] w-full flex flex-row flex-nowrap items-center justify-center gap-8"
     >
-        <Checkout />
+        <LazyCheckout />
     </section>
 </template>
 

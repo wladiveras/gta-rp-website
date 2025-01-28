@@ -5,7 +5,10 @@ export const formatPrice = (
     const formattedValue = value / 100
 
     if (format) {
-        return formattedValue.toFixed(2).replace('.', ',')
+        return formattedValue.toLocaleString('pt-BR', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        })
     }
     return formattedValue
 }

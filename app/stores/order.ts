@@ -7,7 +7,7 @@ export const useOrderStore = defineStore('order', {
             isLoading: false,
             steps: {
                 step: 1,
-                max: 2,
+                max: 3,
                 trigger: false,
                 rollback: false
             },
@@ -93,7 +93,9 @@ export const useOrderStore = defineStore('order', {
         },
         nextStep() {
             this.steps.rollback = false
-            this.steps.step++
+            if (this.steps.step < this.steps.max) {
+                this.steps.step++
+            }
         },
         prevStep() {
             this.steps.rollback = true
