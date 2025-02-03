@@ -25,7 +25,7 @@
                     <div class="flex items-center gap-4">
                         <NuxtImg
                             :src="item.image"
-                            class="h-16 w-16 rounded-lg object-cover"
+                            class="h-16 w-16 rounded-lg object-cover zoom-sm cursor-pointer"
                         />
                         <span class="text-sm font-medium">{{ item.name }}</span>
                     </div>

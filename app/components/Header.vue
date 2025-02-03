@@ -42,9 +42,9 @@
                 label="Catalogo"
                 size="xl"
                 class="text-2xl text-primary-500"
-                to="/store"
+                href="https://parisgroup.tebex.io/"
             />
-            <UButton
+            <!-- <UButton
                 v-if="!isLoggedIn"
                 icon="line-md:discord"
                 variant="soft"
@@ -53,8 +53,8 @@
                 size="xl"
                 class="text-2xl"
                 @click="userStore.authenticateWithDiscord()"
-            />
-            <section v-if="isLoggedIn">
+            /> -->
+            <!-- <section v-if="isLoggedIn">
                 <UDropdownMenu
                     :items="dropdownItems"
                     :ui="{ content: 'w-48 ' }"
@@ -69,7 +69,7 @@
                         />
                     </UChip>
                 </UDropdownMenu>
-            </section>
+        </section> -->
         </template>
         <template #content>
             <UNavigationMenu

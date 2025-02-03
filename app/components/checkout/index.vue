@@ -177,6 +177,7 @@
                             />
 
                             <UButton
+                                aplicar
                                 icon="fluent-mdl2:coupon"
                                 size="xl"
                                 color="primary"
@@ -184,7 +185,6 @@
                                 variant="solid"
                                 @click="onCoupon"
                             >
-                                Aplicar
                             </UButton>
                         </section>
                     </section>
@@ -192,78 +192,84 @@
                     <!-- Payment Methods -->
                     <div class="space-y-6">
                         <h1 class="text-3xl font-bold">Formas de Pagamento</h1>
-                        <section
-                            class="mt-5 flex items-center cursor-pointer w-full md:w-auto p-5 rounded-lg"
-                            :class="{
-                                'border text-primary-500':
-                                    payment.method === 'pix'
-                            }"
-                            @click="orderStore.changePaymentMethod('pix')"
-                        >
-                            <UIcon
-                                name="ri:pix-fill"
-                                size="3rem"
-                                class="mr-3"
-                            />
-                            <div>
-                                <h2 class="text-xl">PIX</h2>
-                                <p class="text-[var(--ui-text-muted)]">
-                                    Utilize o PIX para realizar o pagamento de
-                                    forma rápida e segura.
-                                </p>
-                            </div>
-                        </section>
 
-                        <section
-                            class="mt-5 flex items-center cursor-pointer w-full md:w-auto p-5 rounded-lg"
-                            :class="{
-                                'border text-primary-500':
-                                    payment.method === 'card'
-                            }"
-                            @click="orderStore.changePaymentMethod('card')"
-                        >
-                            <UIcon
-                                name="emojione:credit-card"
-                                size="3rem"
-                                class="mr-3"
-                            />
-                            <div>
-                                <h2 class="text-xl">
-                                    Cartão de Crédito ou Débito
-                                </h2>
-                                <p class="text-[var(--ui-text-muted)]">
-                                    Utilize seu cartão de crédito ou débito para
-                                    realizar o pagamento.
-                                </p>
-                            </div>
-                        </section>
+                        <div class="flex flex-wrap gap-4 mb-[15rem]">
+                            <section
+                                class="flex items-center cursor-pointer p-5 rounded-lg flex-1 min-w-[300px]"
+                                :class="{
+                                    'border text-primary-500':
+                                        payment.method === 'pix'
+                                }"
+                                @click="orderStore.changePaymentMethod('pix')"
+                            >
+                                <UIcon
+                                    name="ri:pix-fill"
+                                    size="3rem"
+                                    class="mr-3"
+                                />
+                                <div>
+                                    <h2 class="text-xl">PIX</h2>
+                                    <p class="text-[var(--ui-text-muted)]">
+                                        Utilize o PIX para realizar o pagamento
+                                        de forma rápida e segura.
+                                    </p>
+                                </div>
+                            </section>
 
-                        <section
-                            class="mt-5 flex items-center cursor-pointer w-full md:w-auto p-5 rounded-lg"
-                            :class="{
-                                'border text-primary-500':
-                                    payment.method === 'paypal'
-                            }"
-                            @click="orderStore.changePaymentMethod('paypal')"
-                        >
-                            <UIcon
-                                name="logos:paypal"
-                                size="3rem"
-                                class="mr-3"
-                            />
-                            <div>
-                                <h2 class="text-xl">Paypal</h2>
-                                <p class="text-[var(--ui-text-muted)]">
-                                    Utilize a sua conta Paypal para realizar o
-                                    pagamento.
-                                </p>
-                            </div>
-                        </section>
+                            <section
+                                class="flex items-center cursor-pointer p-5 rounded-lg flex-1 min-w-[300px]"
+                                :class="{
+                                    'border text-primary-500':
+                                        payment.method === 'credit_card'
+                                }"
+                                @click="
+                                    orderStore.changePaymentMethod(
+                                        'credit_card'
+                                    )
+                                "
+                            >
+                                <UIcon
+                                    name="emojione:credit-card"
+                                    size="3rem"
+                                    class="mr-3"
+                                />
+                                <div>
+                                    <h2 class="text-xl">Cartão de Crédito</h2>
+                                    <p class="text-[var(--ui-text-muted)]">
+                                        Utilize seu cartão de crédito para
+                                        realizar o pagamento.
+                                    </p>
+                                </div>
+                            </section>
+
+                            <section
+                                class="flex items-center cursor-pointer p-5 rounded-lg flex-1 min-w-[300px]"
+                                :class="{
+                                    'border text-primary-500':
+                                        payment.method === 'debit_card'
+                                }"
+                                @click="
+                                    orderStore.changePaymentMethod('debit_card')
+                                "
+                            >
+                                <UIcon
+                                    name="noto-v1:credit-card"
+                                    size="3rem"
+                                    class="mr-3"
+                                />
+                                <div>
+                                    <h2 class="text-xl">Cartão de Debito</h2>
+                                    <p class="text-[var(--ui-text-muted)]">
+                                        Utilize seu cartão de débito para
+                                        realizar o pagamento.
+                                    </p>
+                                </div>
+                            </section>
+                        </div>
                     </div>
                 </section>
+                <CheckoutStep class="mt-10" />
             </div>
-
-            <CheckoutStep />
         </UContainer>
     </section>
 </template>
