@@ -18,14 +18,14 @@
         "db:generate": "drizzle-kit generate"
     },
     "dependencies": {
-        "@nuxt/ui-pro": "3.0.0-alpha.11",
+        "@nuxt/ui-pro": "3.0.0-alpha.12",
         "@nuxtjs/supabase": "1.4.5",
         "@pinia/nuxt": "^0.8.0",
         "@vite-pwa/nuxt": "^0.10.6",
         "@vitejs/plugin-vue": "^5.2.1",
         "animate.css": "^4.1.1",
         "mercadopago": "^2.3.0",
-        "nuxt": "^3.15.3",
+        "nuxt": "^3.15.4",
         "nuxt-aos": "1.2.5",
         "tailwindcss": "4.0.0-beta.4",
         "uuid": "^11.0.5",
@@ -37,16 +37,23 @@
         "@biomejs/biome": "1.9.4",
         "@nuxt/image": "^1.9.0",
         "@nuxt/test-utils": "^3.15.4",
-        "@nuxthub/core": "^0.8.14",
+        "@nuxthub/core": "^0.8.17",
         "@vue/test-utils": "^2.4.6",
         "drizzle-kit": "^0.28.1",
         "drizzle-orm": "^0.36.4",
         "eslint-plugin-nuxt": "^4.0.0",
-        "playwright-core": "^1.50.0",
-        "vitest": "^2.1.8",
-        "wrangler": "^3.105.1"
+        "playwright-core": "^1.50.1",
+        "vitest": "^2.1.9",
+        "wrangler": "^3.107.3"
     },
     "pnpm": {
-        "onlyBuiltDependencies": ["@biomejs/biome"]
+        "onlyBuiltDependencies": [
+            "@biomejs/biome",
+            "@parcel/watcher",
+            "esbuild",
+            "sharp",
+            "vue-demi",
+            "workerd"
+        ]
     }
 }
