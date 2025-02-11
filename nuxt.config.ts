@@ -123,15 +123,6 @@ export default defineNuxtConfig({
         anchorPlacement: 'top-bottom'
     },
 
-    eslint: {
-        config: {
-            stylistic: {
-                commaDangle: 'never',
-                braceStyle: '1tbs'
-            }
-        }
-    },
-
     image: {
         provider: 'ipx',
         format: ['webp', 'avif'],
