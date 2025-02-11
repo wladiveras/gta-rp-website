@@ -1,22 +1,22 @@
 <script setup lang="ts">
-    import type { NuxtError } from '#app'
+import type { NuxtError } from '#app'
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const props = defineProps<{
-        error: NuxtError
-    }>()
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const props = defineProps<{
+    error: NuxtError
+}>()
 
-    useHead({
-        htmlAttrs: {
-            lang: 'en'
-        }
-    })
+useHead({
+    htmlAttrs: {
+        lang: 'en'
+    }
+})
 
-    useSeoMeta({
-        title: 'Pagina não encontrada.',
-        description:
-            'A pagina que você está procurando não existe, ou foi movida para outro endereço.'
-    })
+useSeoMeta({
+    title: 'Pagina não encontrada.',
+    description:
+        'A pagina que você está procurando não existe, ou foi movida para outro endereço.'
+})
 </script>
 
 <template>

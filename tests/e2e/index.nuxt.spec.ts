@@ -1,5 +1,5 @@
-import { setup, createPage } from '@nuxt/test-utils/e2e'
-import { describe, it, expect } from 'vitest'
+import { createPage, setup } from '@nuxt/test-utils/e2e'
+import { describe, expect, it } from 'vitest'
 
 describe('login page', async () => {
     await setup({

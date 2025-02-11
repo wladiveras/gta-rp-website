@@ -84,14 +84,14 @@
 </template>
 
 <script lang="ts" setup>
-    import type { Hero } from '~/types'
+import type { Hero } from '~/types'
 
-    const config = useRuntimeConfig()
-    const userStore = useUserStore()
+const config = useRuntimeConfig()
+const userStore = useUserStore()
 
-    defineProps<{
-        hero: Hero
-    }>()
+defineProps<{
+    hero: Hero
+}>()
 </script>
 
 <style></style>

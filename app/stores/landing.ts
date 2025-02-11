@@ -15,7 +15,7 @@ export const useLandingStore = defineStore('landing', {
             subtitle: 'RP',
             content: [
                 {
-                    text: `Em breve algo novo está por vir`
+                    text: 'Em breve algo novo está por vir'
                 }
             ]
         }

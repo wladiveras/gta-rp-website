@@ -29,18 +29,18 @@
 </template>
 
 <script setup lang="ts">
-    import type { Logo } from '~/types'
+import type { Logo } from '~/types'
 
-    const props = withDefaults(defineProps<Logo>(), {
-        width: 500,
-        height: 500,
-        opacity: 1,
-        preserveAspectRatio: 'xMidYMid meet',
-        className:
-            'cursor-pointer hover:opacity-75 animate__animated animate__zoomInDown'
-    })
+const props = withDefaults(defineProps<Logo>(), {
+    width: 500,
+    height: 500,
+    opacity: 1,
+    preserveAspectRatio: 'xMidYMid meet',
+    className:
+        'cursor-pointer hover:opacity-75 animate__animated animate__zoomInDown'
+})
 
-    const { currentColor } = useTheme()
+const { currentColor } = useTheme()
 </script>
 
 <style scoped>

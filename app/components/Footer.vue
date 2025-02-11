@@ -53,28 +53,28 @@
 </template>
 
 <script lang="ts" setup>
-    const config = useRuntimeConfig()
+const config = useRuntimeConfig()
 
-    const items = [
-        {
-            label: 'Link 1',
-            to: '#',
-            target: '_blank'
-        },
-        {
-            label: 'Link 2',
-            to: '#ss',
-            target: '_blank'
-        },
-        {
-            label: 'Link 3',
-            to: '#',
-            target: '_blank'
-        },
-        {
-            label: 'Discord',
-            to: config.public.media.discord,
-            target: '_blank'
-        }
-    ]
+const items = [
+    {
+        label: 'Link 1',
+        to: '#',
+        target: '_blank'
+    },
+    {
+        label: 'Link 2',
+        to: '#ss',
+        target: '_blank'
+    },
+    {
+        label: 'Link 3',
+        to: '#',
+        target: '_blank'
+    },
+    {
+        label: 'Discord',
+        to: config.public.media.discord,
+        target: '_blank'
+    }
+]
 </script>

@@ -1,12 +1,12 @@
 <script setup lang="ts">
-    definePageMeta({
-        layout: 'default',
-        auth: false
-    })
+definePageMeta({
+    layout: 'default',
+    auth: false
+})
 
-    useSeoMeta({
-        title: 'Regras do Servidor'
-    })
+useSeoMeta({
+    title: 'Regras do Servidor'
+})
 </script>
 
 <template>

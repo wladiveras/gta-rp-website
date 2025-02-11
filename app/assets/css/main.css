@@ -1,6 +1,6 @@
-@import 'tailwindcss';
-@import '@nuxt/ui-pro';
-@import 'animate.css';
+@import "tailwindcss";
+@import "@nuxt/ui-pro";
+@import "animate.css";
 
 :root {
     --color-main: rgb(17, 19, 29);
@@ -8,7 +8,7 @@
 
     --scrollbar-width: calc(100vw - 100%);
 
-    font-family: 'Boogaloo', 'Roboto Mono', monospace;
+    font-family: "Boogaloo", "Roboto Mono", monospace;
 
     --ui-primary: var(--ui-color-primary-700);
     --ui-radius: var(--radius-sm);
@@ -23,8 +23,8 @@
 }
 
 @theme {
-    --font-sans: 'Boogaloo', sans-serif;
-    --font-serif: 'Inter', sans-serif;
+    --font-sans: "Boogaloo", sans-serif;
+    --font-serif: "Inter", sans-serif;
     --breakpoint-3xl: 1920px;
 
     --color-primary-50: var(--ui-color-primary-50);

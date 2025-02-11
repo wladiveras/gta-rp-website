@@ -45,16 +45,16 @@
 </template>
 
 <script lang="ts" setup>
-    import { LazySliderCheckout } from '#components'
+import { LazySliderCheckout } from '#components'
 
-    const userStore = useUserStore()
-    const orderStore = useOrderStore()
-    const slideover = useSlideover()
+const userStore = useUserStore()
+const orderStore = useOrderStore()
+const slideover = useSlideover()
 
-    const { isLoggedIn } = storeToRefs(userStore)
-    const { totalItems } = storeToRefs(orderStore)
+const { isLoggedIn } = storeToRefs(userStore)
+const { totalItems } = storeToRefs(orderStore)
 
-    const openCheckout = () => {
-        slideover.open(LazySliderCheckout)
-    }
+const openCheckout = () => {
+    slideover.open(LazySliderCheckout)
+}
 </script>

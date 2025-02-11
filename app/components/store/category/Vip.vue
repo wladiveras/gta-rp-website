@@ -23,8 +23,8 @@
 </template>
 
 <script lang="ts" setup>
-    const itemsStore = useItemsStore()
-    const { items } = storeToRefs(itemsStore)
+const itemsStore = useItemsStore()
+const { items } = storeToRefs(itemsStore)
 </script>
 
 <style></style>

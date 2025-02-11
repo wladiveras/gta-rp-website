@@ -17,61 +17,61 @@
 </template>
 
 <script lang="ts" setup>
-    import {
-        StoreCategoryHome,
-        StoreCategoryCars,
-        StoreCategoryExclusiveCars,
-        StoreCategoryArmored,
-        StoreCategoryMotorcycles,
-        StoreCategoryFactions,
-        StoreCategoryItems,
-        StoreCategoryBans
-    } from '#components'
+import {
+    StoreCategoryArmored,
+    StoreCategoryBans,
+    StoreCategoryCars,
+    StoreCategoryExclusiveCars,
+    StoreCategoryFactions,
+    StoreCategoryHome,
+    StoreCategoryItems,
+    StoreCategoryMotorcycles
+} from '#components'
 
-    const horizontal = ref(false)
+const horizontal = ref(false)
 
-    const categories = [
-        {
-            label: 'inicio',
-            icon: 'line-md:home',
-            component: StoreCategoryHome
-        },
-        {
-            label: 'Carros',
-            icon: 'mdi:car-lifted-pickup',
-            component: StoreCategoryCars
-        },
-        {
-            label: 'Carros Exclusivos',
-            icon: 'arcticons:pixel-car-racer',
-            component: StoreCategoryExclusiveCars
-        },
-        {
-            label: 'Blindados',
-            icon: 'lets-icons:star-duotone',
-            component: StoreCategoryArmored
-        },
-        {
-            label: 'Motos',
-            icon: 'material-symbols:motorcycle-sharp',
-            component: StoreCategoryMotorcycles
-        },
-        {
-            label: 'Facções/Organizações',
-            icon: 'fluent-emoji-high-contrast:skull',
-            component: StoreCategoryFactions
-        },
-        {
-            label: 'Dinheiro/Armas',
-            icon: 'ph:money-wavy',
-            component: StoreCategoryItems
-        },
-        {
-            label: 'Remover Punições',
-            icon: 'lucide:shield-ban',
-            component: StoreCategoryBans
-        }
-    ]
+const categories = [
+    {
+        label: 'inicio',
+        icon: 'line-md:home',
+        component: StoreCategoryHome
+    },
+    {
+        label: 'Carros',
+        icon: 'mdi:car-lifted-pickup',
+        component: StoreCategoryCars
+    },
+    {
+        label: 'Carros Exclusivos',
+        icon: 'arcticons:pixel-car-racer',
+        component: StoreCategoryExclusiveCars
+    },
+    {
+        label: 'Blindados',
+        icon: 'lets-icons:star-duotone',
+        component: StoreCategoryArmored
+    },
+    {
+        label: 'Motos',
+        icon: 'material-symbols:motorcycle-sharp',
+        component: StoreCategoryMotorcycles
+    },
+    {
+        label: 'Facções/Organizações',
+        icon: 'fluent-emoji-high-contrast:skull',
+        component: StoreCategoryFactions
+    },
+    {
+        label: 'Dinheiro/Armas',
+        icon: 'ph:money-wavy',
+        component: StoreCategoryItems
+    },
+    {
+        label: 'Remover Punições',
+        icon: 'lucide:shield-ban',
+        component: StoreCategoryBans
+    }
+]
 </script>
 
 <style></style>

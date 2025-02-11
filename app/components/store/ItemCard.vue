@@ -88,20 +88,20 @@
 </template>
 
 <script lang="ts" setup>
-    const orderStore = useOrderStore()
-    const modal = useModal()
+const orderStore = useOrderStore()
+const modal = useModal()
 
-    const addToCart = (item: object) => {
-        orderStore.addToCart(item)
-        modal.close()
+const addToCart = (item: object) => {
+    orderStore.addToCart(item)
+    modal.close()
+}
+
+defineProps({
+    items: {
+        type: Object,
+        required: true
     }
-
-    defineProps({
-        items: {
-            type: Object,
-            required: true
-        }
-    })
+})
 </script>
 
 <style>

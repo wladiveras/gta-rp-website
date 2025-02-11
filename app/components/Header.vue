@@ -82,93 +82,93 @@
 </template>
 
 <script lang="ts" setup>
-    const route = useRoute()
+const route = useRoute()
 
-    const userStore = useUserStore()
+const userStore = useUserStore()
 
-    const { isLoggedIn, name, avatar } = storeToRefs(userStore)
+const { isLoggedIn, name, avatar } = storeToRefs(userStore)
 
-    const isActive = (hash: string) => {
-        if (!hash) {
-            return route.path === '/' && !route.hash
-        }
-        return route.hash === hash
+const isActive = (hash: string) => {
+    if (!hash) {
+        return route.path === '/' && !route.hash
     }
+    return route.hash === hash
+}
 
-    const dropdownItems = ref([
-        [
-            {
-                label: name,
-                avatar: {
-                    src: avatar || ''
-                },
-                type: 'label'
-            }
-        ],
-        [
-            {
-                label: 'Perfil',
-                icon: 'i-lucide-user',
-                to: '/profile'
+const dropdownItems = ref([
+    [
+        {
+            label: name,
+            avatar: {
+                src: avatar || ''
             },
-            {
-                label: 'Fatura',
-                icon: 'i-lucide-credit-card'
-            },
-            {
-                label: 'Configurações',
-                icon: 'i-lucide-cog'
-            }
-        ],
-        [
-            {
-                label: 'Catalogo',
-                icon: 'carbon:ibm-knowledge-catalog-premium',
-                to: '/store'
-            }
-        ],
-
-        [
-            {
-                label: 'Sair',
-                icon: 'i-lucide-log-out',
-                async onSelect() {
-                    await userStore.signOut()
-                }
-            }
-        ]
-    ])
-
-    const itemsNavigation = computed(() => [
-        {
-            label: 'Inicio',
-            to: '/',
-            active: isActive('')
-        },
-        {
-            label: 'Pacotes',
-            href: '/#package',
-            active: isActive('#package')
-        },
-        {
-            label: 'Doadores',
-            href: '/#vip',
-            active: isActive('#vip')
-        },
-        {
-            label: 'Como jogar',
-            href: '/#tutorial',
-            active: isActive('#tutorial')
-        },
-        {
-            label: 'Contato',
-            href: '/#contact',
-            active: isActive('#contact')
+            type: 'label'
         }
-        // {
-        //     label: 'Regras',
-        //     href: '/rules',
-        //     active: isActive('/rules')
-        // }
-    ])
+    ],
+    [
+        {
+            label: 'Perfil',
+            icon: 'i-lucide-user',
+            to: '/profile'
+        },
+        {
+            label: 'Fatura',
+            icon: 'i-lucide-credit-card'
+        },
+        {
+            label: 'Configurações',
+            icon: 'i-lucide-cog'
+        }
+    ],
+    [
+        {
+            label: 'Catalogo',
+            icon: 'carbon:ibm-knowledge-catalog-premium',
+            to: '/store'
+        }
+    ],
+
+    [
+        {
+            label: 'Sair',
+            icon: 'i-lucide-log-out',
+            async onSelect() {
+                await userStore.signOut()
+            }
+        }
+    ]
+])
+
+const itemsNavigation = computed(() => [
+    {
+        label: 'Inicio',
+        to: '/',
+        active: isActive('')
+    },
+    {
+        label: 'Pacotes',
+        href: '/#package',
+        active: isActive('#package')
+    },
+    {
+        label: 'Doadores',
+        href: '/#vip',
+        active: isActive('#vip')
+    },
+    {
+        label: 'Como jogar',
+        href: '/#tutorial',
+        active: isActive('#tutorial')
+    },
+    {
+        label: 'Contato',
+        href: '/#contact',
+        active: isActive('#contact')
+    }
+    // {
+    //     label: 'Regras',
+    //     href: '/rules',
+    //     active: isActive('/rules')
+    // }
+])
 </script>

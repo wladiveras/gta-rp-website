@@ -1,6 +1,6 @@
 <script setup lang="ts">
-    const config = useRuntimeConfig()
-    const userStore = useUserStore()
+const config = useRuntimeConfig()
+const userStore = useUserStore()
 </script>
 
 <template>

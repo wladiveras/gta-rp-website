@@ -1,14 +1,14 @@
 <script setup lang="ts">
-    const userStore = useUserStore()
-    const userData = storeToRefs(userStore)
-    definePageMeta({
-        layout: 'default',
-        auth: true
-    })
+const userStore = useUserStore()
+const userData = storeToRefs(userStore)
+definePageMeta({
+    layout: 'default',
+    auth: true
+})
 
-    useSeoMeta({
-        title: `${userData?.name.value} - Perfil`
-    })
+useSeoMeta({
+    title: `${userData?.name.value} - Perfil`
+})
 </script>
 
 <template>

@@ -67,7 +67,7 @@
 </template>
 
 <script lang="ts" setup>
-    const config = useRuntimeConfig()
+const config = useRuntimeConfig()
 </script>
 
 <style></style>

@@ -1,12 +1,12 @@
 <script setup lang="ts">
-    const orderStore = useOrderStore()
-    const slideover = useSlideover()
-    const { items, totalPrice, totalItems } = storeToRefs(orderStore)
+const orderStore = useOrderStore()
+const slideover = useSlideover()
+const { items, totalPrice, totalItems } = storeToRefs(orderStore)
 
-    const goToCheckout = () => {
-        slideover.close()
-        navigateTo('/checkout')
-    }
+const goToCheckout = () => {
+    slideover.close()
+    navigateTo('/checkout')
+}
 </script>
 
 <template>

@@ -275,91 +275,91 @@
 </template>
 
 <script lang="ts" setup>
-    import * as v from 'valibot'
-    import type { FormSubmitEvent } from '#ui/types'
+import * as v from 'valibot'
+import type { FormSubmitEvent } from '#ui/types'
 
-    const toast = useToast()
-    const orderStore = useOrderStore()
-    const { items, steps, payment, totalPrice } = storeToRefs(orderStore)
+const toast = useToast()
+const orderStore = useOrderStore()
+const { items, steps, payment, totalPrice } = storeToRefs(orderStore)
 
-    const detailSchema = v.object({
-        name: v.pipe(
-            v.string('Por favor, informe um nome válido.'),
-            v.nonEmpty('Por favor, informe seu nome.')
-        ),
-        email: v.pipe(
-            v.string('Por favor, informe um email válido.'),
-            v.nonEmpty('Por favor, informe um email.'),
-            v.email('Informe um email válido, algo está errado.')
-        ),
-        document: v.pipe(
-            v.string('Inform seu CPF.'),
-            v.nonEmpty('Por favor, informe seu CPF.'),
-            v.minLength(11, 'Informe um CPF válido.')
-        ),
-        cellphone: v.pipe(
-            v.string('Informe um celular válido.'),
-            v.nonEmpty('Por favor, informe seu celular.'),
-            v.minLength(9, 'Informe um celular válido.')
-        ),
-        userId: v.pipe(
-            v.string('Informe um ID.'),
-            v.nonEmpty('Informe um ID.'),
-            v.minLength(1, 'Informe um ID.')
-        )
+const detailSchema = v.object({
+    name: v.pipe(
+        v.string('Por favor, informe um nome válido.'),
+        v.nonEmpty('Por favor, informe seu nome.')
+    ),
+    email: v.pipe(
+        v.string('Por favor, informe um email válido.'),
+        v.nonEmpty('Por favor, informe um email.'),
+        v.email('Informe um email válido, algo está errado.')
+    ),
+    document: v.pipe(
+        v.string('Inform seu CPF.'),
+        v.nonEmpty('Por favor, informe seu CPF.'),
+        v.minLength(11, 'Informe um CPF válido.')
+    ),
+    cellphone: v.pipe(
+        v.string('Informe um celular válido.'),
+        v.nonEmpty('Por favor, informe seu celular.'),
+        v.minLength(9, 'Informe um celular válido.')
+    ),
+    userId: v.pipe(
+        v.string('Informe um ID.'),
+        v.nonEmpty('Informe um ID.'),
+        v.minLength(1, 'Informe um ID.')
+    )
+})
+
+const couponSchema = v.object({
+    coupon: v.pipe(
+        v.string('Informe um cupom válido.'),
+        v.minLength(3, 'Informe um cupom válido.')
+    )
+})
+
+type detailSchema = v.InferOutput<typeof detailSchema>
+
+const state = reactive({
+    name: '',
+    email: '',
+    document: '',
+    cellphone: '',
+    userId: '',
+    coupon: ''
+})
+
+const onCoupon = async () => {
+    const result = await v.safeParseAsync(couponSchema, {
+        coupon: state.coupon
     })
+    console.log(result)
 
-    const couponSchema = v.object({
-        coupon: v.pipe(
-            v.string('Informe um cupom válido.'),
-            v.minLength(3, 'Informe um cupom válido.')
-        )
-    })
-
-    type detailSchema = v.InferOutput<typeof detailSchema>
-
-    const state = reactive({
-        name: '',
-        email: '',
-        document: '',
-        cellphone: '',
-        userId: '',
-        coupon: ''
-    })
-
-    const onCoupon = async () => {
-        const result = await v.safeParseAsync(couponSchema, {
-            coupon: state.coupon
-        })
-        console.log(result)
-
-        if (result.success) {
-            toast.add({
-                title: 'Cupom',
-                description: 'Cupom válido',
-                color: 'success'
-            })
-        } else {
-            toast.add({
-                title: 'Erro',
-                description: 'Cupom inválido',
-                color: 'error'
-            })
-        }
-    }
-
-    async function onSubmit(event: FormSubmitEvent<detailSchema>) {
+    if (result.success) {
         toast.add({
-            title: 'Success',
-            description: 'The form has been submitted.',
+            title: 'Cupom',
+            description: 'Cupom válido',
             color: 'success'
         })
-        console.log(event.data)
+    } else {
+        toast.add({
+            title: 'Erro',
+            description: 'Cupom inválido',
+            color: 'error'
+        })
     }
+}
 
-    onMounted(() => {
-        orderStore.captureLead()
+async function onSubmit(event: FormSubmitEvent<detailSchema>) {
+    toast.add({
+        title: 'Success',
+        description: 'The form has been submitted.',
+        color: 'success'
     })
+    console.log(event.data)
+}
+
+onMounted(() => {
+    orderStore.captureLead()
+})
 </script>
 
 <style>

@@ -7,10 +7,10 @@
 </template>
 
 <script setup>
-    const { $pwa } = useNuxtApp()
-    const toast = useToast()
+const { $pwa } = useNuxtApp()
+const toast = useToast()
 
-    onMounted(() => {
-        if ($pwa.offlineReady) toast.success('App ready to work offline')
-    })
+onMounted(() => {
+    if ($pwa.offlineReady) toast.success('App ready to work offline')
+})
 </script>

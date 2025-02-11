@@ -15,8 +15,8 @@
 </template>
 
 <script lang="ts" setup>
-    defineProps<{
-        show: boolean
-        customClass?: string
-    }>()
+defineProps<{
+    show: boolean
+    customClass?: string
+}>()
 </script>

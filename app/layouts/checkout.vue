@@ -21,32 +21,32 @@
 </template>
 
 <script setup lang="ts">
-    const isLoading = ref(true)
+const isLoading = ref(true)
 
-    onMounted(async () => {
-        const user = useSupabaseUser()
-        const userStore = useUserStore()
+onMounted(async () => {
+    const user = useSupabaseUser()
+    const userStore = useUserStore()
 
-        if (user.value) {
-            await userStore.fetchUserProfile()
-            await userStore.fetchDiscordGuilds()
-        }
+    if (user.value) {
+        await userStore.fetchUserProfile()
+        await userStore.fetchDiscordGuilds()
+    }
 
-        setTimeout(() => {
-            isLoading.value = false
-        }, 1000)
-    })
+    setTimeout(() => {
+        isLoading.value = false
+    }, 1000)
+})
 
-    // Global navigation hook for Nuxt
-    const nuxtApp = useNuxtApp()
+// Global navigation hook for Nuxt
+const nuxtApp = useNuxtApp()
 
-    nuxtApp.hook('page:start', () => {
-        isLoading.value = true
-    })
+nuxtApp.hook('page:start', () => {
+    isLoading.value = true
+})
 
-    nuxtApp.hook('page:finish', () => {
-        setTimeout(() => {
-            isLoading.value = false
-        }, 500)
-    })
+nuxtApp.hook('page:finish', () => {
+    setTimeout(() => {
+        isLoading.value = false
+    }, 500)
+})
 </script>

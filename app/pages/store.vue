@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-    definePageMeta({
-        layout: 'store',
-        auth: false
-    })
+definePageMeta({
+    layout: 'store',
+    auth: false
+})
 
-    useSeoMeta({
-        title: 'Saia na frente com nossos itens especiais!'
-    })
+useSeoMeta({
+    title: 'Saia na frente com nossos itens especiais!'
+})
 </script>
 
 <template>

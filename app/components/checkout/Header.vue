@@ -23,7 +23,7 @@
 </template>
 
 <script lang="ts" setup>
-    const orderStore = useOrderStore()
-    const { steps } = storeToRefs(orderStore)
-    const router = useRouter()
+const orderStore = useOrderStore()
+const { steps } = storeToRefs(orderStore)
+const router = useRouter()
 </script>

@@ -73,35 +73,34 @@
 </template>
 
 <script lang="ts" setup>
-    import * as z from 'zod'
-    import type { FormSubmitEvent } from '#ui/types'
+import * as z from 'zod'
+import type { FormSubmitEvent } from '#ui/types'
 
-    const schema = z.object({
-        name: z.string().min(3, 'O nome deve conter pelo menos 3 caracteres'),
-        email: z.string().email('Email inválido'),
-        description: z
-            .string()
-            .min(30, 'O texto deve conter pelo menos 30 caracteres')
+const schema = z.object({
+    name: z.string().min(3, 'O nome deve conter pelo menos 3 caracteres'),
+    email: z.string().email('Email inválido'),
+    description: z
+        .string()
+        .min(30, 'O texto deve conter pelo menos 30 caracteres')
+})
+
+type Schema = z.output<typeof schema>
+
+const state = reactive<Partial<Schema>>({
+    name: undefined,
+    email: undefined,
+    description: undefined
+})
+
+const toast = useToast()
+async function onSubmit(event: FormSubmitEvent<Schema>) {
+    toast.add({
+        title: 'Mensagem enviada!',
+        description: 'Sua mensagem foi enviada, logo entraremos em contato.',
+        color: 'success'
     })
-
-    type Schema = z.output<typeof schema>
-
-    const state = reactive<Partial<Schema>>({
-        name: undefined,
-        email: undefined,
-        description: undefined
-    })
-
-    const toast = useToast()
-    async function onSubmit(event: FormSubmitEvent<Schema>) {
-        toast.add({
-            title: 'Mensagem enviada!',
-            description:
-                'Sua mensagem foi enviada, logo entraremos em contato.',
-            color: 'success'
-        })
-        console.log(event.data)
-    }
+    console.log(event.data)
+}
 </script>
 
 <style></style>

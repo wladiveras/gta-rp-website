@@ -5,7 +5,6 @@ export default defineNuxtConfig({
         '@pinia/nuxt',
         '@nuxt/ui-pro',
         '@nuxt/image',
-        '@nuxt/eslint',
         '@nuxthub/core',
         '@vite-pwa/nuxt',
         '@nuxtjs/supabase',

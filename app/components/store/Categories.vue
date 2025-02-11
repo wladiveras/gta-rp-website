@@ -30,89 +30,89 @@
 </template>
 
 <script lang="ts" setup>
-    const { changeCategory } = useStoreCategory()
+const { changeCategory } = useStoreCategory()
 
-    const menuItems = [
-        {
-            label: 'Inicio',
-            category: 'home'
-        },
-        {
-            label: 'Doadores',
-            category: 'vip'
-        },
-        {
-            label: 'Carros',
-            items: [
-                [
-                    {
-                        label: 'Carros simples',
-                        icon: 'tabler:car',
-                        category: 'car',
-                        onSelect: () => {
-                            changeCategory('car')
-                        }
-                    },
-                    {
-                        label: 'Carros luxo',
-                        icon: 'game-icons:race-car',
-                        category: 'carLuxury',
-                        onSelect: () => {
-                            changeCategory('carLuxury')
-                        }
-                    },
-                    {
-                        label: 'Carros hyper',
-                        icon: 'game-icons:f1-car',
-                        category: 'carHyper',
-                        onSelect: () => {
-                            changeCategory('carHyper')
-                        }
-                    },
-                    {
-                        label: 'Carros exclusivos',
-                        icon: 'arcticons:racing-car',
-                        category: 'carExclusive',
-                        onSelect: () => {
-                            changeCategory('carExclusive')
-                        }
-                    },
-                    {
-                        label: 'Carros blindados',
-                        icon: 'mdi:car-sports',
-                        category: 'carTank',
-                        onSelect: () => {
-                            changeCategory('carTank')
-                        }
-                    },
-                    {
-                        label: 'Carros de carga',
-                        icon: 'mdi:car-lifted-pickup',
-                        category: 'carCargo',
-                        onSelect: () => {
-                            changeCategory('carCargo')
-                        }
+const menuItems = [
+    {
+        label: 'Inicio',
+        category: 'home'
+    },
+    {
+        label: 'Doadores',
+        category: 'vip'
+    },
+    {
+        label: 'Carros',
+        items: [
+            [
+                {
+                    label: 'Carros simples',
+                    icon: 'tabler:car',
+                    category: 'car',
+                    onSelect: () => {
+                        changeCategory('car')
                     }
-                ]
+                },
+                {
+                    label: 'Carros luxo',
+                    icon: 'game-icons:race-car',
+                    category: 'carLuxury',
+                    onSelect: () => {
+                        changeCategory('carLuxury')
+                    }
+                },
+                {
+                    label: 'Carros hyper',
+                    icon: 'game-icons:f1-car',
+                    category: 'carHyper',
+                    onSelect: () => {
+                        changeCategory('carHyper')
+                    }
+                },
+                {
+                    label: 'Carros exclusivos',
+                    icon: 'arcticons:racing-car',
+                    category: 'carExclusive',
+                    onSelect: () => {
+                        changeCategory('carExclusive')
+                    }
+                },
+                {
+                    label: 'Carros blindados',
+                    icon: 'mdi:car-sports',
+                    category: 'carTank',
+                    onSelect: () => {
+                        changeCategory('carTank')
+                    }
+                },
+                {
+                    label: 'Carros de carga',
+                    icon: 'mdi:car-lifted-pickup',
+                    category: 'carCargo',
+                    onSelect: () => {
+                        changeCategory('carCargo')
+                    }
+                }
             ]
-        },
-        {
-            label: 'Motos',
-            category: 'motorcycles'
-        },
-        {
-            label: 'Aviões',
-            category: 'planes'
-        },
-        {
-            label: 'Helicópteros',
-            category: 'helicopters'
-        },
-        {
-            label: 'Mansões',
-            category: 'mansions'
-        }
-    ]
+        ]
+    },
+    {
+        label: 'Motos',
+        category: 'motorcycles'
+    },
+    {
+        label: 'Aviões',
+        category: 'planes'
+    },
+    {
+        label: 'Helicópteros',
+        category: 'helicopters'
+    },
+    {
+        label: 'Mansões',
+        category: 'mansions'
+    }
+]
 </script>
 
 <style scoped></style>

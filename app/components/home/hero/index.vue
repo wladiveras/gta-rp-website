@@ -30,15 +30,15 @@
 </template>
 
 <script lang="ts" setup>
-    const landingStore = useLandingStore()
-    const { hero } = storeToRefs(landingStore)
-    const isFloating = ref(false)
+const landingStore = useLandingStore()
+const { hero } = storeToRefs(landingStore)
+const isFloating = ref(false)
 
-    onMounted(() => {
-        setTimeout(() => {
-            isFloating.value = true
-        }, 1500)
-    })
+onMounted(() => {
+    setTimeout(() => {
+        isFloating.value = true
+    }, 1500)
+})
 </script>
 
 <style lang="css" scoped>

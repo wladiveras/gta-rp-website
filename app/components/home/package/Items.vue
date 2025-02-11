@@ -60,43 +60,43 @@
 </template>
 
 <script lang="ts" setup>
-    const userStore = useUserStore()
+const userStore = useUserStore()
 
-    const plans = [
-        {
-            name: 'Ouro',
-            price: 'R$ 135.00',
-            discount: 'R$ 150.00',
-            features: [
-                'Doador Ouro (30 Dias)',
-                '6.000 Diamantes',
-                '5 Caixas CDA',
-                'Bolso Pequeno para guardar seus itens (3kg / 3 slots)'
-            ]
-        },
-        {
-            name: 'Diamante',
-            price: 'R$ 200.00',
-            discount: 'R$ 250.00',
-            features: [
-                'Doador Diamante (30 Dias)',
-                '12.000 Diamantes',
-                '10 Caixas CDA',
-                'Bolso Médio para guardar seus itens (5kg / 5 slots)'
-            ]
-        },
-        {
-            name: 'Platina',
-            price: 'R$ 300.00',
-            discount: 'R$ 350.00',
-            features: [
-                'Doador Platina (30 Dias)',
-                '20.000 Diamantes',
-                '15 Caixas CDA',
-                'Bolso Grande para guardar seus itens (10kg / 10 slots)'
-            ]
-        }
-    ]
+const plans = [
+    {
+        name: 'Ouro',
+        price: 'R$ 135.00',
+        discount: 'R$ 150.00',
+        features: [
+            'Doador Ouro (30 Dias)',
+            '6.000 Diamantes',
+            '5 Caixas CDA',
+            'Bolso Pequeno para guardar seus itens (3kg / 3 slots)'
+        ]
+    },
+    {
+        name: 'Diamante',
+        price: 'R$ 200.00',
+        discount: 'R$ 250.00',
+        features: [
+            'Doador Diamante (30 Dias)',
+            '12.000 Diamantes',
+            '10 Caixas CDA',
+            'Bolso Médio para guardar seus itens (5kg / 5 slots)'
+        ]
+    },
+    {
+        name: 'Platina',
+        price: 'R$ 300.00',
+        discount: 'R$ 350.00',
+        features: [
+            'Doador Platina (30 Dias)',
+            '20.000 Diamantes',
+            '15 Caixas CDA',
+            'Bolso Grande para guardar seus itens (10kg / 10 slots)'
+        ]
+    }
+]
 </script>
 
 <style></style>

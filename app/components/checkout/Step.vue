@@ -1,20 +1,20 @@
 <script setup lang="ts">
-    const orderStore = useOrderStore()
-    const { steps } = storeToRefs(orderStore)
+const orderStore = useOrderStore()
+const { steps } = storeToRefs(orderStore)
 
-    const icon = ref('line-md:arrow-small-right')
-    const label = ref('Continuar')
+const icon = ref('line-md:arrow-small-right')
+const label = ref('Continuar')
 
-    watch(
-        () => steps.value.step,
-        () => {
-            const isLastStep = steps.value.step === steps.value.max
-            icon.value = isLastStep
-                ? 'line-md:check-all'
-                : 'line-md:arrow-small-right'
-            label.value = isLastStep ? 'Finalizar Pedido' : 'Continuar'
-        }
-    )
+watch(
+    () => steps.value.step,
+    () => {
+        const isLastStep = steps.value.step === steps.value.max
+        icon.value = isLastStep
+            ? 'line-md:check-all'
+            : 'line-md:arrow-small-right'
+        label.value = isLastStep ? 'Finalizar Pedido' : 'Continuar'
+    }
+)
 </script>
 
 <template>

@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-    definePageMeta({
-        layout: 'checkout',
-        auth: false
-    })
+definePageMeta({
+    layout: 'checkout',
+    auth: false
+})
 
-    useSeoMeta({
-        title: 'Carrinho de Doação'
-    })
+useSeoMeta({
+    title: 'Carrinho de Doação'
+})
 </script>
 
 <template>

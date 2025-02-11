@@ -30,11 +30,11 @@
 </template>
 
 <script lang="ts" setup>
-    const items = [
-        'https://i.imgur.com/CrnQ2ef.jpeg',
-        'https://i.imgur.com/qJ9gbeW.jpeg',
-        'https://i.imgur.com/f369n3o.jpeg'
-    ]
+const items = [
+    'https://i.imgur.com/CrnQ2ef.jpeg',
+    'https://i.imgur.com/qJ9gbeW.jpeg',
+    'https://i.imgur.com/f369n3o.jpeg'
+]
 </script>
 
 <style></style>

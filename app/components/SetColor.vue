@@ -23,11 +23,11 @@
 </template>
 
 <script lang="ts" setup>
-    const { colorThemes, currentTheme, changeColor } = useTheme()
+const { colorThemes, currentTheme, changeColor } = useTheme()
 
-    const iconColorClass = computed(() => `text-${currentTheme}-500`)
+const iconColorClass = computed(() => `text-${currentTheme}-500`)
 
-    onBeforeMount(() => {
-        changeColor(currentTheme.value)
-    })
+onBeforeMount(() => {
+    changeColor(currentTheme.value)
+})
 </script>
