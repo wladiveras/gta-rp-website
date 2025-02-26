@@ -42,7 +42,7 @@
                 label="Catalogo"
                 size="xl"
                 class="text-2xl text-primary-500"
-                href="https://parisgroup.tebex.io/"
+                to="/store"
             />
             <!-- <UButton
                 v-if="!isLoggedIn"

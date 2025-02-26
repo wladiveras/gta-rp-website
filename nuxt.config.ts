@@ -71,9 +71,9 @@ export default defineNuxtConfig({
         compressPublicAssets: true,
         minify: true,
         timing: true,
-
         experimental: {
-            tasks: true
+            tasks: true,
+            websocket: true
         },
 
         cloudflare: {

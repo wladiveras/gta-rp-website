@@ -54,10 +54,10 @@ export const useUserStore = defineStore('user', {
             await this.checkIfUserIsInServer()
         },
         async checkIfUserIsInServer() {
-            // @ts-expect-error - this.currentGuild is not defined
-            if (!this.currentGuild?.name) {
-                await this.signOut()
-            }
+            // todo: @ts-expect-error - this.currentGuild is not defined
+            // if (!this.currentGuild?.name) {
+            //     await this.signOut()
+            // }
         },
         async authenticateWithDiscord() {
             await nextTick()

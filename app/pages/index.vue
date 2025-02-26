@@ -11,6 +11,7 @@ useSeoMeta({
 
 <template>
     <section>
+        <!-- <LazyGlobal /> -->
         <LazyHomeHero />
         <LazyHomePackage />
         <LazyHomeVip />

@@ -8,7 +8,7 @@ export const useItemsStore = defineStore('items', {
                 quantity: 1,
                 code: 'kuruma_a',
                 category: 'cars',
-                image: 'https://cdn.centralcart.com.br/stores/6558/packages/6f49ba11-b657-4712-a685-b6d9314c3622.png',
+                image: 'https://cdn.centralcart.com.br/stores/6558/packages/d113ac80-9574-4a2d-b6d8-fbe6c154b73c.png',
                 description:
                     'Veículo permanente (até wipe) modelo Corolla|Depósito único in game no valor de R$ 200.000,00|||OBS: Caso não receba automaticamente os benefícios in game, abra um ticket em nosso discord.'
             },
@@ -19,7 +19,7 @@ export const useItemsStore = defineStore('items', {
                 quantity: 1,
                 code: 'insurgent_c',
                 category: 'cars',
-                image: 'https://cdn.centralcart.com.br/stores/6558/packages/6f49ba11-b657-4712-a685-b6d9314c3622.png',
+                image: 'https://cdn.centralcart.com.br/stores/6558/packages/d113ac80-9574-4a2d-b6d8-fbe6c154b73c.png',
                 description:
                     'Veículo permanente (até wipe) modelo Corolla|Depósito único in game no valor de R$ 200.000,00|||OBS: Caso não receba automaticamente os benefícios in game, abra um ticket em nosso discord.'
             },
@@ -30,7 +30,7 @@ export const useItemsStore = defineStore('items', {
                 quantity: 1,
                 code: 'nightshark_e',
                 category: 'cars',
-                image: 'https://cdn.centralcart.com.br/stores/6558/packages/6f49ba11-b657-4712-a685-b6d9314c3622.png',
+                image: 'https://cdn.centralcart.com.br/stores/6558/packages/d113ac80-9574-4a2d-b6d8-fbe6c154b73c.png',
                 description: 'Nightshark Elite - Velocidade Blindada'
             },
             {
@@ -40,7 +40,7 @@ export const useItemsStore = defineStore('items', {
                 quantity: 1,
                 code: 'duke_x',
                 category: 'cars',
-                image: 'https://cdn.centralcart.com.br/stores/6558/packages/6f49ba11-b657-4712-a685-b6d9314c3622.png',
+                image: 'https://cdn.centralcart.com.br/stores/6558/packages/d113ac80-9574-4a2d-b6d8-fbe6c154b73c.png',
                 description: 'Duke O Death X - Morte Sobre Rodas'
             },
             {
@@ -50,7 +50,7 @@ export const useItemsStore = defineStore('items', {
                 quantity: 1,
                 code: 'paragon_r',
                 category: 'cars',
-                image: 'https://cdn.centralcart.com.br/stores/6558/packages/6f49ba11-b657-4712-a685-b6d9314c3622.png',
+                image: 'https://cdn.centralcart.com.br/stores/6558/packages/d113ac80-9574-4a2d-b6d8-fbe6c154b73c.png',
                 description: 'Paragon R Armored - Luxo Blindado'
             },
             {
@@ -60,7 +60,7 @@ export const useItemsStore = defineStore('items', {
                 quantity: 1,
                 code: 'paragon_r',
                 category: 'cars',
-                image: 'https://cdn.centralcart.com.br/stores/6558/packages/6f49ba11-b657-4712-a685-b6d9314c3622.png',
+                image: 'https://cdn.centralcart.com.br/stores/6558/packages/d113ac80-9574-4a2d-b6d8-fbe6c154b73c.png',
                 description: 'Paragon R Armored - Luxo Blindado'
             },
             {
@@ -70,7 +70,7 @@ export const useItemsStore = defineStore('items', {
                 quantity: 1,
                 code: 'paragon_r',
                 category: 'cars',
-                image: 'https://cdn.centralcart.com.br/stores/6558/packages/6f49ba11-b657-4712-a685-b6d9314c3622.png',
+                image: 'https://cdn.centralcart.com.br/stores/6558/packages/d113ac80-9574-4a2d-b6d8-fbe6c154b73c.png',
                 description: 'Paragon R Armored - Luxo Blindado'
             },
             {
@@ -80,7 +80,7 @@ export const useItemsStore = defineStore('items', {
                 quantity: 1,
                 code: 'paragon_r',
                 category: 'cars',
-                image: 'https://cdn.centralcart.com.br/stores/6558/packages/6f49ba11-b657-4712-a685-b6d9314c3622.png',
+                image: 'https://cdn.centralcart.com.br/stores/6558/packages/d113ac80-9574-4a2d-b6d8-fbe6c154b73c.png',
                 description: 'Paragon R Armored - Luxo Blindado'
             },
             {
@@ -90,7 +90,7 @@ export const useItemsStore = defineStore('items', {
                 quantity: 1,
                 code: 'paragon_r',
                 category: 'cars',
-                image: 'https://cdn.centralcart.com.br/stores/6558/packages/6f49ba11-b657-4712-a685-b6d9314c3622.png',
+                image: 'https://cdn.centralcart.com.br/stores/6558/packages/d113ac80-9574-4a2d-b6d8-fbe6c154b73c.png',
                 description: 'Paragon R Armored - Luxo Blindado'
             },
             {
@@ -100,7 +100,7 @@ export const useItemsStore = defineStore('items', {
                 quantity: 1,
                 code: 'paragon_r',
                 category: 'cars',
-                image: 'https://cdn.centralcart.com.br/stores/6558/packages/6f49ba11-b657-4712-a685-b6d9314c3622.png',
+                image: 'https://cdn.centralcart.com.br/stores/6558/packages/d113ac80-9574-4a2d-b6d8-fbe6c154b73c.png',
                 description: 'Paragon R Armored - Luxo Blindado'
             }
         ]
